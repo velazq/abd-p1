@@ -1,0 +1,12 @@
+p1admin\model\Mensajea.class
+p1admin\model\Responde.class
+p1admin\model\Mensajes.class
+p1admin\model\Usuarios.class
+p1admin\model\Opcion.class
+abd\p1\Main.class
+p1admin\model\Texto.class
+abd\p1\CreateDB.class
+p1admin\model\Solicitud_amistad.class
+p1admin\model\Invitacion.class
+p1admin\model\Pregunta.class
+p1admin\model\Aficiones.class

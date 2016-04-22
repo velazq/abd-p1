@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost/Practica_701</property>
+    <property name="connection.username">P1</property>
+    <property name="connection.password">PasswordP1</property> 
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">create</property> <!-- FIXME -->
+    <property name="hibernate.jdbc.lob.non_contextual_creation">true</property>
+
+    <property name="hibernate.c3p0.timeout">1</property>
+
+
+    <!-- Añadir aquí las anotaciones mapping -->
+     <mapping class="abd.p1.model.Lista_aficiones"/>
+     <mapping class="abd.p1.model.Lista_mensajes"/>
+     <mapping class="abd.p1.model.Lista_invitaciones"/>
+     <mapping class="abd.p1.model.Lista_respuesta"/>
+     <mapping class="abd.p1.model.Aficiones"/>
+     <mapping class="abd.p1.model.Invitacion"/>
+     <mapping class="abd.p1.model.Mensajes"/>
+     <mapping class="abd.p1.model.Opcion"/>
+     <mapping class="abd.p1.model.Pregunta"/>
+     <mapping class="abd.p1.model.Responde"/>
+     <mapping class="abd.p1.model.Usuarios"/>
+     <mapping class="abd.p1.model.Solicitud_amistad"/>
+     <mapping class="abd.p1.model.Texto"/>
+
+  </session-factory>
+</hibernate-configuration>
