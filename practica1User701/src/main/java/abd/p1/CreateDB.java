@@ -41,6 +41,7 @@ public class CreateDB {
         try {
             sf =  new MetadataSources(registry).buildMetadata().buildSessionFactory();
         } catch (Exception e) {
+        	System.err.println("=== ERROR ===========================================================================");//FIXME
             e.printStackTrace();
             StandardServiceRegistryBuilder.destroy(registry);
         } finally {

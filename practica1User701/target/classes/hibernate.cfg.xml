@@ -14,20 +14,15 @@
     <property name="hibernate.c3p0.timeout">10</property>
 
 
-    <!-- Añadir aquí las anotaciones mapping -->
-     <mapping class="abd.p1.model.Lista_aficiones"/>
-     <mapping class="abd.p1.model.Lista_mensajes"/>
-     <mapping class="abd.p1.model.Lista_invitaciones"/>
-     <mapping class="abd.p1.model.Lista_respuesta"/>
-     <mapping class="abd.p1.model.Aficiones"/>
-     <mapping class="abd.p1.model.Invitacion"/>
-     <mapping class="abd.p1.model.Mensajes"/>
+<!--     Añadir aquí las anotaciones mapping -->
+     <mapping class="abd.p1.model.Usuario"/>
+     <mapping class="abd.p1.model.Aficion"/>
      <mapping class="abd.p1.model.Opcion"/>
      <mapping class="abd.p1.model.Pregunta"/>
      <mapping class="abd.p1.model.Responde"/>
-     <mapping class="abd.p1.model.Usuarios"/>
+     <mapping class="abd.p1.model.Invitacion"/>
+     <mapping class="abd.p1.model.Mensaje"/>
      <mapping class="abd.p1.model.Solicitud_amistad"/>
      <mapping class="abd.p1.model.Texto"/>
-
   </session-factory>
 </hibernate-configuration>

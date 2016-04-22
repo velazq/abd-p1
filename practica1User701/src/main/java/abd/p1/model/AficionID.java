@@ -2,10 +2,10 @@ package abd.p1.model;
 
 import java.io.Serializable;
 
-public class AficionesID implements Serializable {
+public class AficionID implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	private Usuarios usuario;
+	private Usuario usuario;
 	
 	public Integer getId() {
 		return id;
@@ -13,10 +13,10 @@ public class AficionesID implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Usuarios getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuarios usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 }

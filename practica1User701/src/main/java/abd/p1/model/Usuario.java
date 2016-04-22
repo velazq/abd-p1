@@ -4,8 +4,9 @@ import javax.persistence.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 @Entity
-public class Usuarios {
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -28,16 +29,26 @@ public class Usuarios {
 	private String descripcion;
 	
 	@Column (nullable = true)
-	@OneToMany
-	private List<Aficiones> aficiones;
+	@ElementCollection
+	@OneToMany(mappedBy="usuario")
+	private List<Aficion> aficiones;
 	
 	@ManyToMany
-	private List<Usuarios> quiero; // Usuarios a las que he solicitado amistad
+	private Set<Usuario> quiero; // Usuarios a las que he solicitado amistad
 	
 	@ManyToMany(mappedBy="quiero")
-	private List<Usuarios> meQuieren; // Usuarios que me han solicitado amistad
+	private Set<Usuario> meQuieren; // Usuarios que me han solicitado amistad
+	
+	@OneToMany(mappedBy="usuario")
+	private Set<Responde> respuestas;
+	
+	@OneToMany(mappedBy="remitente")
+	private Set<Mensaje> mensajesEnviados;
+	
+	@OneToMany(mappedBy="destinatario")
+	private Set<Mensaje> mensajesRecibidos;
 
-	public Usuarios () {} //Necesario para @Entity
+	public Usuario () {} //Necesario para @Entity
 	
 	public Integer getId() {
 		return id;
@@ -104,6 +115,22 @@ public class Usuarios {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public Set<Mensaje> getMensajesEnviados() {
+		return mensajesEnviados;
+	}
+
+	public void setMensajesEnviados(Set<Mensaje> mensajesEnviados) {
+		this.mensajesEnviados = mensajesEnviados;
+	}
+
+	public Set<Mensaje> getMensajesRecibidos() {
+		return mensajesRecibidos;
+	}
+
+	public void setMensajesRecibidos(Set<Mensaje> mensajesRecibidos) {
+		this.mensajesRecibidos = mensajesRecibidos;
 	}
 
 }

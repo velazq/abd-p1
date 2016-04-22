@@ -2,18 +2,18 @@ package abd.p1.model;
 
 import java.io.Serializable;
 
-public class InvitacionesID implements Serializable {
+public class InvitacionID implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Mensajes msg;
+	private Mensaje msg;
 	private Pregunta pta;
 	
-	public Mensajes getMsg() {
+	public Mensaje getMsg() {
 		return msg;
 	}
-	public void setMsg(Mensajes msg) {
+	public void setMsg(Mensaje msg) {
 		this.msg = msg;
 	}
 	public Pregunta getPta() {

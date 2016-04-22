@@ -3,15 +3,16 @@ package abd.p1.model;
 import javax.persistence.*;
 
 @Entity
-@IdClass(AficionesID.class)
-public class Aficiones {
+@IdClass(AficionID.class)
+public class Aficion {
 	@Id
 	private Integer id;
 	@Id
-	private Usuarios usuario;
+	@ManyToOne
+	private Usuario usuario;
 	private String texto;
 	
-	public Aficiones(){}
+	public Aficion(){}
 	
 	public Integer getId() {
 		return id;
@@ -19,10 +20,10 @@ public class Aficiones {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Usuarios getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuarios usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	public String getTexto() {

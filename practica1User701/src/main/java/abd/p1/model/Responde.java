@@ -5,20 +5,28 @@ import javax.persistence.*;
 @Entity
 @IdClass(RespuestaID.class)
 public class Responde {
+//	@Id
+//	@ManyToMany
+//	private Usuario usuario;
+//	@Id
+//	@ManyToMany(mappedBy="usuario")
+//	private Opcion opcion;
+
 	@Id
-	@ManyToMany
-	private Usuarios usuario;
+	@ManyToOne
+	private Usuario usuario;
 	@Id
-	@ManyToMany (mappedBy="usuario")
+	@ManyToOne
 	private Opcion opcion;
+	
 	private String valoracion;
 	
 	public Responde(){}
 	
-	public Usuarios getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuarios usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	public Opcion getOpcion() {

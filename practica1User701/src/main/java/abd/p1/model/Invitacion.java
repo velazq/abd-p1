@@ -2,7 +2,7 @@ package abd.p1.model;
 
 import javax.persistence.*;
 @Entity
-@IdClass(InvitacionesID.class)
+@IdClass(InvitacionID.class)
 @PrimaryKeyJoinColumns({
     @PrimaryKeyJoinColumn(name="id_men", 
         referencedColumnName="id_mensaje"),
@@ -11,7 +11,7 @@ import javax.persistence.*;
     @PrimaryKeyJoinColumn(name="id_usu2", 
     referencedColumnName="id_usuario2")
 })
-public class Invitacion extends Mensajes {
+public class Invitacion extends Mensaje {
 //	@Id
 //	private Mensajes msg;
 //	@Id
@@ -25,12 +25,12 @@ public class Invitacion extends Mensajes {
 //	public void setMsg(Mensajes msg) {
 //		this.msg = msg;
 //	}
-//	public Pregunta getPta() {
-//		return pta;
-//	}
-//	public void setPta(Pregunta pta) {
-//		this.pta = pta;
-//	}
+	public Pregunta getPta() {
+		return pta;
+	}
+	public void setPta(Pregunta pta) {
+		this.pta = pta;
+	}
 	
 
 }

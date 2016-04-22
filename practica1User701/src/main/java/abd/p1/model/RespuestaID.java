@@ -7,13 +7,13 @@ public class RespuestaID implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Usuarios usuario;
+	private Usuario usuario;
 	private Opcion opcion;
 	
-	public Usuarios getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuarios usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	public Opcion getOpcion() {

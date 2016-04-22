@@ -1,5 +1,7 @@
 package abd.p1.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,9 @@ public class Opcion {
 	private Pregunta preguntaMadre;
 	private int numeroOrden;
 	private String texto;
+	
+	@OneToMany(mappedBy="opcion")
+	private Set<Responde> respuestas;
 
 	public Opcion() {}
 	
