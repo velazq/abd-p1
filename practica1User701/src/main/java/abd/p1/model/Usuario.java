@@ -14,13 +14,13 @@ public class Usuario {
 	private String contrasena;
 	private String nombre;
 	private String genero;
-	private String opcion_sexual;
-	private Integer latitud;
-	private Integer longitud;
+	private String opcionSexual;
+	private Double latitud;
+	private Double longitud;
 
 	@Column (nullable = true)
 	@Temporal(TemporalType.DATE)
-	private Date fecha_nacimiento;
+	private Date fechaNacimiento;
 
 	@Column (nullable = true)
 	private byte[] foto;
@@ -80,30 +80,6 @@ public class Usuario {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	public String getOpcion_sexual() {
-		return opcion_sexual;
-	}
-	public void setOpcion_sexual(String opcion_sexual) {
-		this.opcion_sexual = opcion_sexual;
-	}
-	public Integer getLatitud() {
-		return latitud;
-	}
-	public void setLatitud(Integer latitud) {
-		this.latitud = latitud;
-	}
-	public Integer getLongitud() {
-		return longitud;
-	}
-	public void setLongitud(Integer longitud) {
-		this.longitud = longitud;
-	}
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
 	public byte[] getFoto() {
 		return foto;
 	}
@@ -131,6 +107,38 @@ public class Usuario {
 
 	public void setMensajesRecibidos(Set<Mensaje> mensajesRecibidos) {
 		this.mensajesRecibidos = mensajesRecibidos;
+	}
+
+	public String getOpcionSexual() {
+		return opcionSexual;
+	}
+
+	public void setOpcionSexual(String opcionSexual) {
+		this.opcionSexual = opcionSexual;
+	}
+
+	public Double getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(Double latitud) {
+		this.latitud = latitud;
+	}
+
+	public Double getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(Double longitud) {
+		this.longitud = longitud;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 }
