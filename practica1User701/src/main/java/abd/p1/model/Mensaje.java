@@ -6,19 +6,16 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@IdClass(MensajeID.class)
 public class Mensaje {
 	@Id
-	@GeneratedValue(generator = "IdGenerator",strategy = GenerationType.TABLE)
+	@GeneratedValue(generator = "IdGenerator", strategy = GenerationType.TABLE)
 	@TableGenerator(name = "IdGenerator", pkColumnValue = "Id", table = "Id_Mensajes", allocationSize = 1)
 	@Column(name = "id_mensaje")
 	private Integer id;
 	private boolean leido;
 	@ManyToOne
-	@Column(name = "id_remitente")
 	private Usuario remitente;
 	@ManyToOne
-	@Column(name = "id_destinatario")
 	private Usuario destinatario;
 
 	private Timestamp timestamp;

@@ -3,14 +3,7 @@ package abd.p1.model;
 import javax.persistence.*;
 
 @Entity
-@PrimaryKeyJoinColumns({
-    @PrimaryKeyJoinColumn(name="id_men", 
-        referencedColumnName="id_mensaje"),
-    @PrimaryKeyJoinColumn(name="id_usu11",
-        referencedColumnName="id_usuario1"),
-    @PrimaryKeyJoinColumn(name="id_usu22", 
-    referencedColumnName="id_usuario2")
-})
+@PrimaryKeyJoinColumn(name="id_mensaje")
 public class Solicitud_amistad extends Mensaje {
 	//@Id
 	//private Mensajes msg;

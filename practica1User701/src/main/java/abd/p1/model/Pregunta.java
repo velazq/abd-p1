@@ -10,8 +10,12 @@ public class Pregunta {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String enunciado;
-	@OneToMany (mappedBy="preguntaMadre")
+	
+	@OneToMany (mappedBy = "preguntaMadre")
 	private List<Opcion> opciones;
+	
+	@OneToMany(mappedBy = "pregunta")
+	private List<Invitacion> invitaciones;//FIXME: no lo necesitamos
 
 	public Pregunta () {}
 	
