@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@IdClass(Lista_mensajes.class)
+@IdClass(MensajesID.class)
 public class Mensajes {
 	@Id
 	@GeneratedValue(generator = "IdGenerator",strategy = GenerationType.TABLE)

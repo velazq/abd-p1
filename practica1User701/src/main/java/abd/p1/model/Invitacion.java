@@ -2,7 +2,7 @@ package abd.p1.model;
 
 import javax.persistence.*;
 @Entity
-@IdClass(Lista_invitaciones.class)
+@IdClass(InvitacionesID.class)
 @PrimaryKeyJoinColumns({
     @PrimaryKeyJoinColumn(name="id_men", 
         referencedColumnName="id_mensaje"),

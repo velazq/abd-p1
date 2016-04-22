@@ -3,7 +3,7 @@ package abd.p1.model;
 import javax.persistence.*;
 
 @Entity
-@IdClass(Lista_respuesta.class)
+@IdClass(RespuestaID.class)
 public class Responde {
 	@Id
 	@ManyToMany

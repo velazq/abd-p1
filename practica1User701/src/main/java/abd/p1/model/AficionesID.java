@@ -1,17 +1,11 @@
 package abd.p1.model;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@IdClass(AficionesID.class)
-public class Aficiones {
-	@Id
+public class AficionesID implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer id;
-	@Id
 	private Usuarios usuario;
-	private String texto;
-	
-	public Aficiones(){}
 	
 	public Integer getId() {
 		return id;
@@ -25,12 +19,4 @@ public class Aficiones {
 	public void setUsuario(Usuarios usuario) {
 		this.usuario = usuario;
 	}
-	public String getTexto() {
-		return texto;
-	}
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-
-
 }
