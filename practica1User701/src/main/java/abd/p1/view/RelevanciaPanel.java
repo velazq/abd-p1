@@ -16,6 +16,12 @@ public class RelevanciaPanel extends javax.swing.JPanel {
      */
     public RelevanciaPanel() {
         initComponents();
+        sliderRelevancia.setMaximum(10);
+        sliderRelevancia.setMinimum(0);
+        //Valores para mostrar regla
+        sliderRelevancia.setValue(0); //Empieza en el 0
+        sliderRelevancia.setMinorTickSpacing(1);
+        sliderRelevancia.setMajorTickSpacing(5);
     }
 
     /**
@@ -32,6 +38,8 @@ public class RelevanciaPanel extends javax.swing.JPanel {
         buttonResponder = new javax.swing.JButton();
         buttonInivitarAmigo = new javax.swing.JButton();
 
+        sliderRelevancia.setPaintLabels(true);
+        sliderRelevancia.setPaintTicks(true);
         sliderRelevancia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         labelRelevancia.setText("Relevancia:");
@@ -65,7 +73,7 @@ public class RelevanciaPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelRelevancia)
                     .addComponent(sliderRelevancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonResponder)
                     .addComponent(buttonInivitarAmigo))

@@ -28,7 +28,7 @@ public class ResponderPreguntaPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         preguntaOpcionesPanel1 = new abd.p1.view.PreguntaOpcionesPanel();
-        relevanciaPanel1 = new abd.p1.view.RelevanciaPanel();
+        relevanciaPanel2 = new abd.p1.view.RelevanciaPanel();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -37,8 +37,8 @@ public class ResponderPreguntaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(preguntaOpcionesPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addComponent(relevanciaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(preguntaOpcionesPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(relevanciaPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -47,7 +47,7 @@ public class ResponderPreguntaPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(preguntaOpcionesPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(relevanciaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(relevanciaPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -55,6 +55,6 @@ public class ResponderPreguntaPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private abd.p1.view.PreguntaOpcionesPanel preguntaOpcionesPanel1;
-    private abd.p1.view.RelevanciaPanel relevanciaPanel1;
+    private abd.p1.view.RelevanciaPanel relevanciaPanel2;
     // End of variables declaration//GEN-END:variables
 }

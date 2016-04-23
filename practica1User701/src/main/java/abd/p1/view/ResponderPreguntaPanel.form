@@ -19,8 +19,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="preguntaOpcionesPanel1" pref="580" max="32767" attributes="0"/>
-                  <Component id="relevanciaPanel1" pref="0" max="32767" attributes="0"/>
+                  <Component id="preguntaOpcionesPanel1" max="32767" attributes="0"/>
+                  <Component id="relevanciaPanel2" pref="622" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -32,7 +32,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="preguntaOpcionesPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="relevanciaPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="relevanciaPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -41,7 +41,7 @@
   <SubComponents>
     <Component class="abd.p1.view.PreguntaOpcionesPanel" name="preguntaOpcionesPanel1">
     </Component>
-    <Component class="abd.p1.view.RelevanciaPanel" name="relevanciaPanel1">
+    <Component class="abd.p1.view.RelevanciaPanel" name="relevanciaPanel2">
     </Component>
   </SubComponents>
 </Form>
