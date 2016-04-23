@@ -20,8 +20,8 @@ public class UsuarioPanel extends javax.swing.JPanel {
      */
     public UsuarioPanel() {
         initComponents();
-        NombreLabel.setText(nombre);
-        EdadLabel.setText(edad + "años");
+        labelNombre.setText(nombre);
+        labelEdad.setText(edad + "años");
     }
 
     /**
@@ -34,10 +34,11 @@ public class UsuarioPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         avatarPanel1 = new abd.p1.view.AvatarPanel();
-        NombreLabel = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
         buttonNombre = new javax.swing.JButton();
-        EdadLabel = new javax.swing.JLabel();
+        labelEdad = new javax.swing.JLabel();
         buttonFechaNacimiento = new javax.swing.JButton();
+        buttonAvatar = new javax.swing.JButton();
 
         avatarPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
@@ -52,7 +53,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
             .addGap(0, 58, Short.MAX_VALUE)
         );
 
-        NombreLabel.setText("Nombre");
+        labelNombre.setText("Nombre");
 
         buttonNombre.setText("Cambiar nombre");
         buttonNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -61,25 +62,34 @@ public class UsuarioPanel extends javax.swing.JPanel {
             }
         });
 
-        EdadLabel.setText("Edad");
+        labelEdad.setText("Edad");
 
         buttonFechaNacimiento.setText("Cambiar fecha de nacimiento");
+
+        buttonAvatar.setText("Cambiar avatar");
+        buttonAvatar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAvatarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(avatarPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(EdadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                    .addComponent(labelEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(buttonNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -89,14 +99,16 @@ public class UsuarioPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NombreLabel)
+                            .addComponent(labelNombre)
                             .addComponent(buttonNombre))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EdadLabel)
+                            .addComponent(labelEdad)
                             .addComponent(buttonFechaNacimiento)))
                     .addComponent(avatarPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(buttonAvatar)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,13 +116,18 @@ public class UsuarioPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonNombreActionPerformed
 
+    private void buttonAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAvatarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAvatarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EdadLabel;
-    private javax.swing.JLabel NombreLabel;
     private abd.p1.view.AvatarPanel avatarPanel1;
+    private javax.swing.JButton buttonAvatar;
     private javax.swing.JButton buttonFechaNacimiento;
     private javax.swing.JButton buttonNombre;
+    private javax.swing.JLabel labelEdad;
+    private javax.swing.JLabel labelNombre;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -125,7 +142,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
-        NombreLabel.setText(nombre);
+        labelNombre.setText(nombre);
     }
 
     /**
@@ -140,7 +157,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
      */
     public void setEdad(int edad) {
         this.edad = edad;
-        EdadLabel.setText(edad + "años");
+        labelEdad.setText(edad + "años");
     }
 
     /**
@@ -163,13 +180,13 @@ public class UsuarioPanel extends javax.swing.JPanel {
      * @return the NombreLabel
      */
     public javax.swing.JLabel getNombreLabel() {
-        return NombreLabel;
+        return labelNombre;
     }
 
     /**
      * @param NombreLabel the NombreLabel to set
      */
     public void setNombreLabel(javax.swing.JLabel NombreLabel) {
-        this.NombreLabel = NombreLabel;
+        this.labelNombre = NombreLabel;
     }
 }

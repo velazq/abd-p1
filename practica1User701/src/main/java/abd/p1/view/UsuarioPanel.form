@@ -16,18 +16,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="avatarPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="NombreLabel" pref="172" max="32767" attributes="0"/>
-                  <Component id="EdadLabel" max="32767" attributes="0"/>
+                  <Component id="labelNombre" pref="172" max="32767" attributes="0"/>
+                  <Component id="labelEdad" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="buttonNombre" max="32767" attributes="0"/>
-                  <Component id="buttonFechaNacimiento" max="32767" attributes="0"/>
+                  <Component id="buttonAvatar" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="buttonNombre" max="32767" attributes="0"/>
+                      <Component id="buttonFechaNacimiento" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -40,18 +43,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="EdadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="avatarPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <Component id="buttonAvatar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +84,7 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JLabel" name="NombreLabel">
+    <Component class="javax.swing.JLabel" name="labelNombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
@@ -92,7 +97,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNombreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="EdadLabel">
+    <Component class="javax.swing.JLabel" name="labelEdad">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edad"/>
       </Properties>
@@ -101,6 +106,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cambiar fecha de nacimiento"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonAvatar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cambiar avatar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAvatarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
