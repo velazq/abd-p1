@@ -25,8 +25,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
         modelo.addElement(u1);
         modelo.addElement(u2);
         modelo.addElement(u3);
-        listaUsuarios.setModel(modelo);// FIX
-        listaUsuarios.setCellRenderer(new UsuariosCellRenderer());
+       // listaUsuarios.setModel(modelo);// No funciona con DefaultListModel
+        //listaUsuarios.setCellRenderer(new UsuariosCellRenderer());
     }
 
     /**
