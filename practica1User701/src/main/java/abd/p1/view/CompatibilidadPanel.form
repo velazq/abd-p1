@@ -16,13 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelDistancia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="labelPonerDistancia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="254" max="32767" attributes="0"/>
-              <Component id="buttonEnviarPeticion" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="interesesComunesPanel1" pref="574" max="32767" attributes="0"/>
+                  <Component id="nivelCompatibilidadPanel1" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -31,31 +30,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelDistancia" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelPonerDistancia" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonEnviarPeticion" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="nivelCompatibilidadPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="interesesComunesPanel1" pref="327" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labelDistancia">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Distancia:"/>
-      </Properties>
+    <Component class="abd.p1.view.NivelCompatibilidadPanel" name="nivelCompatibilidadPanel1">
     </Component>
-    <Component class="javax.swing.JLabel" name="labelPonerDistancia">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="XXX m"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonEnviarPeticion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enviar petici&#xf3;n de amistad"/>
-      </Properties>
+    <Component class="abd.p1.view.InteresesComunesPanel" name="interesesComunesPanel1">
     </Component>
   </SubComponents>
 </Form>

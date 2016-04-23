@@ -9,12 +9,12 @@ package abd.p1.view;
  *
  * @author Guilherme
  */
-public class BotonesVerPerfilPanel extends javax.swing.JPanel {
+public class NivelCompatibilidadPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form BotonesVerPerfilPanel
+     * Creates new form NivelCompatibilidadPanel
      */
-    public BotonesVerPerfilPanel() {
+    public NivelCompatibilidadPanel() {
         initComponents();
     }
 
@@ -27,15 +27,15 @@ public class BotonesVerPerfilPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelDistancia = new javax.swing.JLabel();
-        labelPonerDistancia = new javax.swing.JLabel();
-        buttonEnviarPeticion = new javax.swing.JButton();
+        labelCompatibilidad = new javax.swing.JLabel();
+        labelPorcentaje = new javax.swing.JLabel();
 
-        labelDistancia.setText("Distancia:");
+        labelCompatibilidad.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCompatibilidad.setText("Tu nivel de compatibilidad es de:");
 
-        labelPonerDistancia.setText("XXX m");
-
-        buttonEnviarPeticion.setText("Enviar petición de amistad");
+        labelPorcentaje.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelPorcentaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelPorcentaje.setText("XX%");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,29 +43,25 @@ public class BotonesVerPerfilPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelDistancia)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelPonerDistancia)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(buttonEnviarPeticion)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCompatibilidad, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                    .addComponent(labelPorcentaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDistancia)
-                    .addComponent(labelPonerDistancia)
-                    .addComponent(buttonEnviarPeticion))
+                .addComponent(labelCompatibilidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelPorcentaje)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonEnviarPeticion;
-    private javax.swing.JLabel labelDistancia;
-    private javax.swing.JLabel labelPonerDistancia;
+    private javax.swing.JLabel labelCompatibilidad;
+    private javax.swing.JLabel labelPorcentaje;
     // End of variables declaration//GEN-END:variables
 }
