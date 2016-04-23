@@ -24,11 +24,11 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="list1" min="-2" pref="362" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="366" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="buttonAnadir" max="32767" attributes="0"/>
-                          <Component id="buttonEliminar" pref="180" max="32767" attributes="0"/>
+                          <Component id="buttonEliminar" pref="183" max="32767" attributes="0"/>
                           <Component id="buttonEditar" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -43,17 +43,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelAficiones" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="buttonAnadir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonEliminar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonEditar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="list1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,8 +64,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Aficiones:"/>
       </Properties>
-    </Component>
-    <Component class="java.awt.List" name="list1">
     </Component>
     <Component class="javax.swing.JButton" name="buttonAnadir">
       <Properties>
@@ -81,5 +80,9 @@
         <Property name="text" type="java.lang.String" value="Editar seleccionada"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+    </Container>
   </SubComponents>
 </Form>

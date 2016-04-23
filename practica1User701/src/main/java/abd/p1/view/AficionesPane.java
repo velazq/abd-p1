@@ -28,10 +28,10 @@ public class AficionesPane extends javax.swing.JPanel {
     private void initComponents() {
 
         labelAficiones = new javax.swing.JLabel();
-        list1 = new java.awt.List();
         buttonAnadir = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         buttonEditar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         labelAficiones.setText("Aficiones:");
 
@@ -52,11 +52,11 @@ public class AficionesPane extends javax.swing.JPanel {
                         .addComponent(labelAficiones)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(buttonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                             .addComponent(buttonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -66,15 +66,16 @@ public class AficionesPane extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(labelAficiones)
                 .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonAnadir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonEditar))
-                    .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(buttonEditar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -83,7 +84,7 @@ public class AficionesPane extends javax.swing.JPanel {
     private javax.swing.JButton buttonAnadir;
     private javax.swing.JButton buttonEditar;
     private javax.swing.JButton buttonEliminar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAficiones;
-    private java.awt.List list1;
     // End of variables declaration//GEN-END:variables
 }
