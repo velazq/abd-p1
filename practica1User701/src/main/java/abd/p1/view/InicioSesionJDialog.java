@@ -5,15 +5,20 @@
  */
 package abd.p1.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Guilherme
  */
 public class InicioSesionJDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form InicioSesionJDialog
-     */
+    private boolean accept;
+    
+    public JTextField getCorreoTextField (){
+        return textFieldCorreo;
+    }
+    
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -110,7 +115,8 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_textFieldCorreoActionPerformed
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
-        // TODO add your handling code here:
+        accept = true;
+        this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
     private void buttonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoUsuarioActionPerformed
