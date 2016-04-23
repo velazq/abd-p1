@@ -6,6 +6,7 @@
 package abd.p1.view;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -18,13 +19,6 @@ public class PrincipalJFrame extends javax.swing.JFrame {
      */
     public PrincipalJFrame() {
         initComponents();
-        Usuario u1 = new Usuario ("Pepe",34);
-        Usuario u2 = new Usuario ("Juan",54);
-        Usuario u3 = new Usuario ("Maria",23);
-        DefaultListModel<Usuario> modelo = new DefaultListModel<Usuario>();
-        modelo.addElement(u1);
-        modelo.addElement(u2);
-        modelo.addElement(u3);
        // listaUsuarios.setModel(modelo);// No funciona con DefaultListModel
         //listaUsuarios.setCellRenderer(new UsuariosCellRenderer());
     }
@@ -38,28 +32,17 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaUsuarios = new javax.swing.JList<>();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jScrollPane1.setViewportView(listaUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 523, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 249, Short.MAX_VALUE)
         );
 
         pack();
@@ -108,7 +91,5 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaUsuarios;
     // End of variables declaration//GEN-END:variables
 }
