@@ -30,8 +30,6 @@ public class BusquedaPanel extends javax.swing.JPanel {
         checkboxFiltrar = new javax.swing.JCheckBox();
         textFieldFiltrar = new javax.swing.JTextField();
         checkboxAmigos = new javax.swing.JCheckBox();
-        buttonModificarPerfil = new javax.swing.JButton();
-        buttonVerPerfil = new javax.swing.JButton();
 
         checkboxFiltrar.setText("Filtrar por nombre:");
         checkboxFiltrar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,10 +46,6 @@ public class BusquedaPanel extends javax.swing.JPanel {
 
         checkboxAmigos.setText("Mostrar sólo amigos");
 
-        buttonModificarPerfil.setText("Modificar mi perfil");
-
-        buttonVerPerfil.setText("Ver perfil seleccionado");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,17 +56,11 @@ public class BusquedaPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(checkboxFiltrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textFieldFiltrar))
+                        .addComponent(textFieldFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(checkboxAmigos)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(buttonModificarPerfil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonVerPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,10 +71,6 @@ public class BusquedaPanel extends javax.swing.JPanel {
                     .addComponent(textFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(checkboxAmigos)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonModificarPerfil)
-                    .addComponent(buttonVerPerfil))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -101,8 +85,6 @@ public class BusquedaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonModificarPerfil;
-    private javax.swing.JButton buttonVerPerfil;
     private javax.swing.JCheckBox checkboxAmigos;
     private javax.swing.JCheckBox checkboxFiltrar;
     private javax.swing.JTextField textFieldFiltrar;

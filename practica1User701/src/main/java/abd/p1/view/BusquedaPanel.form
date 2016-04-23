@@ -22,7 +22,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="checkboxFiltrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="textFieldFiltrar" max="32767" attributes="0"/>
+                      <Component id="textFieldFiltrar" pref="263" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="checkboxAmigos" min="-2" max="-2" attributes="0"/>
@@ -30,13 +30,6 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-              <Component id="buttonModificarPerfil" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="buttonVerPerfil" min="-2" pref="152" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,11 +43,6 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="checkboxAmigos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonModificarPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonVerPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -77,16 +65,6 @@
     <Component class="javax.swing.JCheckBox" name="checkboxAmigos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar s&#xf3;lo amigos"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonModificarPerfil">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar mi perfil"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonVerPerfil">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ver perfil seleccionado"/>
       </Properties>
     </Component>
   </SubComponents>
