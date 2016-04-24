@@ -45,6 +45,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 			commit();
 		} catch (HibernateException e) {
 			rollback();
+			e.printStackTrace();
 		}
 	}
 
@@ -56,6 +57,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 			commit();
 		} catch (HibernateException e) {
 			rollback();
+			e.printStackTrace();
 		}
 		
 	}
@@ -69,6 +71,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 			commit();
 		} catch (HibernateException e) {
 			rollback();
+			e.printStackTrace();
 		}
 		return entity;
 	}
@@ -81,6 +84,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 			commit();
 		} catch (HibernateException e) {
 			rollback();
+			e.printStackTrace();
 		}
 	}
 
