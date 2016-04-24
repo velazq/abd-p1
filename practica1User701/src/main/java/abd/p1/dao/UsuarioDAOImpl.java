@@ -1,6 +1,5 @@
 package abd.p1.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -45,7 +44,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		String hql = "from Usuario as u ";
 		if (nameFilter != null)
 			hql += "where lower(u.nombre) like :nameFilter ";
-		hql += "order by power(u.latitud - :latitud, 2) + power(u.longitud - :longitud, 2)";
+		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
 		List<Usuario> usrs = null;
 		try {
 			Session s = begin();
