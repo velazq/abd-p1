@@ -50,7 +50,8 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 	@SuppressWarnings("unchecked")
 	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit) {
 		String hql = "from Usuario as u ";
-		if (nameFilter != null)
+		boolean filtering = nameFilter != null && !nameFilter.equals("");
+		if (filtering)
 			hql += "where lower(u.nombre) like :nameFilter ";
 		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
 		List<Usuario> usrs = null;
@@ -59,7 +60,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 			Query q = s.createQuery(hql);
 			q.setDouble("latitud", usr.getLatitud());
 			q.setDouble("longitud", usr.getLongitud());
-			if (nameFilter != null)
+			if (filtering)
 				q.setString("nameFilter", '%' + nameFilter.toLowerCase() + '%');
 			if (limit > 0)
 				q.setMaxResults(limit);
