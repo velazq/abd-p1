@@ -19,7 +19,7 @@ public class Responde {
 	@ManyToOne
 	private Opcion opcion;
 	
-	private String valoracion;
+	private Integer valoracion;
 	
 	public Responde(){}
 	
@@ -35,10 +35,10 @@ public class Responde {
 	public void setOpcion(Opcion opcion) {
 		this.opcion = opcion;
 	}
-	public String getValoracion() {
+	public Integer getValoracion() {
 		return valoracion;
 	}
-	public void setValoracion(String valoracion) {
+	public void setValoracion(Integer valoracion) {
 		this.valoracion = valoracion;
 	}
 

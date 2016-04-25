@@ -63,5 +63,41 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		}
 		return usrs;
 	}
+	
+	public int compatibility(Usuario usr1, Usuario usr2) {
+		String hqlMTotal = "select sum(r1.valoracion + r2.valoracion) "
+				+ "from Usuario u1 join u1.respuestas as r1 join r1.opcion as o1 join o1.preguntaMadre as p1 "
+				+ "join Usuario u2 join u2.respuestas as r2 join r2.opcion as o2 join o2.preguntaMadre as p2 "
+				+ "where p1.id = p2.id and u1.id = :id1 and u2.id = :id2";
+		String hqlMAcierto = "select sum(r1.valoracion + r2.valoracion) "
+				+ "from Usuario u1 join u1.respuestas as r1 join r1.opcion as o1 join o1.preguntaMadre as p1 "
+				+ "join Usuario u2 join u2.respuestas as r2 join r2.opcion as o2 join o2.preguntaMadre as p2 "
+				+ "where p1.id = p2.id and o1.id = o2.id and u1.id = :id1 and u2.id = :id2";
+		
+		Integer id1 = usr1.getId();
+		Integer id2 = usr2.getId();
+		Integer compat = 0;
+		Integer mTotal = 0;
+		Integer mAcierto = 0;
+		try {
+			Session s = begin();
+			Query q = s.createQuery(hqlMTotal);
+			q.setInteger("id1", id1);
+			q.setInteger("id2", id2);
+			mTotal = (Integer) q.uniqueResult();
+			
+			Query q2 = s.createQuery(hqlMAcierto);
+			q2.setInteger("id1", id1);
+			q2.setInteger("id2", id2);
+			mAcierto = (Integer) q2.uniqueResult();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		if (mTotal > 0)
+			compat = Math.round(100 * (mAcierto / mTotal));
+		return compat;
+	}
 
 }
