@@ -18,6 +18,10 @@ public class SphericalGeometry {
 		return R * c;
 	}
 	
+	public static double haversineFormulaDegrees(double phi1, double theta1, double phi2, double theta2) {
+		return haversineFormula(degToRad(phi1), degToRad(theta1), degToRad(phi2), degToRad(theta2));
+	}
+	
 	public static double degToRad(double deg) {
 		return deg * Math.PI / 180;
 	}

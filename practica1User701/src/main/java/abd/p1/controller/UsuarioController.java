@@ -10,6 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class UsuarioController {
 	
 	private static final int MAX_USERS_IN_LIST = 20;
+	
 	private static final double LATITUDE_LOWER_BOUND = 40.0;
 	private static final double LATITUDE_UPPER_BOUND = 41.2;
 	private static final double LONGITUDE_LOWER_BOUND = 3.0;
@@ -38,7 +39,7 @@ public class UsuarioController {
 		double theta1 = usr1.getLongitud();
 		double phi2 = usr2.getLatitud();
 		double theta2 = usr2.getLongitud();
-		double d = SphericalGeometry.haversineFormula(phi1, theta1, phi2, theta2);
+		double d = SphericalGeometry.haversineFormulaDegrees(phi1, theta1, phi2, theta2);
 		return Math.round(d);
 	}
 	

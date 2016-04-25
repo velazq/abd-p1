@@ -15,8 +15,8 @@ public class Usuario {
 	private String nombre;
 	private String genero;
 	private String opcionSexual;
-	private Double latitud;
-	private Double longitud;
+	private Double latitud;		// En grados decimales
+	private Double longitud;	// En grados decimales
 
 	@Column (nullable = true)
 	@Temporal(TemporalType.DATE)
