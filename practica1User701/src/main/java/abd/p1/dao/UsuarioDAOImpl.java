@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import abd.p1.model.Aficion;
 import abd.p1.model.Usuario;
 
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements UsuarioDAO {
@@ -121,4 +122,24 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return compat;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Aficion> commonHobbies(Usuario usr1, Usuario usr2) {
+		String hql = "select a1 "
+				+ "from Usuario u1 join u1.aficiones a1 join Usuario u2 join u2.aficiones a2 "
+				+ "where u1.id = :id1 and u2.id = :id2 and lower(a1.texto) = lower(a2.texto)";
+		List<Aficion> hobbies = null;
+		try {
+			Session s = begin();
+			Query q = s.createQuery(hql);
+			q.setInteger("id1", usr1.getId());
+			q.setInteger("id2", usr2.getId());
+			hobbies = (List<Aficion>) q.list();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		return hobbies;
+	}
 }

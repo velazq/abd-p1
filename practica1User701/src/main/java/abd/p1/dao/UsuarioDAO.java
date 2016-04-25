@@ -2,6 +2,7 @@ package abd.p1.dao;
 
 import java.util.List;
 
+import abd.p1.model.Aficion;
 import abd.p1.model.Usuario;
 
 public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
@@ -13,5 +14,7 @@ public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
 	Usuario findByName(String name);
 
 	List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit);
+
+	List<Aficion> commonHobbies(Usuario usr1, Usuario usr2);
 
 }
