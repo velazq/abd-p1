@@ -4,7 +4,7 @@ import java.util.List;
 
 import abd.p1.model.Usuario;
 
-public interface UsuarioDAO {
+public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
 
 	Usuario findByEmail(String email);
 
