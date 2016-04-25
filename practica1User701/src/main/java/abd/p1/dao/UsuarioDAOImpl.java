@@ -20,21 +20,15 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return Usuario.class;
 	}
 	
-	/* (non-Javadoc)
-	 * @see abd.p1.dao.UsuarioDAO#login(java.lang.String, java.lang.String)
-	 */
 	@Override
-	public Usuario login(String loginName, String passwd) {
-		String hql = "from Usuario as u where u.email = :email";
+	public Usuario findByName(String name) {
+		String hql = "from Usuario as u where u.nombre = :nombre";
 		Usuario usuario = null;
 		try {
 			Session s = begin();
 			Query q = s.createQuery(hql);
-			q.setString("email", loginName);
-			Usuario usr = (Usuario) q.uniqueResult();
-			if (usr != null && usr.getContrasena() == passwd) {
-				usuario = usr;
-			}
+			q.setString("nombre", name);
+			usuario = (Usuario) q.uniqueResult();
 			commit();
 		} catch (Exception e) {
 			rollback();
@@ -43,21 +37,35 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return usuario;
 	}
 	
-	/* (non-Javadoc)
-	 * @see abd.p1.dao.UsuarioDAO#nearestUsers(abd.p1.model.Usuario, java.lang.String, int)
-	 */
+	public Usuario findByEmail(String email) {
+		String hql = "from Usuario as u where u.email = :email";
+		Usuario usuario = null;
+		try {
+			Session s = begin();
+			Query q = s.createQuery(hql);
+			q.setString("email", email);
+			usuario = (Usuario) q.uniqueResult();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		return usuario;
+	}
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit) {
-		String hql = "from Usuario as u ";
+		String hql = "from Usuario as u where u.genero = :preferencia ";
 		boolean filtering = nameFilter != null && !nameFilter.equals("");
 		if (filtering)
-			hql += "where lower(u.nombre) like :nameFilter ";
+			hql += "and lower(u.nombre) like :nameFilter ";
 		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
 		List<Usuario> usrs = null;
 		try {
 			Session s = begin();
 			Query q = s.createQuery(hql);
+			q.setString("preferencia", usr.getOpcionSexual());
 			q.setDouble("latitud", usr.getLatitud());
 			q.setDouble("longitud", usr.getLongitud());
 			if (filtering)
