@@ -12,7 +12,6 @@ public class PreguntaDAOImpl extends GenericDAOImpl<Pregunta, Integer> implement
 
 	public PreguntaDAOImpl(SessionFactory sf) {
 		super(sf);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
