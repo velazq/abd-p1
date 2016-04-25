@@ -7,5 +7,7 @@ import abd.p1.model.Pregunta;
 public interface PreguntaDAO extends GenericDAO<Pregunta, Integer> {
 	
 	List<Pregunta> topQuestions(int limit);
+	
+	Pregunta randomQuestion();
 
 }

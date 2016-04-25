@@ -39,4 +39,20 @@ public class PreguntaDAOImpl extends GenericDAOImpl<Pregunta, Integer> implement
 		return questions;
 	}
 	
+	public Pregunta randomQuestion() {
+		String hql = "from Pregunta order by rand()";
+		Pregunta question = null;
+		try {
+			Session s = begin();
+			Query q = s.createSQLQuery(hql);
+			q.setMaxResults(1);
+			question = (Pregunta) q.uniqueResult();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		return question;
+	}
+	
 }
