@@ -23,7 +23,7 @@ public class PreguntaDAOImpl extends GenericDAOImpl<Pregunta, Integer> implement
 	public List<Pregunta> topQuestions(int limit) {
 		String hql = "from Pregunta p join p.opciones o join o.respuestas r "
 				+ "group by p.id "
-				+ "order by sum(r.valoracion) desc ";
+				+ "order by avg(r.valoracion) desc ";
 		List<Pregunta> questions = null;
 		try {
 			Session s = begin();
