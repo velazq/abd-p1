@@ -20,6 +20,10 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return Usuario.class;
 	}
 	
+	/* (non-Javadoc)
+	 * @see abd.p1.dao.UsuarioDAO#login(java.lang.String, java.lang.String)
+	 */
+	@Override
 	public Usuario login(String loginName, String passwd) {
 		String hql = "from Usuario as u where u.email = :email";
 		Usuario usuario = null;
@@ -39,6 +43,10 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return usuario;
 	}
 	
+	/* (non-Javadoc)
+	 * @see abd.p1.dao.UsuarioDAO#nearestUsers(abd.p1.model.Usuario, java.lang.String, int)
+	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit) {
 		String hql = "from Usuario as u ";
@@ -64,6 +72,10 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return usrs;
 	}
 	
+	/* (non-Javadoc)
+	 * @see abd.p1.dao.UsuarioDAO#compatibility(abd.p1.model.Usuario, abd.p1.model.Usuario)
+	 */
+	@Override
 	public int compatibility(Usuario usr1, Usuario usr2) {
 		String hqlMTotal = "select sum(r1.valoracion + r2.valoracion) "
 				+ "from Usuario u1 join u1.respuestas as r1 join r1.opcion as o1 join o1.preguntaMadre as p1 "
