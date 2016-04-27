@@ -1,4 +1,4 @@
-package p1admin.admincontroller;
+package abd.p1.controller;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
