@@ -7,9 +7,9 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import p1admin.adminDB.GenericDBFacade;
-import p1admin.adminview.QuestionEditor;
-import p1admin.model.Opcion;
-import p1admin.model.Pregunta;
+import abd.p1.view.QuestionEditor;
+import abd.p1.model.Opcion;
+import abd.p1.model.Pregunta;
 
 /**
  * Controlador de la ventana principal.

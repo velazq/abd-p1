@@ -4,8 +4,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import p1admin.adminDB.GenericDBFacade;
-import p1admin.model.Opcion;
-import p1admin.model.Pregunta;
+import abd.p1.model.Opcion;
+import abd.p1.model.Pregunta;
 
 /**
  * Controlador de la ventana de edición de pregunta.

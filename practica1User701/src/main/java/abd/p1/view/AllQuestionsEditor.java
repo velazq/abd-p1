@@ -1,5 +1,6 @@
 package abd.p1.view;
 
+import abd.p1.controller.AllQuestionsController;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
