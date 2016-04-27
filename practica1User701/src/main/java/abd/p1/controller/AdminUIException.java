@@ -1,4 +1,4 @@
-package p1admin.admincontroller;
+package abd.p1.controller;
 
 /**
  * Excepción lanzada por la herramienta de inserción de preguntas.
