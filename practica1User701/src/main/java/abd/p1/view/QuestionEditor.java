@@ -4,6 +4,7 @@ import javax.swing.ListModel;
 
 //import abd.p1.controller.QuestionController;
 import abd.p1.model.Opcion;
+import abd.p1.controller.QuestionController;
 
 /**
  * Cuadro de diálogo del editor de una pregunta.
