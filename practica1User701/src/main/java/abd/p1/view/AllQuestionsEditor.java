@@ -9,6 +9,7 @@ import javax.swing.ListModel;
 
 //import abd.p1.controller.AllQuestionsController;
 import abd.p1.model.Pregunta;
+import abd.p1.controller.QuestionController;
 
 /**
  * Interfaz de la ventana principal.
