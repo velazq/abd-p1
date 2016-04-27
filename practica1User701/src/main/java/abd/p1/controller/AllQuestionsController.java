@@ -1,4 +1,4 @@
-package p1admin.admincontroller;
+package abd.p1.controller;
 
 import java.util.List;
 
