@@ -11,19 +11,30 @@ import abd.p1.model.Usuario;
 
 public class Facade {
 	
-	private final SessionFactory sessionFactory;
+	private static Facade INSTANCE = null;
+	
+	private static SessionFactory sessionFactory = null;
 	
 	private final UsuarioDAO usuarios;
 	private final PreguntaDAO preguntas;
 	private final OpcionDAO opciones;
 
-	public Facade(SessionFactory sf) {
-		sessionFactory = sf;
-		sf.openSession();
+	private Facade() {
+		sessionFactory.openSession();
 		
 		usuarios = new UsuarioDAOImpl(sessionFactory);
 		preguntas = new PreguntaDAOImpl(sessionFactory);
 		opciones = new OpcionDAOImpl(sessionFactory);
+	}
+	
+	public static void setSessionFactory(SessionFactory sf) {
+		sessionFactory = sf;
+	}
+	
+	public static Facade getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new Facade();
+		return INSTANCE;
 	}
 	
 	/* === Usuario === */

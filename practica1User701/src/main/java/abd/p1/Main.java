@@ -6,6 +6,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import abd.p1.dao.Facade;
+
 /**
  * Ésta es la clase que arranca la aplicación. La ejecución del método main()
  * no reconstruirá la base de datos. La base de datos se supone ya construida
@@ -36,6 +38,8 @@ public class Main {
             
             // Mostrar ventana de login y comprobar validez del usuario y contraseña.
             // Si son validos, mostrar ventana principal.
+            
+            Facade.setSessionFactory(sf);
 
         } catch (HibernateException e) {
             e.printStackTrace();

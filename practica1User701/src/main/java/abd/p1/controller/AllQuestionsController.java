@@ -17,20 +17,14 @@ import abd.p1.model.Pregunta;
  * @author Manuel Montenegro (mmontene@ucm.es)
  */
 public class AllQuestionsController {
-//    private final GenericDBFacade<Pregunta, Opcion> dao;
 	private final Facade dao;
     private final DefaultListModel<Pregunta> questionsModel;
     
-    
-
-//    public AllQuestionsController(DefaultListModel<Pregunta> questionsModel, GenericDBFacade<Pregunta, Opcion> dao) {
     public AllQuestionsController(DefaultListModel<Pregunta> questionsModel, Facade dao) {
         this.questionsModel = questionsModel;
         this.dao = dao;
     }
-    
-    
-    
+
     public Pregunta newQuestion(JDialog parent)  {
     	Pregunta newQuestion = new Pregunta();
         String statement = JOptionPane.showInputDialog("Introduce el enunciado de la pregunta:");
