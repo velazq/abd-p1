@@ -30,14 +30,17 @@ public class Usuario {
 	
 	@Column (nullable = true)
 	@ElementCollection
-	@OneToMany(mappedBy="usuario")
+	@OneToMany(mappedBy="usuario", fetch = FetchType.EAGER)
 	private List<Aficion> aficiones;
 	
-	@ManyToMany
-	private Set<Usuario> quiero; // Usuarios a las que he solicitado amistad
+//	@ManyToMany
+//	private Set<Usuario> quiero; // Usuarios a las que he solicitado amistad
+//	
+//	@ManyToMany(mappedBy="quiero")
+//	private Set<Usuario> meQuieren; // Usuarios que me han solicitado amistad
 	
-	@ManyToMany(mappedBy="quiero")
-	private Set<Usuario> meQuieren; // Usuarios que me han solicitado amistad
+	@ManyToMany
+	private Set<Usuario> amigos;
 	
 	@OneToMany(mappedBy="usuario")
 	private Set<Responde> respuestas;
@@ -91,6 +94,30 @@ public class Usuario {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public List<Aficion> getAficiones() {
+		return aficiones;
+	}
+
+	public void setAficiones(List<Aficion> aficiones) {
+		this.aficiones = aficiones;
+	}
+
+	public Set<Usuario> getAmigos() {
+		return amigos;
+	}
+
+	public void setAmigos(Set<Usuario> amigos) {
+		this.amigos = amigos;
+	}
+
+	public Set<Responde> getRespuestas() {
+		return respuestas;
+	}
+
+	public void setRespuestas(Set<Responde> respuestas) {
+		this.respuestas = respuestas;
 	}
 
 	public Set<Mensaje> getMensajesEnviados() {

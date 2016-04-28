@@ -76,7 +76,6 @@ public class Facade {
 	}
 	
 	/* === Pregunta == */
-
 	
 	public void insertQuestion(Pregunta p){
 		preguntas.persist(p);
