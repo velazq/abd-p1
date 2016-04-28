@@ -4,22 +4,21 @@ public class SphericalGeometry {
 	
 	private static final int R = 6371000;
 
-	public SphericalGeometry() {
-		// TODO Auto-generated constructor stub
+	private SphericalGeometry() {
 	}
 	
-	public static double haversineFormula(double phi1, double theta1, double phi2, double theta2) {
-		double phiDiff = phi1 - phi2;
-		double thetaDiff = theta1 - theta2;
+	public static double haversineFormula(double lat1, double long1, double lat2, double long2) {
+		double phiDiff = lat1 - lat2;
+		double thetaDiff = long1 - long2;
 		double sinSqPhi = Math.pow(Math.sin(phiDiff / 2), 2);
 		double sinSqTheta = Math.pow(Math.sin(thetaDiff / 2), 2);
-		double a = sinSqPhi + Math.cos(phi1) * Math.cos(phi2) + sinSqTheta;
+		double a = sinSqPhi + Math.cos(lat1) * Math.cos(lat2) + sinSqTheta;
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		return R * c;
 	}
 	
-	public static double haversineFormulaDegrees(double phi1, double theta1, double phi2, double theta2) {
-		return haversineFormula(degToRad(phi1), degToRad(theta1), degToRad(phi2), degToRad(theta2));
+	public static double haversineFormulaDegrees(double lat1, double long1, double lat2, double long2) {
+		return haversineFormula(degToRad(lat1), degToRad(long1), degToRad(lat2), degToRad(long2));
 	}
 	
 	public static double degToRad(double deg) {
