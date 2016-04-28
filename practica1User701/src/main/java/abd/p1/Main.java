@@ -9,7 +9,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import abd.p1.dao.Facade;
+import abd.p1.model.Usuario;
 import abd.p1.view.InicioSesionJDialog;
+import abd.p1.view.PrincipalJFrame;
 
 /**
  * Ésta es la clase que arranca la aplicación. La ejecución del método main()
@@ -45,8 +47,16 @@ public class Main {
             Facade.setSessionFactory(sf);
             
             //TEST
-            JDialog login = new InicioSesionJDialog(null, true);
-            login.setVisible(true);
+            InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
+            loginDialog.setVisible(true);
+            if (loginDialog.isAceptar()) {
+            	String email = loginDialog.getEmail();
+            	String pass = loginDialog.getPassword();
+            	Usuario usr = Facade.getInstance().findUserByEmail(email);
+            	if (usr != null) {
+            		PrincipalJFrame ppal = new PrincipalJFrame();
+            	}
+            }
 
         } catch (HibernateException e) {
             e.printStackTrace();

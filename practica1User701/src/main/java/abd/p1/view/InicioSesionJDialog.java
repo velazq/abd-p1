@@ -31,6 +31,15 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     public JTextField getTextFieldCorreo (){
         return textFieldCorreo;
     }
+    
+    public String getEmail() {
+    	return textFieldCorreo.getText();
+    }
+    
+    public String getPassword() {
+    	char[] cPass = textFieldContrasena.getPassword();
+    	return String.valueOf(cPass);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

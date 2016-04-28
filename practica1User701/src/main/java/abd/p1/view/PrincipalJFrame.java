@@ -15,8 +15,14 @@ import javax.swing.JOptionPane;
  * @author Guilherme
  */
 public class PrincipalJFrame extends javax.swing.JFrame {
+	
+	private Usuario usr;
     
-    
+    public PrincipalJFrame(Usuario usr) {
+    	initComponents();
+    	this.usr = usr;
+    	//TODO
+    }
     
     /**
      * Creates new form Principal
