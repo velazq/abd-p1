@@ -1,5 +1,6 @@
 package abd.p1.model;
 
+import java.util.LinkedList;
 import javax.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,13 @@ public class Pregunta {
 	private List<Invitacion> invitaciones;//FIXME: no lo necesitamos
 
 	public Pregunta () {}
+        
+        //PRUEBA
+        public Pregunta(Integer id, String enunciado){
+            this.id = id;
+            this.enunciado = enunciado;
+            this.opciones = new LinkedList<>();
+        }
 	
 //	public Pregunta() {
 //		opciones = new ArrayList<>();

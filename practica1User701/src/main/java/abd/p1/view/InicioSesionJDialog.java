@@ -7,6 +7,8 @@ package abd.p1.view;
 
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
+import java.awt.Frame;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,9 +19,11 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
 
    //private boolean accept;
     UsuarioDAOImpl dao = null;
+    Frame principal = new Frame();
     
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        principal = parent;
         initComponents();
     }
 
@@ -139,8 +143,9 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
             "Usuario registrado",
             JOptionPane.ERROR_MESSAGE);
         }else {
-            PerfilPanel perfil = new PerfilPanel();
-            perfil.setVisible(true);
+             PerfilPanel perfil = new PerfilPanel();
+            principal.add(perfil);
+            principal.setVisible(true);
         }
     }//GEN-LAST:event_buttonNuevoUsuarioActionPerformed
 
