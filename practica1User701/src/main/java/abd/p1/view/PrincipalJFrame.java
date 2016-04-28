@@ -5,8 +5,6 @@
  */
 package abd.p1.view;
 
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 /**
  *
@@ -19,8 +17,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
      */
     public PrincipalJFrame() {
         initComponents();
-       // listaUsuarios.setModel(modelo);// No funciona con DefaultListModel
-        //listaUsuarios.setCellRenderer(new UsuariosCellRenderer());
+        InicioSesionJDialog inicio = new InicioSesionJDialog(this, true);
+        inicio.setVisible(true);
     }
 
     /**

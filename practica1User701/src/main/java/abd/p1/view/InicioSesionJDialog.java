@@ -5,6 +5,8 @@
  */
 package abd.p1.view;
 
+import abd.p1.dao.UsuarioDAO;
+import abd.p1.dao.UsuarioDAOImpl;
 import javax.swing.JTextField;
 
 /**
@@ -15,8 +17,8 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
 
     private boolean accept;
     
-    public JTextField getCorreoTextField (){
-        return textFieldCorreo;
+    public String getCorreoTextField (){
+        return textFieldCorreo.getText();
     }
     
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
@@ -33,7 +35,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        labelCorreo = new javax.swing.JLabel();
         textFieldCorreo = new javax.swing.JTextField();
         labelContrasena = new javax.swing.JLabel();
         textFieldContrasena = new javax.swing.JPasswordField();
@@ -42,7 +44,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Dirección de correo:");
+        labelCorreo.setText("Dirección de correo:");
 
         textFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +77,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(labelCorreo)
                             .addComponent(labelContrasena))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +96,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(labelCorreo)
                     .addComponent(textFieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -116,6 +118,9 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
         accept = true;
+        Usuario user = new Usuario();
+        UsuarioDAOImpl dao;
+        user = dao.findByEmail(this.getCorreoTextField());
         this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
@@ -168,8 +173,8 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAceptar;
     private javax.swing.JButton buttonNuevoUsuario;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelContrasena;
+    private javax.swing.JLabel labelCorreo;
     private javax.swing.JPasswordField textFieldContrasena;
     private javax.swing.JTextField textFieldCorreo;
     // End of variables declaration//GEN-END:variables
