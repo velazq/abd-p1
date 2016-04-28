@@ -2,7 +2,7 @@ package abd.p1.model;
 
 import java.io.Serializable;
 
-public class RespuestaID implements Serializable {
+public class RespondeID implements Serializable {
 	/**
 	 * 
 	 */

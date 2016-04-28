@@ -11,7 +11,7 @@ public class Pregunta {
 	private Integer id;
 	private String enunciado;
 	
-	@OneToMany (mappedBy = "preguntaMadre")
+	@OneToMany (mappedBy = "preguntaMadre", fetch = FetchType.EAGER)
 	private List<Opcion> opciones;
 	
 	@OneToMany(mappedBy = "pregunta")

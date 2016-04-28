@@ -3,15 +3,8 @@ package abd.p1.model;
 import javax.persistence.*;
 
 @Entity
-@IdClass(RespuestaID.class)
+@IdClass(RespondeID.class)
 public class Responde {
-//	@Id
-//	@ManyToMany
-//	private Usuario usuario;
-//	@Id
-//	@ManyToMany(mappedBy="usuario")
-//	private Opcion opcion;
-
 	@Id
 	@ManyToOne
 	private Usuario usuario;
