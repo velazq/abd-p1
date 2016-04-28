@@ -2,6 +2,7 @@ package abd.p1.model;
 
 import javax.persistence.*;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class Usuario {
 	
 	@Column (nullable = true)
 	@ElementCollection
-	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Aficion> aficiones;
 	
 //	@ManyToMany
@@ -166,6 +167,118 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aficiones == null) ? 0 : aficiones.hashCode());
+		result = prime * result + ((amigos == null) ? 0 : amigos.hashCode());
+		result = prime * result + ((contrasena == null) ? 0 : contrasena.hashCode());
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((fechaNacimiento == null) ? 0 : fechaNacimiento.hashCode());
+		result = prime * result + Arrays.hashCode(foto);
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((latitud == null) ? 0 : latitud.hashCode());
+		result = prime * result + ((longitud == null) ? 0 : longitud.hashCode());
+		result = prime * result + ((mensajesEnviados == null) ? 0 : mensajesEnviados.hashCode());
+		result = prime * result + ((mensajesRecibidos == null) ? 0 : mensajesRecibidos.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((opcionSexual == null) ? 0 : opcionSexual.hashCode());
+		result = prime * result + ((respuestas == null) ? 0 : respuestas.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (aficiones == null) {
+			if (other.aficiones != null)
+				return false;
+		} else if (!aficiones.equals(other.aficiones))
+			return false;
+		if (amigos == null) {
+			if (other.amigos != null)
+				return false;
+		} else if (!amigos.equals(other.amigos))
+			return false;
+		if (contrasena == null) {
+			if (other.contrasena != null)
+				return false;
+		} else if (!contrasena.equals(other.contrasena))
+			return false;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (fechaNacimiento == null) {
+			if (other.fechaNacimiento != null)
+				return false;
+		} else if (!fechaNacimiento.equals(other.fechaNacimiento))
+			return false;
+		if (!Arrays.equals(foto, other.foto))
+			return false;
+		if (genero == null) {
+			if (other.genero != null)
+				return false;
+		} else if (!genero.equals(other.genero))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (latitud == null) {
+			if (other.latitud != null)
+				return false;
+		} else if (!latitud.equals(other.latitud))
+			return false;
+		if (longitud == null) {
+			if (other.longitud != null)
+				return false;
+		} else if (!longitud.equals(other.longitud))
+			return false;
+		if (mensajesEnviados == null) {
+			if (other.mensajesEnviados != null)
+				return false;
+		} else if (!mensajesEnviados.equals(other.mensajesEnviados))
+			return false;
+		if (mensajesRecibidos == null) {
+			if (other.mensajesRecibidos != null)
+				return false;
+		} else if (!mensajesRecibidos.equals(other.mensajesRecibidos))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (opcionSexual == null) {
+			if (other.opcionSexual != null)
+				return false;
+		} else if (!opcionSexual.equals(other.opcionSexual))
+			return false;
+		if (respuestas == null) {
+			if (other.respuestas != null)
+				return false;
+		} else if (!respuestas.equals(other.respuestas))
+			return false;
+		return true;
 	}
 
 }

@@ -1,5 +1,7 @@
 package abd.p1;
 
+import javax.swing.JDialog;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -7,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import abd.p1.dao.Facade;
+import abd.p1.view.InicioSesionJDialog;
 
 /**
  * Ésta es la clase que arranca la aplicación. La ejecución del método main()
@@ -40,6 +43,10 @@ public class Main {
             // Si son validos, mostrar ventana principal.
             
             Facade.setSessionFactory(sf);
+            
+            //TEST
+            JDialog login = new InicioSesionJDialog(null, true);
+            login.setVisible(true);
 
         } catch (HibernateException e) {
             e.printStackTrace();

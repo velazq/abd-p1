@@ -87,4 +87,47 @@ public class Pregunta {
 	public String toString() {
 		return "Pregunta [enunciado=" + enunciado + ", opciones=" + opciones + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((enunciado == null) ? 0 : enunciado.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((invitaciones == null) ? 0 : invitaciones.hashCode());
+		result = prime * result + ((opciones == null) ? 0 : opciones.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pregunta other = (Pregunta) obj;
+		if (enunciado == null) {
+			if (other.enunciado != null)
+				return false;
+		} else if (!enunciado.equals(other.enunciado))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (invitaciones == null) {
+			if (other.invitaciones != null)
+				return false;
+		} else if (!invitaciones.equals(other.invitaciones))
+			return false;
+		if (opciones == null) {
+			if (other.opciones != null)
+				return false;
+		} else if (!opciones.equals(other.opciones))
+			return false;
+		return true;
+	}
 }
