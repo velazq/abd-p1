@@ -27,10 +27,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="buttonAvatar" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="buttonNombre" max="32767" attributes="0"/>
-                      <Component id="buttonFechaNacimiento" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="buttonNombre" max="32767" attributes="0"/>
+                  <Component id="buttonFechaNacimiento" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

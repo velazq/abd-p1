@@ -6,6 +6,7 @@
 package abd.p1.view;
 
 import abd.p1.model.Usuario;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -18,6 +19,19 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
      */
     public ListaUsuariosPanel() {
         initComponents();
+        Usuario usr1 = new Usuario();
+        Usuario usr2 = new Usuario();
+        Usuario usr3 = new Usuario();
+        usr1.setNombre("Pepe");
+        usr2.setNombre("Juan");
+        usr3.setNombre("Mary");
+        
+        DefaultListModel<Usuario> modelo = new DefaultListModel<>();
+        modelo.addElement(usr1);
+        modelo.addElement(usr2);
+        modelo.addElement(usr3);
+        jListUsuarios.setModel(modelo);
+        jListUsuarios.setCellRenderer(new UsuariosCellRenderer());
     }
 
     /**

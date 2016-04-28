@@ -28,7 +28,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
         initComponents();
         InicioSesionJDialog diag = new InicioSesionJDialog(this, true);
         diag.setVisible(true);
-        jTabbedPane1.setTitleAt(0, "Pregunta");
+        jTabbedPane2.setTitleAt(0, "Usuarios");
+        jTabbedPane2.setTitleAt(1, "Preguntas");
         
         if (diag.isAceptar()){
             user = dao.findByEmail(diag.getTextFieldCorreo().getText());
@@ -63,12 +64,14 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        listaPreguntasPanel1 = new abd.p1.view.ListaPreguntasPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel();
+        listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addTab("tab1", listaPreguntasPanel1);
+        jTabbedPane2.addTab("tab1", listaUsuariosPanel2);
+        jTabbedPane2.addTab("tab2", listaPreguntasPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,14 +79,14 @@ public class PrincipalJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -133,7 +136,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private abd.p1.view.ListaPreguntasPanel listaPreguntasPanel1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private abd.p1.view.ListaPreguntasPanel listaPreguntasPanel2;
+    private abd.p1.view.ListaUsuariosPanel listaUsuariosPanel2;
     // End of variables declaration//GEN-END:variables
 }

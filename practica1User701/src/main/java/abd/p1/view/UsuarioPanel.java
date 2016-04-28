@@ -174,6 +174,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
         this.editable = editable;
         buttonNombre.setVisible(editable);
         buttonFechaNacimiento.setVisible(editable);
+        buttonAvatar.setVisible(editable);
     }
 
     /**

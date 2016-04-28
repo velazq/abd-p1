@@ -22,6 +22,7 @@ public class UsuariosCellRenderer extends UsuarioPanel implements ListCellRender
             Usuario value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         this.setNombre(value.getNombre());
+        this.setEditable(false);
         //this.setEdad(value.getEdad());
         this.setOpaque(true);
         
