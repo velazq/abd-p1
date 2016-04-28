@@ -1,9 +1,8 @@
-package abd.p1.model;
+package abd.p1.dao;
 
 import org.hibernate.SessionFactory;
 
-import abd.p1.dao.GenericDAOImpl;
-import abd.p1.dao.OpcionDAO;
+import abd.p1.model.Opcion;
 
 public class OpcionDAOImpl extends GenericDAOImpl<Opcion, Integer> implements OpcionDAO {
 

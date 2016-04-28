@@ -17,8 +17,19 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	
 	public abstract Class<Entity> getEntityClass();
 	
+	protected Session getSession() {
+		Session session = null;
+		try {
+			session = this.sf.getCurrentSession();
+		} catch (HibernateException e) {
+			session = this.sf.openSession();
+		}
+		return session;
+	}
+	
 	protected Session begin() {
-		Session session = this.sf.openSession();
+		//Session session = this.sf.openSession();
+		Session session = getSession();
 		session.beginTransaction();
 		return session;
 	}
@@ -27,14 +38,14 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		Session session = this.sf.getCurrentSession();
 		Transaction tx = session.getTransaction();
 		tx.commit();
-		session.close();
+		//session.close();
 	}
 	
 	protected void rollback() {
 		Session session = this.sf.getCurrentSession();
 		Transaction tx = session.getTransaction();
 		tx.rollback();
-		session.close();
+		//session.close();
 	}
 
 	@Override

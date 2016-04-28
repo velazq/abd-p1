@@ -7,14 +7,14 @@ import abd.p1.model.Usuario;
 
 public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
 
-	Usuario findByEmail(String email);
+	public Usuario findByEmail(String email);
 
-	int compatibility(Usuario usr1, Usuario usr2);
+	public int compatibility(Usuario usr1, Usuario usr2);
 
-	Usuario findByName(String name);
+	public Usuario findByName(String name);
 
-	List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit);
+	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit);
 
-	List<Aficion> commonHobbies(Usuario usr1, Usuario usr2);
+	public List<Aficion> commonHobbies(Usuario usr1, Usuario usr2);
 
 }
