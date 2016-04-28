@@ -3,21 +3,19 @@ package abd.p1.controller;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-import p1admin.adminDB.GenericDBFacade;
+import abd.p1.dao.Facade;
 import abd.p1.model.Opcion;
 import abd.p1.model.Pregunta;
 
-/**
- * Controlador de la ventana de edición de pregunta.
- *
- * @author Manuel Montenegro (mmontene@ucm.es)
- */
+
 public class QuestionController {
-    private final GenericDBFacade<Pregunta, Opcion> dao;
+//    private final GenericDBFacade<Pregunta, Opcion> dao;
+	private final Facade dao;
     private final Pregunta model;
     private final DefaultListModel<Opcion> answersModel;
 
-    public QuestionController(GenericDBFacade<Pregunta, Opcion> dao, Pregunta model, DefaultListModel<Opcion> answersModel) {
+//    public QuestionController(GenericDBFacade<Pregunta, Opcion> dao, Pregunta model, DefaultListModel<Opcion> answersModel) {
+    public QuestionController(Facade dao, Pregunta model, DefaultListModel<Opcion> answersModel) {
         this.dao = dao;
         this.model = model;
         this.answersModel = answersModel;
@@ -43,7 +41,7 @@ public class QuestionController {
             newAnswer.setTexto(answerText);
             model.addOpcion(newAnswer);
             answersModel.addElement(newAnswer);
-            dao.insertAnswer(model, newAnswer);
+            dao.insertOption(newAnswer);
         }
     }
     
@@ -51,7 +49,7 @@ public class QuestionController {
         String answerNewText = JOptionPane.showInputDialog("Introduce nuevo nombre de respuesta:", a.getTexto());
         if (answerNewText != null && !answerNewText.trim().isEmpty()) {
         	a.setTexto(answerNewText);
-            dao.updateAnswer(model, a);
+            dao.updateOption(a);
         }
     }
 
@@ -60,10 +58,10 @@ public class QuestionController {
         int number = answer.getNumeroOrden();
         int numAnswers = model.getNumOpciones();
         answersModel.removeElement(answer);
-        dao.deleteAnswer(model, answer);
+        dao.deleteOption(answer);
         for (int i = number; i <= numAnswers; i++) {
         	Opcion currentAnswer = model.getOpcion(i);
-            dao.updateAnswer(model, currentAnswer);
+            dao.updateOption(currentAnswer);
         }
     }
 
@@ -74,8 +72,8 @@ public class QuestionController {
         	model.intercambiarOpciones(number, number - 1);
             answersModel.set(number - 1, previousAnswer);
             answersModel.set(number - 2, answer);
-            dao.updateAnswer(model, answer);
-            dao.updateAnswer(model, previousAnswer);
+            dao.updateOption(answer);
+            dao.updateOption(previousAnswer);
         }
     }
 
@@ -87,8 +85,8 @@ public class QuestionController {
         	model.intercambiarOpciones(number, number + 1);
             answersModel.set(number - 1, nextAnswer);
             answersModel.set(number, answer);
-            dao.updateAnswer(model, answer);
-            dao.updateAnswer(model, nextAnswer);
+            dao.updateOption(answer);
+            dao.updateOption(nextAnswer);
         }
     }
 }

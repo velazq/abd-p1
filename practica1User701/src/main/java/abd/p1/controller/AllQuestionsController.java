@@ -6,8 +6,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import p1admin.adminDB.GenericDBFacade;
 import abd.p1.view.QuestionEditor;
+import abd.p1.dao.Facade;
 import abd.p1.model.Opcion;
 import abd.p1.model.Pregunta;
 
@@ -17,12 +17,14 @@ import abd.p1.model.Pregunta;
  * @author Manuel Montenegro (mmontene@ucm.es)
  */
 public class AllQuestionsController {
-    private final GenericDBFacade<Pregunta, Opcion> dao;
+//    private final GenericDBFacade<Pregunta, Opcion> dao;
+	private final Facade dao;
     private final DefaultListModel<Pregunta> questionsModel;
     
     
 
-    public AllQuestionsController(DefaultListModel<Pregunta> questionsModel, GenericDBFacade<Pregunta, Opcion> dao) {
+//    public AllQuestionsController(DefaultListModel<Pregunta> questionsModel, GenericDBFacade<Pregunta, Opcion> dao) {
+    public AllQuestionsController(DefaultListModel<Pregunta> questionsModel, Facade dao) {
         this.questionsModel = questionsModel;
         this.dao = dao;
     }

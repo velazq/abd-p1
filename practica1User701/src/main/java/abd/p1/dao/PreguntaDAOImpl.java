@@ -54,5 +54,40 @@ public class PreguntaDAOImpl extends GenericDAOImpl<Pregunta, Integer> implement
 		}
 		return question;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Pregunta> findQuestionsContaining(String text) {
+		String hql = "from Pregunta p where p.enunciado like :enunciado";
+		List<Pregunta> questions = null;
+		try {
+			Session s = begin();
+			Query q = s.createSQLQuery(hql);
+			q.setString("enunciado", text);
+			questions = (List<Pregunta>) q.list();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		return questions;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Pregunta> getAllQuestions() {
+		String hql = "from Pregunta";
+		List<Pregunta> questions = null;
+		try {
+			Session s = begin();
+			Query q = s.createSQLQuery(hql);
+			questions = (List<Pregunta>) q.list();
+			commit();
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		return questions;
+	}
 	
 }
