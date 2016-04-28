@@ -5,6 +5,8 @@
  */
 package abd.p1.view;
 
+import abd.p1.model.Aficion;
+
 /**
  *
  * @author Guilherme
@@ -31,7 +33,7 @@ public class AficionesPane extends javax.swing.JPanel {
         buttonAnadir = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         buttonEditar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        listaAficionesPanel1 = new abd.p1.view.ListaAficionesPanel();
 
         labelAficiones.setText("Aficiones:");
 
@@ -52,11 +54,11 @@ public class AficionesPane extends javax.swing.JPanel {
                         .addComponent(labelAficiones)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listaAficionesPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                            .addComponent(buttonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                             .addComponent(buttonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -73,8 +75,8 @@ public class AficionesPane extends javax.swing.JPanel {
                         .addComponent(buttonEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonEditar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 13, Short.MAX_VALUE))
+                    .addComponent(listaAficionesPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -84,7 +86,7 @@ public class AficionesPane extends javax.swing.JPanel {
     private javax.swing.JButton buttonAnadir;
     private javax.swing.JButton buttonEditar;
     private javax.swing.JButton buttonEliminar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAficiones;
+    private abd.p1.view.ListaAficionesPanel listaAficionesPanel1;
     // End of variables declaration//GEN-END:variables
 }

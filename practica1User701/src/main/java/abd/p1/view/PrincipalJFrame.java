@@ -49,7 +49,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
                    "Usuario registrado",
                    JOptionPane.ERROR_MESSAGE);
                }else {
-
+                    EditarPerfil perfil = new EditarPerfil(this,true);
                }
         }
         
