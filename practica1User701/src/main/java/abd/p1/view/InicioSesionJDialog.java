@@ -5,11 +5,7 @@
  */
 package abd.p1.view;
 
-import abd.p1.dao.UsuarioDAOImpl;
-import abd.p1.model.Usuario;
-import java.awt.Frame;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -17,14 +13,23 @@ import javax.swing.JOptionPane;
  */
 public class InicioSesionJDialog extends javax.swing.JDialog {
 
-   //private boolean accept;
-    UsuarioDAOImpl dao = null;
-    Frame principal = new Frame();
+    private boolean aceptar, nuevoUsuario;
     
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        principal = parent;
         initComponents();
+    }
+    
+    public boolean isAceptar(){
+        return aceptar;
+    }
+    
+    public boolean isNuevoUsuario(){
+        return nuevoUsuario;
+    }
+    
+    public JTextField getTextFieldCorreo (){
+        return textFieldCorreo;
     }
 
     /**
@@ -118,35 +123,11 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_textFieldCorreoActionPerformed
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
-       
-        Usuario user = new Usuario();
-        
-        user = dao.findByEmail(this.textFieldCorreo.getText());
-        if(user.getNombre() != null){
-            this.setVisible(false);
-        }else {
-            JOptionPane.showMessageDialog(this,
-            "Usuario no esta registrado.",
-            "Error de usuario",
-            JOptionPane.ERROR_MESSAGE);
-        }
-        
+       aceptar = true;      
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
     private void buttonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoUsuarioActionPerformed
-        Usuario user = new Usuario();
-        //user = dao.findByEmail(this.textFieldCorreo.getText());
-        user.setNombre(null);
-         if(user.getNombre() != null){
-            JOptionPane.showMessageDialog(this,
-            "Usuario ya esta registrado.",
-            "Usuario registrado",
-            JOptionPane.ERROR_MESSAGE);
-        }else {
-             PerfilPanel perfil = new PerfilPanel();
-            principal.add(perfil);
-            principal.setVisible(true);
-        }
+        nuevoUsuario = true;
     }//GEN-LAST:event_buttonNuevoUsuarioActionPerformed
 
     /**

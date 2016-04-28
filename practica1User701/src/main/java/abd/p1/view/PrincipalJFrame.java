@@ -5,21 +5,53 @@
  */
 package abd.p1.view;
 
+import abd.p1.dao.UsuarioDAOImpl;
+import abd.p1.model.Usuario;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Guilherme
  */
 public class PrincipalJFrame extends javax.swing.JFrame {
-
+    
+    
+    
     /**
      * Creates new form Principal
      */
     public PrincipalJFrame() {
+        UsuarioDAOImpl dao = null;
+        Usuario user = new Usuario();
+        
         initComponents();
-        InicioSesionJDialog inicio = new InicioSesionJDialog(this, true);
-        inicio.setVisible(true);
+        InicioSesionJDialog diag = new InicioSesionJDialog(this, true);
+        diag.setVisible(true);
         jTabbedPane1.setTitleAt(0, "Pregunta");
+        
+        if (diag.isAceptar()){
+            user = dao.findByEmail(diag.getTextFieldCorreo().getText());
+                if(user.getNombre() != null){
+                    diag.setVisible(false);
+                }else {
+                    JOptionPane.showMessageDialog(diag,
+                    "Usuario no esta registrado.",
+                    "Error de usuario",
+                    JOptionPane.ERROR_MESSAGE);
+                }
+        }else if (diag.isNuevoUsuario()){
+            user = dao.findByEmail(diag.getTextFieldCorreo().getText());
+                if(user.getNombre() != null){
+                   JOptionPane.showMessageDialog(this,
+                   "Usuario ya esta registrado.",
+                   "Usuario registrado",
+                   JOptionPane.ERROR_MESSAGE);
+               }else {
+
+               }
+        }
+        
     }
 
     /**
