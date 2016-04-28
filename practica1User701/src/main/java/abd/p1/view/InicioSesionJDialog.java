@@ -5,7 +5,9 @@
  */
 package abd.p1.view;
 
-import javax.swing.JTextField;
+import abd.p1.dao.UsuarioDAOImpl;
+import abd.p1.model.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +15,8 @@ import javax.swing.JTextField;
  */
 public class InicioSesionJDialog extends javax.swing.JDialog {
 
-    private boolean accept;
-    
-    public JTextField getCorreoTextField (){
-        return textFieldCorreo;
-    }
+   //private boolean accept;
+    UsuarioDAOImpl dao = null;
     
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -33,7 +32,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        labelCorreo = new javax.swing.JLabel();
         textFieldCorreo = new javax.swing.JTextField();
         labelContrasena = new javax.swing.JLabel();
         textFieldContrasena = new javax.swing.JPasswordField();
@@ -42,7 +41,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Dirección de correo:");
+        labelCorreo.setText("Dirección de correo:");
 
         textFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +74,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(labelCorreo)
                             .addComponent(labelContrasena))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +93,7 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(labelCorreo)
                     .addComponent(textFieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -115,12 +114,34 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_textFieldCorreoActionPerformed
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
-        accept = true;
-        this.setVisible(false);
+       
+        Usuario user = new Usuario();
+        
+        user = dao.findByEmail(this.textFieldCorreo.getText());
+        if(user.getNombre() != null){
+            this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(this,
+            "Usuario no esta registrado.",
+            "Error de usuario",
+            JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
     private void buttonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoUsuarioActionPerformed
-        // TODO add your handling code here:
+        Usuario user = new Usuario();
+        //user = dao.findByEmail(this.textFieldCorreo.getText());
+        user.setNombre(null);
+         if(user.getNombre() != null){
+            JOptionPane.showMessageDialog(this,
+            "Usuario ya esta registrado.",
+            "Usuario registrado",
+            JOptionPane.ERROR_MESSAGE);
+        }else {
+            PerfilPanel perfil = new PerfilPanel();
+            perfil.setVisible(true);
+        }
     }//GEN-LAST:event_buttonNuevoUsuarioActionPerformed
 
     /**
@@ -168,8 +189,8 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAceptar;
     private javax.swing.JButton buttonNuevoUsuario;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelContrasena;
+    private javax.swing.JLabel labelCorreo;
     private javax.swing.JPasswordField textFieldContrasena;
     private javax.swing.JTextField textFieldCorreo;
     // End of variables declaration//GEN-END:variables
