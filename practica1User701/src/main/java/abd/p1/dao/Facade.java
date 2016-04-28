@@ -19,6 +19,7 @@ public class Facade {
 
 	public Facade(SessionFactory sf) {
 		sessionFactory = sf;
+		sf.openSession();
 		
 		usuarios = new UsuarioDAOImpl(sessionFactory);
 		preguntas = new PreguntaDAOImpl(sessionFactory);
