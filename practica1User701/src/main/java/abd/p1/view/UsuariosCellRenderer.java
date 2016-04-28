@@ -5,6 +5,7 @@
  */
 package abd.p1.view;
 
+import abd.p1.model.Usuario;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JList;
@@ -21,7 +22,7 @@ public class UsuariosCellRenderer extends UsuarioPanel implements ListCellRender
             Usuario value, int index, 
             boolean isSelected, boolean cellHasFocus) {
         this.setNombre(value.getNombre());
-        this.setEdad(value.getEdad());
+        //this.setEdad(value.getEdad());
         this.setOpaque(true);
         
         if (isSelected){
