@@ -18,18 +18,19 @@ import abd.p1.model.Usuario;
 public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
 	
 	private Usuario usr;
-	private UsuarioController uCtrl;
+	//private UsuarioController uCtrl;
 	
 	public BotonesListaUsuariosPanel(Usuario usr, UsuarioController uCtrl) {
         initComponents();
 		this.usr = usr;
-		this.uCtrl = uCtrl;
+		//this.uCtrl = uCtrl;
 	}
 
     /**
      * Creates new form BotonesListaUsuariosPanel
      */
-    public BotonesListaUsuariosPanel() {
+    public BotonesListaUsuariosPanel(Usuario usr) {
+    	this.usr = usr;
         initComponents();
     }
 

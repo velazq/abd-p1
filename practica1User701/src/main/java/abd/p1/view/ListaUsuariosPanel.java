@@ -33,12 +33,12 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 	private DefaultListModel<Usuario> modelo = new DefaultListModel<>();
 	
 	private Usuario usr;
-	private UsuarioController uCtrl;
+	//private UsuarioController uCtrl;
 	
-	public ListaUsuariosPanel(Usuario usr, UsuarioController uCtrl) {
-        initComponents();
+	public ListaUsuariosPanel(Usuario usr) {
 		this.usr = usr;
-		this.uCtrl = uCtrl;
+        initComponents();
+		//this.uCtrl = uCtrl;
 		
 		modelo = new DefaultListModel<>();
         jListUsuarios.setCellRenderer(new UsuariosCellRenderer());
@@ -75,7 +75,7 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListUsuarios = new javax.swing.JList<>();
-        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel();
+        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel(usr);
         busquedaPanel1 = new abd.p1.view.BusquedaPanel();
 
         jScrollPane1.setViewportView(jListUsuarios);
