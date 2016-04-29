@@ -5,6 +5,7 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
 import javax.swing.JOptionPane;
@@ -17,10 +18,12 @@ import javax.swing.JOptionPane;
 public class PrincipalJFrame extends javax.swing.JFrame {
 	
 	private Usuario usr;
+	private UsuarioController uCtrl = null;
     
-    public PrincipalJFrame(Usuario usr) {
+    public PrincipalJFrame(Usuario usr, UsuarioController uCtrl) {
     	initComponents();
     	this.usr = usr;
+    	this.uCtrl = uCtrl;
     	//TODO
     }
     
@@ -28,6 +31,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public PrincipalJFrame() {
+    	/*
         UsuarioDAOImpl dao = null;
         Usuario user = new Usuario();
         
@@ -49,7 +53,6 @@ public class PrincipalJFrame extends javax.swing.JFrame {
                 }
         }else if (diag.isNuevoUsuario()){
             diag.setVisible(false);
-            //user = dao.findByEmail(diag.getTextFieldCorreo().getText());
             user.setNombre(null);
                 if(user.getNombre() != null){
                    JOptionPane.showMessageDialog(this,
@@ -62,7 +65,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
                     perfil.setVisible(true);
                }
         }
-        
+        */
     }
 
     /**
@@ -75,13 +78,13 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel();
+        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel(usr, uCtrl);
         listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane2.addTab("tab1", listaUsuariosPanel2);
-        jTabbedPane2.addTab("tab2", listaPreguntasPanel2);
+        jTabbedPane2.addTab("Usuarios", listaUsuariosPanel2);
+        jTabbedPane2.addTab("Preguntas", listaPreguntasPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

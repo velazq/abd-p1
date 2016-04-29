@@ -67,12 +67,16 @@ public class Facade {
 		return usuarios.findByName(name);
 	}
 
-	List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit){
+	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit){
 		return usuarios.nearestUsers(usr, nameFilter, limit);
 	}
 
-	List<Aficion> commonHobbies(Usuario usr1, Usuario usr2){
+	public List<Aficion> commonHobbies(Usuario usr1, Usuario usr2){
 		return usuarios.commonHobbies(usr1, usr2);
+	}
+	
+	public void evictUser(Usuario usr){
+		usuarios.evict(usr);
 	}
 	
 	/* === Pregunta == */

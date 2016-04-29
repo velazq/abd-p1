@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import abd.p1.dao.Facade;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
+import abd.p1.view.EditarPerfil;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
 import java.sql.ResultSet;
@@ -19,6 +20,8 @@ public class UsuarioController {
 	private static final double LATITUDE_UPPER_BOUND = 41.2;
 	private static final double LONGITUDE_LOWER_BOUND = 3.0;
 	private static final double LONGITUDE_UPPER_BOUND = 4.5;
+	
+	private PrincipalJFrame mainWindow;
 	
 	public UsuarioController() {}
 	
@@ -54,7 +57,6 @@ public class UsuarioController {
 		double longitude = ThreadLocalRandom.current().nextDouble(LONGITUDE_LOWER_BOUND, LONGITUDE_UPPER_BOUND);
 		usr.setLatitud(latitude);
 		usr.setLongitud(longitude);
-		//usuarioDAO.update(usr);
 		Facade.getInstance().updateUser(usr);
 	}
 	
@@ -85,12 +87,18 @@ public class UsuarioController {
             	usr = new Usuario();
             	usr.setEmail(email);
             	usr.setContrasena(pass);
+            	Facade.getInstance().insertUser(usr);
             }
         }
 
     	if (usr != null) {
-    		PrincipalJFrame ppal = new PrincipalJFrame(usr);
-    		ppal.setVisible(true);
+        	Facade.getInstance().evictUser(usr);
+    		mainWindow = new PrincipalJFrame(usr, this);
+    		mainWindow.setVisible(true);
+    		if (loginDialog.isNuevoUsuario()) {
+            	EditarPerfil perfil = new EditarPerfil(mainWindow, true);
+                perfil.setVisible(true);
+    		}
     	}
 	}
         
