@@ -13,7 +13,11 @@ import javax.swing.JTextField;
  */
 public class InicioSesionJDialog extends javax.swing.JDialog {
 
-    private boolean aceptar, nuevoUsuario;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private boolean aceptar, nuevoUsuario;
     
     public InicioSesionJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -132,11 +136,13 @@ public class InicioSesionJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_textFieldCorreoActionPerformed
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
-       aceptar = true;      
+       aceptar = true;   
+       this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
     private void buttonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoUsuarioActionPerformed
         nuevoUsuario = true;
+        this.setVisible(false);
     }//GEN-LAST:event_buttonNuevoUsuarioActionPerformed
 
     /**

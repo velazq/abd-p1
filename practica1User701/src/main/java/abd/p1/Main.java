@@ -8,6 +8,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import abd.p1.controller.UsuarioController;
 import abd.p1.dao.Facade;
 import abd.p1.model.Usuario;
 import abd.p1.view.InicioSesionJDialog;
@@ -46,17 +47,8 @@ public class Main {
             
             Facade.setSessionFactory(sf);
             
-            //TEST
-            InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
-            loginDialog.setVisible(true);
-            if (loginDialog.isAceptar()) {
-            	String email = loginDialog.getEmail();
-            	String pass = loginDialog.getPassword();
-            	Usuario usr = Facade.getInstance().findUserByEmail(email);
-            	if (usr != null) {
-            		PrincipalJFrame ppal = new PrincipalJFrame();
-            	}
-            }
+            UsuarioController uCtrl = new UsuarioController();
+            uCtrl.loginShow();
 
         } catch (HibernateException e) {
             e.printStackTrace();
