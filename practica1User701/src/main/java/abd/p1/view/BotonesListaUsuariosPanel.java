@@ -31,6 +31,11 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
         buttonVerPerfil = new javax.swing.JButton();
 
         buttonModificarPerfil.setText("Modificar mi perfil");
+        buttonModificarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModificarPerfilActionPerformed(evt);
+            }
+        });
 
         buttonVerPerfil.setText("Ver perfil seleccionado");
 
@@ -55,6 +60,10 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonModificarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarPerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonModificarPerfilActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
