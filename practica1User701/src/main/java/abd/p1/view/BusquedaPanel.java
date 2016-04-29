@@ -5,6 +5,7 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.ControllersFacade;
 import abd.p1.controller.UsuarioController;
 import abd.p1.model.Usuario;
 
@@ -105,7 +106,9 @@ public class BusquedaPanel extends javax.swing.JPanel {
     private void textFieldFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFiltrarActionPerformed
         filtrarUsuario = textFieldFiltrar.getText().trim();
         if (!filtrarUsuario.equals("") && checkboxFiltrar.isSelected()) {
-            uCtrl.listUsers(usr, filtrarUsuario, checkboxAmigos.isSelected());
+        	PrincipalJFrame f = (PrincipalJFrame)this.getTopLevelAncestor();
+        	Usuario usr = f.getUser();
+            ControllersFacade.getInstance().listUsers(usr, filtrarUsuario, checkboxAmigos.isSelected());
         }
     }//GEN-LAST:event_textFieldFiltrarActionPerformed
 

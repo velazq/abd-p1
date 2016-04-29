@@ -75,7 +75,7 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListUsuarios = new javax.swing.JList<>();
-        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel(usr, uCtrl);
+        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel();
         busquedaPanel1 = new abd.p1.view.BusquedaPanel();
 
         jScrollPane1.setViewportView(jListUsuarios);

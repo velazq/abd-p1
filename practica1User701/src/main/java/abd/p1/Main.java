@@ -1,17 +1,12 @@
 package abd.p1;
 
-import javax.swing.JDialog;
-
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import abd.p1.controller.UsuarioController;
-import abd.p1.dao.Facade;
-import abd.p1.model.Usuario;
-import abd.p1.view.InicioSesionJDialog;
+import abd.p1.controller.ControllersFacade;
 import abd.p1.view.PrincipalJFrame;
 
 /**
@@ -45,11 +40,20 @@ public class Main {
             // Mostrar ventana de login y comprobar validez del usuario y contraseña.
             // Si son validos, mostrar ventana principal.
             
+            /*
             Facade.setSessionFactory(sf);
             
             UsuarioController uCtrl = new UsuarioController();
             uCtrl.loginShow();
-
+			*/
+            
+            PrincipalJFrame mainWindow = new PrincipalJFrame();
+            
+            ControllersFacade.setParams(sf, mainWindow);
+            
+            ControllersFacade.getInstance().runApp();
+            
+            
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

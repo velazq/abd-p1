@@ -5,14 +5,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JOptionPane;
 
-import abd.p1.dao.Facade;
+import org.hibernate.SessionFactory;
+
+import abd.p1.dao.UsuarioDAO;
+import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
 import abd.p1.view.EditarPerfil;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
-import java.sql.ResultSet;
-import java.util.Date;
 
 public class UsuarioController {
 	
@@ -25,16 +26,16 @@ public class UsuarioController {
 	
 	private PrincipalJFrame mainWindow;
 	
-	public UsuarioController() {
-		
-	}
+	//public UsuarioController() {}
 	
-	/*private final UsuarioDAO usuarioDAO;
+	private final UsuarioDAO usuarioDAO;
 
-	public UsuarioController(UsuarioDAO usuarioDAO) {
-		this.usuarioDAO = usuarioDAO;
+	public UsuarioController(SessionFactory sf, PrincipalJFrame mainWindow) {
+		this.usuarioDAO = new UsuarioDAOImpl(sf);
+		this.mainWindow = mainWindow;
 	}
 	
+	/*
 	public Usuario loginCheck(String email, String passwd) {
 		Usuario usuario = usuarioDAO.findByEmail(email);
 		if (usuario != null && !passwd.equals(usuario.getContrasena())) {
@@ -47,9 +48,9 @@ public class UsuarioController {
 	public void listUsers(Usuario usr, String filterByName, boolean friends) {
 		List<Usuario> usrs = null;
 		if (friends) {
-			usrs = Facade.getInstance().nearestFriends(usr, filterByName, MAX_USERS_IN_LIST);
+			usrs = usuarioDAO.nearestFriends(usr, filterByName, MAX_USERS_IN_LIST);
 		} else {
-			usrs = Facade.getInstance().nearestUsers(usr, filterByName, MAX_USERS_IN_LIST);
+			usrs = usuarioDAO.nearestUsers(usr, filterByName, MAX_USERS_IN_LIST);
 		}
 		mainWindow.listUsers(usrs);
 	}
@@ -68,7 +69,7 @@ public class UsuarioController {
 		double longitude = ThreadLocalRandom.current().nextDouble(LONGITUDE_LOWER_BOUND, LONGITUDE_UPPER_BOUND);
 		usr.setLatitud(latitude);
 		usr.setLongitud(longitude);
-		Facade.getInstance().updateUser(usr);
+		usuarioDAO.update(usr);
 	}
 	
 	public void loginShow() {
@@ -79,7 +80,8 @@ public class UsuarioController {
         
     	String email = loginDialog.getEmail();
     	String pass = loginDialog.getPassword();
-    	usr = Facade.getInstance().findUserByEmail(email);
+    	//usr = Facade.getInstance().findUserByEmail(email);
+        usr = usuarioDAO.findByEmail(email);
         
         if (loginDialog.isAceptar()) {
         	if (usr == null) {
@@ -98,13 +100,15 @@ public class UsuarioController {
             	usr = new Usuario();
             	usr.setEmail(email);
             	usr.setContrasena(pass);
-            	Facade.getInstance().insertUser(usr);
+            	//Facade.getInstance().insertUser(usr);
+            	usuarioDAO.persist(usr);
             }
         }
 
     	if (usr != null) {
-        	Facade.getInstance().evictUser(usr);
-    		mainWindow = new PrincipalJFrame(usr, this);
+        	//Facade.getInstance().evictUser(usr);
+    		usuarioDAO.evict(usr);
+    		mainWindow.setUser(usr);
     		mainWindow.setVisible(true);
     		if (loginDialog.isNuevoUsuario()) {
             	EditarPerfil perfil = new EditarPerfil(mainWindow, true, usr, this);

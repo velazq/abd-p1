@@ -13,7 +13,6 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 
 	public UsuarioDAOImpl(SessionFactory sf) {
 		super(sf);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

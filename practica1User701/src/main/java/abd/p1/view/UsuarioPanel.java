@@ -5,6 +5,10 @@
  */
 package abd.p1.view;
 
+import java.util.Calendar;
+
+import abd.p1.model.Usuario;
+
 /**
  *
  * @author Guilherme
@@ -14,14 +18,28 @@ public class UsuarioPanel extends javax.swing.JPanel {
     private String nombre = "pepe";
     private int edad = 32;
     private boolean editable = true;
+    
+    private Usuario usr;
 
     /**
      * Creates new form ListaUsuariosPanel
      */
     public UsuarioPanel() {
         initComponents();
-        labelNombre.setText(nombre);
-        labelEdad.setText(edad + "años");
+    }
+    
+    public void redraw() {
+    	PrincipalJFrame f = (PrincipalJFrame)this.getTopLevelAncestor();
+    	usr = f.getUser();
+        labelNombre.setText(usr.getNombre());
+        
+        Calendar birthDay = Calendar.getInstance();
+        birthDay.setTimeInMillis(usr.getFechaNacimiento().getTime());
+        long currentTime = System.currentTimeMillis();
+        Calendar now = Calendar.getInstance();
+        now.setTimeInMillis(currentTime);
+        int years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
+        labelEdad.setText(years + "años");
     }
 
     /**
@@ -183,6 +201,8 @@ public class UsuarioPanel extends javax.swing.JPanel {
         buttonNombre.setVisible(editable);
         buttonFechaNacimiento.setVisible(editable);
         buttonAvatar.setVisible(editable);
+        
+        redraw();
     }
 
     /**

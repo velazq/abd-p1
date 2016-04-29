@@ -21,24 +21,35 @@ import javax.swing.JOptionPane;
 public class PrincipalJFrame extends javax.swing.JFrame {
 	
 	private Usuario usr;
-	private UsuarioController uCtrl = null;
+	//private UsuarioController uCtrl = null;
     
+    /*
     public PrincipalJFrame(Usuario usr, UsuarioController uCtrl) {
     	initComponents();
     	this.usr = usr;
     	this.uCtrl = uCtrl;
     	//TODO
     }
+*/
+    
+    public void setUser(Usuario usr) {
+    	this.usr = usr;
+    }
+    
+    public Usuario getUser() {
+    	return this.usr;
+    }
     
     /**
      * Creates new form Principal
      */
     public PrincipalJFrame() {
+        initComponents();
+        
     	/*
         UsuarioDAOImpl dao = null;
         Usuario user = new Usuario();
         
-        initComponents();
         InicioSesionJDialog diag = new InicioSesionJDialog(this, true);
         diag.setVisible(true);
         jTabbedPane2.setTitleAt(0, "Usuarios");
@@ -81,7 +92,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel(usr, uCtrl);
+        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel();
         listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
