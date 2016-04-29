@@ -7,6 +7,7 @@ package abd.p1.view;
 
 import abd.p1.controller.ControllersFacade;
 import abd.p1.model.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,7 +90,8 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonGuardarActionPerformed
 
     private void buttonContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrasenaActionPerformed
-        // TODO add your handling code here:
+        String nombre = JOptionPane.showInputDialog("Introduce una contraseña: ");
+        usr.setContrasena(nombre);
     }//GEN-LAST:event_buttonContrasenaActionPerformed
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
