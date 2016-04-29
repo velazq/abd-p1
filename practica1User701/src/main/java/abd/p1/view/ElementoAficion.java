@@ -68,5 +68,6 @@ public class ElementoAficion extends javax.swing.JPanel {
      */
     public void setAficion(String aficion) {
         this.aficion = aficion;
+        labelAficion.setText(aficion);
     }
 }

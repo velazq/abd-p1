@@ -5,12 +5,15 @@
  */
 package abd.p1.view;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Guilherme
  */
 public class DescripcionPanel extends javax.swing.JPanel {
 
+    private String descripcion = "Hola me llamo Diego Montoya!!!";
     /**
      * Creates new form DescripcionPanel
      */
@@ -28,12 +31,14 @@ public class DescripcionPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelDescripcion = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textPaneDescripcion = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaDescripcion = new javax.swing.JTextArea();
 
         labelDescripcion.setText("Descripción:");
 
-        jScrollPane1.setViewportView(textPaneDescripcion);
+        jTextAreaDescripcion.setColumns(20);
+        jTextAreaDescripcion.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaDescripcion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -42,10 +47,10 @@ public class DescripcionPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelDescripcion)
-                        .addGap(0, 439, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -54,15 +59,30 @@ public class DescripcionPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(labelDescripcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextAreaDescripcion;
     private javax.swing.JLabel labelDescripcion;
-    private javax.swing.JTextPane textPaneDescripcion;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the descripcion
+     */
+    public JTextArea getDescripcion() {
+        return jTextAreaDescripcion;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+        jTextAreaDescripcion.append(descripcion);
+    }
 }

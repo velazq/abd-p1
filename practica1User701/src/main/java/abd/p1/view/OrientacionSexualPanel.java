@@ -5,6 +5,8 @@
  */
 package abd.p1.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Guilherme
@@ -28,7 +30,7 @@ public class OrientacionSexualPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelSexo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonSexo = new javax.swing.JButton();
         labelElegirSexo = new javax.swing.JLabel();
         labelBusca = new javax.swing.JLabel();
         buttonPreferencia = new javax.swing.JButton();
@@ -36,13 +38,23 @@ public class OrientacionSexualPanel extends javax.swing.JPanel {
 
         labelSexo.setText("Sexo: ");
 
-        jButton1.setText("Cambiar sexo");
+        buttonSexo.setText("Cambiar sexo");
+        buttonSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSexoActionPerformed(evt);
+            }
+        });
 
         labelElegirSexo.setText("Elegir Sexo");
 
         labelBusca.setText("Busca: ");
 
         buttonPreferencia.setText("Cambiar preferencia");
+        buttonPreferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPreferenciaActionPerformed(evt);
+            }
+        });
 
         labelPreferencia.setText("Elegir Preferencia");
 
@@ -61,7 +73,7 @@ public class OrientacionSexualPanel extends javax.swing.JPanel {
                     .addComponent(labelElegirSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonPreferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -71,7 +83,7 @@ public class OrientacionSexualPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSexo)
-                    .addComponent(jButton1)
+                    .addComponent(buttonSexo)
                     .addComponent(labelElegirSexo))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -82,10 +94,34 @@ public class OrientacionSexualPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSexoActionPerformed
+            Object seleccion = JOptionPane.showInputDialog(
+            null,
+            "Seleccione una opcion",
+            "Selector de opciones",
+            JOptionPane.PLAIN_MESSAGE, //No muestra icono
+            null,  
+            new Object[] { "Masculino", "Femenino" }, 
+            "Femenino");
+            labelElegirSexo.setText(seleccion.toString());
+    }//GEN-LAST:event_buttonSexoActionPerformed
+
+    private void buttonPreferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreferenciaActionPerformed
+        Object seleccion = JOptionPane.showInputDialog(
+            null,
+            "Seleccione una opcion",
+            "Selector de opciones",
+            JOptionPane.PLAIN_MESSAGE, //No muestra icono
+            null,  
+            new Object[] { "Hombre", "Mujer" , "Ambos"}, 
+            "Mujer");
+            labelPreferencia.setText(seleccion.toString());
+    }//GEN-LAST:event_buttonPreferenciaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPreferencia;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonSexo;
     private javax.swing.JLabel labelBusca;
     private javax.swing.JLabel labelElegirSexo;
     private javax.swing.JLabel labelPreferencia;

@@ -69,16 +69,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir afici&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAnadirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonEliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar seleccionada"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonEditar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar seleccionada"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="abd.p1.view.ListaAficionesPanel" name="listaAficionesPanel1">
     </Component>

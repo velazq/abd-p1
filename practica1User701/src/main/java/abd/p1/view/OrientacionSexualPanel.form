@@ -29,7 +29,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="buttonSexo" max="32767" attributes="0"/>
                   <Component id="buttonPreferencia" pref="191" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -42,7 +42,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelElegirSexo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -62,10 +62,13 @@
         <Property name="text" type="java.lang.String" value="Sexo: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="buttonSexo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cambiar sexo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSexoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelElegirSexo">
       <Properties>
@@ -81,6 +84,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cambiar preferencia"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPreferenciaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPreferencia">
       <Properties>

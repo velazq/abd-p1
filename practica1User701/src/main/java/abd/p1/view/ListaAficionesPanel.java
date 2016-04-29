@@ -14,7 +14,7 @@ import javax.swing.DefaultListModel;
  * @author Guilherme
  */
 public class ListaAficionesPanel extends javax.swing.JPanel {
-
+    DefaultListModel<Aficion> modelo = new DefaultListModel<>();
     /**
      * Creates new form ListaAficionesPanel
      */
@@ -25,15 +25,43 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
         Aficion af2 = new Aficion();
         Aficion af3 = new Aficion();
         af1.setTexto("Futbol");
+        af1.setId(1);
         af2.setTexto("Tenis");
+        af2.setId(2);
         af3.setTexto("Asesinar");
-        DefaultListModel<Aficion> modelo = new DefaultListModel<>();
+        af3.setId(3);
+        
         modelo.addElement(af1);
         modelo.addElement(af2);
         modelo.addElement(af3);
         jListAficiones.setModel(modelo);
         jListAficiones.setCellRenderer(new AficionCellRenderer());
     }
+    
+    public void addAficion(String aficion){
+        Aficion af = new Aficion();
+        Aficion af1 = new Aficion();
+        af1 = modelo.lastElement();
+        af.setTexto(aficion);
+        af.setId(af1.getId()+ 1);
+        modelo.addElement(af);
+    }
+    
+    public void removeAficion(Aficion af){
+        modelo.removeElement(af);
+    }
+    
+    public Aficion getAficionSeleccionada(){
+        return jListAficiones.getSelectedValue();
+    }
+    
+    public void updateAficion(Integer id, String af){
+        Aficion aficion = new Aficion();
+        aficion.setTexto(af);
+        modelo.setElementAt(aficion, id - 1);
+    }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
