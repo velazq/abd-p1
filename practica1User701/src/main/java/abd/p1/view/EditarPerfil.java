@@ -5,18 +5,31 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
+import abd.p1.model.Usuario;
+
 /**
  *
  * @author Guilherme
  */
 public class EditarPerfil extends javax.swing.JDialog {
 
+	private Usuario usr;
+	private UsuarioController uCtrl;
+	
     /**
      * Creates new form EditarPerfil
      */
     public EditarPerfil(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public EditarPerfil(java.awt.Frame parent, boolean modal, Usuario usr, UsuarioController uCtrl) {
+        super(parent, modal);
+        initComponents();
+        this.usr = usr;
+        this.uCtrl = uCtrl;
     }
 
     /**

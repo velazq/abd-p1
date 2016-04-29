@@ -107,7 +107,7 @@ public class UsuarioController {
     		mainWindow = new PrincipalJFrame(usr, this);
     		mainWindow.setVisible(true);
     		if (loginDialog.isNuevoUsuario()) {
-            	EditarPerfil perfil = new EditarPerfil(mainWindow, true);
+            	EditarPerfil perfil = new EditarPerfil(mainWindow, true, usr, this);
                 perfil.setVisible(true);
     		}
     	}
