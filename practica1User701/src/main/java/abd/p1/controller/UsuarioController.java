@@ -11,6 +11,7 @@ import abd.p1.view.EditarPerfil;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
 import java.sql.ResultSet;
+import java.util.Date;
 
 public class UsuarioController {
 	
@@ -107,6 +108,10 @@ public class UsuarioController {
         }
         
         public void mostrarAmigos(){
+            
+        }
+        
+        public void setFechaNacimiento (Date fechaNac){
             
         }
 

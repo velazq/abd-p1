@@ -65,6 +65,11 @@ public class UsuarioPanel extends javax.swing.JPanel {
         labelEdad.setText("Edad");
 
         buttonFechaNacimiento.setText("Cambiar fecha de nacimiento");
+        buttonFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFechaNacimientoActionPerformed(evt);
+            }
+        });
 
         buttonAvatar.setText("Cambiar avatar");
         buttonAvatar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,9 +92,8 @@ public class UsuarioPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(buttonNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(buttonNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,6 +123,10 @@ public class UsuarioPanel extends javax.swing.JPanel {
     private void buttonAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAvatarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonAvatarActionPerformed
+
+    private void buttonFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonFechaNacimientoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
