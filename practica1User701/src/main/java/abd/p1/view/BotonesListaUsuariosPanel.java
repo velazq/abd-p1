@@ -50,6 +50,11 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
         });
 
         buttonVerPerfil.setText("Ver perfil seleccionado");
+        buttonVerPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVerPerfilActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,6 +81,10 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
     private void buttonModificarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarPerfilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonModificarPerfilActionPerformed
+
+    private void buttonVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonVerPerfilActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

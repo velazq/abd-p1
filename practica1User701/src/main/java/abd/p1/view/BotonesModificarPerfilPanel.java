@@ -32,10 +32,25 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
         buttonGuardar = new javax.swing.JButton();
 
         buttonContrasena.setText("Cambiar contraseña");
+        buttonContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonContrasenaActionPerformed(evt);
+            }
+        });
 
         buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         buttonGuardar.setText("Guardar cambios");
+        buttonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -61,6 +76,18 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonGuardarActionPerformed
+
+    private void buttonContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonContrasenaActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
