@@ -5,12 +5,16 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
+
 /**
  *
  * @author Guilherme
  */
 public class BusquedaPanel extends javax.swing.JPanel {
 
+    Boolean filtrar;
+    String filtrarUsuario;
     /**
      * Creates new form BusquedaPanel
      */
@@ -45,6 +49,11 @@ public class BusquedaPanel extends javax.swing.JPanel {
         });
 
         checkboxAmigos.setText("Mostrar sólo amigos");
+        checkboxAmigos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkboxAmigosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,12 +85,21 @@ public class BusquedaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkboxFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxFiltrarActionPerformed
-        // TODO add your handling code here:
+       filtrar = true;
     }//GEN-LAST:event_checkboxFiltrarActionPerformed
 
     private void textFieldFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFiltrarActionPerformed
-        // TODO add your handling code here:
+        filtrarUsuario = textFieldFiltrar.getText();
+        if (filtrar){
+            UsuarioController controller = new UsuarioController();
+            controller.filtrarUsuario(filtrarUsuario);
+        }
     }//GEN-LAST:event_textFieldFiltrarActionPerformed
+
+    private void checkboxAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAmigosActionPerformed
+        UsuarioController controller = new UsuarioController();
+        controller.mostrarAmigos();
+    }//GEN-LAST:event_checkboxAmigosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,6 +9,7 @@ import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
+import java.sql.ResultSet;
 
 public class UsuarioController {
 	
@@ -92,5 +93,13 @@ public class UsuarioController {
     		ppal.setVisible(true);
     	}
 	}
+        
+        public void filtrarUsuario(String filtro){
+            
+        }
+        
+        public void mostrarAmigos(){
+            
+        }
 
 }
