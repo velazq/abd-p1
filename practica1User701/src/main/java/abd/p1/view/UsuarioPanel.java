@@ -8,6 +8,10 @@ package abd.p1.view;
 import java.util.Calendar;
 
 import abd.p1.model.Usuario;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -140,15 +144,22 @@ public class UsuarioPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNombreActionPerformed
-        // TODO add your handling code here:
+        String nombre = JOptionPane.showInputDialog("Introduce una nombre: ");
+        labelNombre.setText(nombre);
     }//GEN-LAST:event_buttonNombreActionPerformed
 
     private void buttonAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAvatarActionPerformed
-        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        File dir = new File(System.getProperty("user.dir"));
+        fc.setCurrentDirectory(dir);
+        fc.showSaveDialog(this);
+        File guarda =fc.getSelectedFile();
     }//GEN-LAST:event_buttonAvatarActionPerformed
 
     private void buttonFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFechaNacimientoActionPerformed
-        // TODO add your handling code here:
+        FechaNacimientoDialog dialog = new FechaNacimientoDialog(null, true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_buttonFechaNacimientoActionPerformed
 
 

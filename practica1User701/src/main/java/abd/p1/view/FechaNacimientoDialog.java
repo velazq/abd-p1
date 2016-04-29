@@ -94,8 +94,6 @@ public class FechaNacimientoDialog extends javax.swing.JDialog {
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
         Date fechaNacimiento = jDateChooserFecha.getDate();
-        UsuarioController controller = new UsuarioController();
-        controller.setFechaNacimiento(fechaNacimiento);
         this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarActionPerformed
 
