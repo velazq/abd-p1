@@ -1,14 +1,14 @@
 package abd.p1.controller;
 
-import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+import javax.swing.JOptionPane;
 
 import abd.p1.dao.Facade;
-import abd.p1.dao.UsuarioDAO;
+import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
-import abd.p1.math.SphericalGeometry;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class UsuarioController {
 	
@@ -58,19 +58,39 @@ public class UsuarioController {
 	}
 	
 	public void loginShow() {
-
+		Usuario usr = null;
+		
         InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
         loginDialog.setVisible(true);
         
-        if (loginDialog.isAceptar()) {
-        	String email = loginDialog.getEmail();
-        	String pass = loginDialog.getPassword();
-        	Usuario usr = Facade.getInstance().findUserByEmail(email);
-        	if (usr != null) {
-        		PrincipalJFrame ppal = new PrincipalJFrame();
-        	}
-        }
+    	String email = loginDialog.getEmail();
+    	String pass = loginDialog.getPassword();
+    	usr = Facade.getInstance().findUserByEmail(email);
         
+        if (loginDialog.isAceptar()) {
+        	if (usr == null) {
+        		JOptionPane.showMessageDialog(loginDialog,
+                        "El usuario no está registrado.",
+                        "Error de usuario",
+                        JOptionPane.ERROR_MESSAGE);
+        	}
+        } else if (loginDialog.isNuevoUsuario()) {
+            if(usr != null) {
+                JOptionPane.showMessageDialog(loginDialog,
+	                "El usuario ya está registrado.",
+	                "Usuario registrado",
+	                JOptionPane.ERROR_MESSAGE);
+            } else {
+            	usr = new Usuario();
+            	usr.setEmail(email);
+            	usr.setContrasena(pass);
+            }
+        }
+
+    	if (usr != null) {
+    		PrincipalJFrame ppal = new PrincipalJFrame(usr);
+    		ppal.setVisible(true);
+    	}
 	}
 
 }
