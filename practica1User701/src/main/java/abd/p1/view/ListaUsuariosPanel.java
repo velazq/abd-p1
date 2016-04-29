@@ -5,6 +5,7 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
 import abd.p1.model.Usuario;
 import javax.swing.DefaultListModel;
 
@@ -22,6 +23,18 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 	}*/
 	
 	private DefaultListModel<Usuario> modelo = new DefaultListModel<>();
+	
+	private Usuario usr;
+	private UsuarioController uCtrl;
+	
+	public ListaUsuariosPanel(Usuario usr, UsuarioController uCtrl) {
+        initComponents();
+		this.usr = usr;
+		this.uCtrl = uCtrl;
+		
+		modelo = new DefaultListModel<>();
+        jListUsuarios.setCellRenderer(new UsuariosCellRenderer());
+	}
 	
     /**
      * Creates new form ListaUsuariosPanel
@@ -54,7 +67,7 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListUsuarios = new javax.swing.JList<>();
-        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel();
+        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel(usr, uCtrl);
         busquedaPanel1 = new abd.p1.view.BusquedaPanel();
 
         jScrollPane1.setViewportView(jListUsuarios);

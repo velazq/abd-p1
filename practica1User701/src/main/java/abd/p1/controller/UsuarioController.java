@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import abd.p1.dao.Facade;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
+import abd.p1.view.EditarPerfil;
 import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
 
@@ -89,6 +90,10 @@ public class UsuarioController {
     	if (usr != null) {
     		PrincipalJFrame ppal = new PrincipalJFrame(usr, this);
     		ppal.setVisible(true);
+    		if (loginDialog.isNuevoUsuario()) {
+            	EditarPerfil perfil = new EditarPerfil(ppal, true);
+                perfil.setVisible(true);
+    		}
     	}
 	}
 

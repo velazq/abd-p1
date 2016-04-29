@@ -5,11 +5,23 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
+import abd.p1.model.Usuario;
+
 /**
  *
  * @author Guilherme
  */
 public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
+	
+	private Usuario usr;
+	private UsuarioController uCtrl;
+	
+	public BotonesListaUsuariosPanel(Usuario usr, UsuarioController uCtrl) {
+        initComponents();
+		this.usr = usr;
+		this.uCtrl = uCtrl;
+	}
 
     /**
      * Creates new form BotonesListaUsuariosPanel
