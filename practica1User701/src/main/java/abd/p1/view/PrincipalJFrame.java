@@ -48,14 +48,18 @@ public class PrincipalJFrame extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
                 }
         }else if (diag.isNuevoUsuario()){
-            user = dao.findByEmail(diag.getTextFieldCorreo().getText());
+            diag.setVisible(false);
+            //user = dao.findByEmail(diag.getTextFieldCorreo().getText());
+            user.setNombre(null);
                 if(user.getNombre() != null){
                    JOptionPane.showMessageDialog(this,
                    "Usuario ya esta registrado.",
                    "Usuario registrado",
                    JOptionPane.ERROR_MESSAGE);
                }else {
+                    
                     EditarPerfil perfil = new EditarPerfil(this,true);
+                    perfil.setVisible(true);
                }
         }
         
