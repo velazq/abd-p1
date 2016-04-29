@@ -14,12 +14,21 @@ import javax.swing.DefaultListModel;
  */
 public class ListaUsuariosPanel extends javax.swing.JPanel {
 
+	/*private UsuarioController uCtrl;
+	
+	public ListaUsuariosPanel(UsuarioController uCtrl) {
+        initComponents();
+		this.uCtrl = uCtrl;
+	}*/
+	
+	private DefaultListModel<Usuario> modelo = new DefaultListModel<>();
+	
     /**
      * Creates new form ListaUsuariosPanel
      */
     public ListaUsuariosPanel() {
         initComponents();
-        Usuario usr1 = new Usuario();
+        /*Usuario usr1 = new Usuario();
         Usuario usr2 = new Usuario();
         Usuario usr3 = new Usuario();
         usr1.setNombre("Pepe");
@@ -29,7 +38,7 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
         DefaultListModel<Usuario> modelo = new DefaultListModel<>();
         modelo.addElement(usr1);
         modelo.addElement(usr2);
-        modelo.addElement(usr3);
+        modelo.addElement(usr3);*/
         jListUsuarios.setModel(modelo);
         jListUsuarios.setCellRenderer(new UsuariosCellRenderer());
     }
@@ -82,4 +91,12 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
     private javax.swing.JList<Usuario> jListUsuarios;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+	public DefaultListModel<Usuario> getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(DefaultListModel<Usuario> modelo) {
+		this.modelo = modelo;
+	}
 }

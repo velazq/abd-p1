@@ -5,6 +5,7 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.UsuarioController;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
 import javax.swing.JOptionPane;
@@ -17,10 +18,12 @@ import javax.swing.JOptionPane;
 public class PrincipalJFrame extends javax.swing.JFrame {
 	
 	private Usuario usr;
+	private UsuarioController uCtrl = null;
     
-    public PrincipalJFrame(Usuario usr) {
+    public PrincipalJFrame(Usuario usr, UsuarioController uCtrl) {
     	initComponents();
     	this.usr = usr;
+    	this.uCtrl = uCtrl;
     	//TODO
     }
     
@@ -75,7 +78,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel();
+        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel(uCtrl);
         listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

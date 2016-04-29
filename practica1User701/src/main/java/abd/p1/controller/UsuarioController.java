@@ -53,7 +53,6 @@ public class UsuarioController {
 		double longitude = ThreadLocalRandom.current().nextDouble(LONGITUDE_LOWER_BOUND, LONGITUDE_UPPER_BOUND);
 		usr.setLatitud(latitude);
 		usr.setLongitud(longitude);
-		//usuarioDAO.update(usr);
 		Facade.getInstance().updateUser(usr);
 	}
 	
@@ -88,7 +87,7 @@ public class UsuarioController {
         }
 
     	if (usr != null) {
-    		PrincipalJFrame ppal = new PrincipalJFrame(usr);
+    		PrincipalJFrame ppal = new PrincipalJFrame(usr, this);
     		ppal.setVisible(true);
     	}
 	}
