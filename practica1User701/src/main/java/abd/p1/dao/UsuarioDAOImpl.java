@@ -45,6 +45,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 			Session s = begin();
 			Query q = s.createQuery(hql);
 			q.setString("email", email);
+			q.setMaxResults(1);
 			usuario = (Usuario) q.uniqueResult();
 			commit();
 		} catch (Exception e) {

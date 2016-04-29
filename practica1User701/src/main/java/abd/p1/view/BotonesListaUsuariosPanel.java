@@ -5,6 +5,9 @@
  */
 package abd.p1.view;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 import abd.p1.controller.UsuarioController;
 import abd.p1.model.Usuario;
 
@@ -79,7 +82,9 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonModificarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarPerfilActionPerformed
-        // TODO add your handling code here:
+    	JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+    	EditarPerfil perfil = new EditarPerfil(topFrame, true, usr);
+        perfil.setVisible(true);
     }//GEN-LAST:event_buttonModificarPerfilActionPerformed
 
     private void buttonVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPerfilActionPerformed
