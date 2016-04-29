@@ -5,6 +5,8 @@
  */
 package abd.p1.view;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author Guilherme
@@ -16,6 +18,7 @@ public class test extends javax.swing.JFrame {
      */
     public test() {
         initComponents();
+        JDialog fechaNacimientoDialog  = new JDialog();
     }
 
     /**
