@@ -119,5 +119,8 @@ public class UsuarioController {
     		}
     	}
 	}
-
+	
+	public void save(Usuario usr) {
+		usuarioDAO.persist(usr);
+	}
 }
