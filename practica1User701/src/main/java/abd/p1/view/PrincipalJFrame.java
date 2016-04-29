@@ -8,6 +8,9 @@ package abd.p1.view;
 import abd.p1.controller.UsuarioController;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
+
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 
@@ -153,4 +156,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private abd.p1.view.ListaPreguntasPanel listaPreguntasPanel2;
     private abd.p1.view.ListaUsuariosPanel listaUsuariosPanel2;
     // End of variables declaration//GEN-END:variables
+    
+    public void listUsers(List<Usuario> usrs) {
+    	listaUsuariosPanel2.setUsers(usrs);
+    }
 }

@@ -1,5 +1,6 @@
 package abd.p1.controller;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JOptionPane;
@@ -23,7 +24,9 @@ public class UsuarioController {
 	
 	private PrincipalJFrame mainWindow;
 	
-	public UsuarioController() {}
+	public UsuarioController() {
+		
+	}
 	
 	/*private final UsuarioDAO usuarioDAO;
 
@@ -38,10 +41,17 @@ public class UsuarioController {
 		}
 		return usuario;
 	}
+	*/
 	
-	public List<Usuario> listUsers(Usuario usr, String filterByName) {
-		return usuarioDAO.nearestUsers(usr, filterByName, MAX_USERS_IN_LIST);
-	}*/
+	public void listUsers(Usuario usr, String filterByName, boolean friends) {
+		List<Usuario> usrs = null;
+		if (friends) {
+			usrs = Facade.getInstance().nearestFriends(usr, filterByName, MAX_USERS_IN_LIST);
+		} else {
+			usrs = Facade.getInstance().nearestUsers(usr, filterByName, MAX_USERS_IN_LIST);
+		}
+		mainWindow.listUsers(usrs);
+	}
 	
 	public long distance(Usuario usr1, Usuario usr2) {
 		double phi1 = usr1.getLatitud();
@@ -102,12 +112,12 @@ public class UsuarioController {
     	}
 	}
         
-        public void filtrarUsuario(String filtro){
-            
-        }
+    public void filtrarUsuario(String filtro){
         
-        public void mostrarAmigos(){
-            
-        }
+    }
+    
+    public void mostrarAmigos(){
+        
+    }
 
 }

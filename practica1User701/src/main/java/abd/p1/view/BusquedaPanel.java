@@ -6,6 +6,7 @@
 package abd.p1.view;
 
 import abd.p1.controller.UsuarioController;
+import abd.p1.model.Usuario;
 
 /**
  *
@@ -13,8 +14,21 @@ import abd.p1.controller.UsuarioController;
  */
 public class BusquedaPanel extends javax.swing.JPanel {
 
-    Boolean filtrar;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Boolean filtrar;
     String filtrarUsuario;
+
+	private Usuario usr;
+	private UsuarioController uCtrl;
+	
+	public BusquedaPanel(Usuario usr, UsuarioController uCtrl) {
+        initComponents();
+		this.usr = usr;
+		this.uCtrl = uCtrl;
+	}
     /**
      * Creates new form BusquedaPanel
      */
@@ -89,16 +103,14 @@ public class BusquedaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_checkboxFiltrarActionPerformed
 
     private void textFieldFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFiltrarActionPerformed
-        filtrarUsuario = textFieldFiltrar.getText();
-        if (filtrar){
-            UsuarioController controller = new UsuarioController();
-            controller.filtrarUsuario(filtrarUsuario);
+        filtrarUsuario = textFieldFiltrar.getText().trim();
+        if (!filtrarUsuario.equals("") && checkboxFiltrar.isSelected()) {
+            uCtrl.listUsers(usr, filtrarUsuario, checkboxAmigos.isSelected());
         }
     }//GEN-LAST:event_textFieldFiltrarActionPerformed
 
     private void checkboxAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAmigosActionPerformed
-        UsuarioController controller = new UsuarioController();
-        controller.mostrarAmigos();
+    	
     }//GEN-LAST:event_checkboxAmigosActionPerformed
 
 

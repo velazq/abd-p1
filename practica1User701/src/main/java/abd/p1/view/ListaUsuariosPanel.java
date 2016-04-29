@@ -7,6 +7,9 @@ package abd.p1.view;
 
 import abd.p1.controller.UsuarioController;
 import abd.p1.model.Usuario;
+
+import java.util.List;
+
 import javax.swing.DefaultListModel;
 
 /**
@@ -109,12 +112,11 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
     private javax.swing.JList<Usuario> jListUsuarios;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
-	public DefaultListModel<Usuario> getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(DefaultListModel<Usuario> modelo) {
-		this.modelo = modelo;
+	
+	public void setUsers(List<Usuario> usrs) {
+		modelo.clear();
+		for (Usuario u : usrs) {
+			modelo.addElement(u);
+		}
 	}
 }

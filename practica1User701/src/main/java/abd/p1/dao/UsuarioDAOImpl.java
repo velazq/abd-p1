@@ -55,23 +55,23 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return usuario;
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
-	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit) {
-		String hql = "from Usuario as u where u.genero = :preferencia ";
-		boolean filtering = nameFilter != null && !nameFilter.equals("");
+	private List<Usuario> nearest(Usuario usr, String nameFilter, int limit, String hql) {
+		String name = nameFilter.trim().toLowerCase();
+		boolean filtering = nameFilter != null && !name.equals("");
 		if (filtering)
-			hql += "and lower(u.nombre) like :nameFilter ";
+			hql += "and lower(u.nombre) like :name ";
 		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
 		List<Usuario> usrs = null;
 		try {
 			Session s = begin();
 			Query q = s.createQuery(hql);
+			q.setInteger("thisId", usr.getId());
 			q.setString("preferencia", usr.getOpcionSexual());
 			q.setDouble("latitud", usr.getLatitud());
 			q.setDouble("longitud", usr.getLongitud());
 			if (filtering)
-				q.setString("nameFilter", '%' + nameFilter.toLowerCase() + '%');
+				q.setString("name", '%' + name + '%');
 			if (limit > 0)
 				q.setMaxResults(limit);
 			usrs = (List<Usuario>) q.list();
@@ -82,10 +82,21 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		}
 		return usrs;
 	}
+
+	@Override
+	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit) {
+		String hql = "from Usuario as u "
+				+ "where u.genero = :preferencia and u.id != :thisId ";
+		return nearest(usr, nameFilter, limit, hql);
+	}
+
+	@Override
+	public List<Usuario> nearestFriends(Usuario usr, String nameFilter, int limit) {
+		String hql = "select a from Usuario u join Usuario.amigos a "
+				+ "where u.genero = :preferencia where u.id = :thisId ";
+		return nearest(usr, nameFilter, limit, hql);
+	}
 	
-	/* (non-Javadoc)
-	 * @see abd.p1.dao.UsuarioDAO#compatibility(abd.p1.model.Usuario, abd.p1.model.Usuario)
-	 */
 	@Override
 	public int compatibility(Usuario usr1, Usuario usr2) {
 		String hqlMTotal = "select sum(r1.valoracion + r2.valoracion) "

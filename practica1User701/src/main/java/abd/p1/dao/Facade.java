@@ -71,6 +71,10 @@ public class Facade {
 		return usuarios.nearestUsers(usr, nameFilter, limit);
 	}
 
+	public List<Usuario> nearestFriends(Usuario usr, String nameFilter, int limit){
+		return usuarios.nearestFriends(usr, nameFilter, limit);
+	}
+
 	public List<Aficion> commonHobbies(Usuario usr1, Usuario usr2){
 		return usuarios.commonHobbies(usr1, usr2);
 	}

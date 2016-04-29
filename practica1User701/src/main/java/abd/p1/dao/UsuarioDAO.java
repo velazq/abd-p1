@@ -14,6 +14,8 @@ public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
 	public Usuario findByName(String name);
 
 	public List<Usuario> nearestUsers(Usuario usr, String nameFilter, int limit);
+	
+	public List<Usuario> nearestFriends(Usuario usr, String nameFilter, int limit);
 
 	public List<Aficion> commonHobbies(Usuario usr1, Usuario usr2);
 	
