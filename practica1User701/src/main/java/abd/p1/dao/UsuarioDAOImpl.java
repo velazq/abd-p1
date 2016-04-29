@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import abd.p1.model.Aficion;
 import abd.p1.model.Usuario;
@@ -25,12 +26,15 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		String hql = "from Usuario as u where u.nombre = :nombre";
 		Usuario usuario = null;
 		try {
-			Session s = begin();
+			Session s = getSession();
+			Transaction tx = s.beginTransaction();
+			//Session s = begin();
 			Query q = s.createQuery(hql);
 			q.setString("nombre", name);
 			usuario = (Usuario) q.uniqueResult();
-			//s.evict(usuario); // Desenganchamos al usuario de la sesión para poder cambiarlo sin que se guarden los cambios
-			commit();
+			s.evict(usuario); // Desenganchamos al usuario de la sesión para poder cambiarlo sin que se guarden los cambios
+			tx.commit();
+			
 		} catch (Exception e) {
 			rollback();
 			e.printStackTrace();
@@ -41,16 +45,20 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 	public Usuario findByEmail(String email) {
 		String hql = "from Usuario as u where u.email = :email";
 		Usuario usuario = null;
+		Session s = getSession();
 		try {
-			Session s = begin();
+			Transaction tx = s.beginTransaction();
 			Query q = s.createQuery(hql);
 			q.setString("email", email);
 			q.setMaxResults(1);
 			usuario = (Usuario) q.uniqueResult();
-			commit();
+			s.evict(usuario);
+			tx.commit();
 		} catch (Exception e) {
 			rollback();
 			e.printStackTrace();
+		} finally {
+			s.close();
 		}
 		return usuario;
 	}
@@ -64,7 +72,9 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
 		List<Usuario> usrs = null;
 		try {
-			Session s = begin();
+			//Session s = begin();
+			Session s = getSession();
+			Transaction tx = s.beginTransaction();
 			Query q = s.createQuery(hql);
 			q.setInteger("thisId", usr.getId());
 			q.setString("preferencia", usr.getOpcionSexual());
@@ -75,7 +85,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 			if (limit > 0)
 				q.setMaxResults(limit);
 			usrs = (List<Usuario>) q.list();
-			commit();
+			tx.commit();
 		} catch (Exception e) {
 			rollback();
 			e.printStackTrace();

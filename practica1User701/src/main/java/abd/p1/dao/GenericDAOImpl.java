@@ -18,6 +18,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	public abstract Class<Entity> getEntityClass();
 	
 	protected Session getSession() {
+		/*
 		Session session = null;
 		try {
 			session = this.sf.getCurrentSession();
@@ -25,50 +26,63 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 			session = this.sf.openSession();
 		}
 		return session;
+		*/
+		return this.sf.openSession();
 	}
 	
 	protected Session begin() {
-		//Session session = this.sf.openSession();
-		Session session = getSession();
+		Session session = this.sf.openSession();
+		//Session session = getSession();
 		session.beginTransaction();
 		return session;
 	}
 	
 	protected void commit() {
 		Session session = this.sf.getCurrentSession();
+		//Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.commit();
-		//session.close();
+		session.close();
 	}
 	
 	protected void rollback() {
 		Session session = this.sf.getCurrentSession();
+		//Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.rollback();
-		//session.close();
+		session.close();
 	}
 
 	@Override
 	public void persist(Entity entity) {
+		Session s = this.sf.openSession();
 		try {
-			Session s = begin();
+			//Session s = begin();
+			//Session s = getSession();
+			Transaction tx = s.beginTransaction();
 			s.save(entity);
-			commit();
+			tx.commit();
 		} catch (HibernateException e) {
-			rollback();
 			e.printStackTrace();
+			rollback();
+		} finally {
+			s.close();
 		}
 	}
 
 	@Override
 	public void update(Entity entity) {
+		Session s = getSession();
 		try {
-			Session s = begin();
+			//Session s = begin();
+			Transaction tx = s.beginTransaction();
 			s.update(entity);
-			commit();
+			tx.commit();
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
+		} finally {
+			s.close();
 		}
 		
 	}
@@ -76,26 +90,30 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	@Override
 	public Entity findById(Id id) {
 		Entity entity = null;
+		Session s = begin();
 		try {
-			Session s = begin();
 			s.load(getEntityClass(), id);
 			commit();
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
+		} finally {
+			s.close();
 		}
 		return entity;
 	}
 
 	@Override
 	public void delete(Entity entity) {
+		Session s = begin();
 		try {
-			Session s = begin();
 			s.delete(entity);
 			commit();
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
+		} finally {
+			s.close();
 		}
 	}
 

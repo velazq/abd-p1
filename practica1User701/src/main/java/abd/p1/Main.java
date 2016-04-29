@@ -47,6 +47,8 @@ public class Main {
             uCtrl.loginShow();
 			*/
             
+            //sf.openSession();
+            
             PrincipalJFrame mainWindow = new PrincipalJFrame();
             
             ControllersFacade.setParams(sf, mainWindow);

@@ -110,7 +110,7 @@ public class UsuarioController {
 
     	if (usr != null) {
         	//Facade.getInstance().evictUser(usr);
-    		usuarioDAO.evict(usr);
+    		//usuarioDAO.evict(usr);
     		mainWindow.setUser(usr);
     		mainWindow.setVisible(true);
     		if (loginDialog.isNuevoUsuario()) {

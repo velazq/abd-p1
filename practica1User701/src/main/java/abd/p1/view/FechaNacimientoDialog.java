@@ -5,8 +5,9 @@
  */
 package abd.p1.view;
 
-import abd.p1.controller.UsuarioController;
 import java.util.Date;
+
+import abd.p1.model.Usuario;
 
 /**
  *
@@ -14,9 +15,15 @@ import java.util.Date;
  */
 public class FechaNacimientoDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form fechaNacimientoDialog
-     */
+	private static final long serialVersionUID = 1L;
+	private Usuario usr;
+    
+    public FechaNacimientoDialog(java.awt.Frame parent, boolean modal, Usuario usr) {
+        super(parent, modal);
+    	this.usr = usr;
+        initComponents();
+    }
+    
     public FechaNacimientoDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -94,6 +101,7 @@ public class FechaNacimientoDialog extends javax.swing.JDialog {
 
     private void buttonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAceptarActionPerformed
         Date fechaNacimiento = jDateChooserFecha.getDate();
+        usr.setFechaNacimiento(fechaNacimiento);
         this.setVisible(false);
     }//GEN-LAST:event_buttonAceptarActionPerformed
 

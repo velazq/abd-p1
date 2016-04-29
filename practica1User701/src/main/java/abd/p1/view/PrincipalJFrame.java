@@ -34,6 +34,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     
     public void setUser(Usuario usr) {
     	this.usr = usr;
+    	initComponents();
     }
     
     public Usuario getUser() {
@@ -44,7 +45,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public PrincipalJFrame() {
-        initComponents();
+        //initComponents();
         
     	/*
         UsuarioDAOImpl dao = null;
@@ -92,7 +93,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel();
+        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel(usr);
         listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

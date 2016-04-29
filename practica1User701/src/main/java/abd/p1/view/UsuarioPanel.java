@@ -144,8 +144,9 @@ public class UsuarioPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNombreActionPerformed
-        String nombre = JOptionPane.showInputDialog("Introduce una nombre: ");
+        String nombre = JOptionPane.showInputDialog("Introduce un nombre: ");
         labelNombre.setText(nombre);
+        usr.setNombre(nombre);
     }//GEN-LAST:event_buttonNombreActionPerformed
 
     private void buttonAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAvatarActionPerformed
