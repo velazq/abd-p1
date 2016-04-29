@@ -1,5 +1,6 @@
 package abd.p1.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -100,6 +101,8 @@ public class UsuarioController {
             	usr = new Usuario();
             	usr.setEmail(email);
             	usr.setContrasena(pass);
+            	usr.setNombre("Sin nombre");
+            	usr.setFechaNacimiento(new Date());
             	//Facade.getInstance().insertUser(usr);
             	usuarioDAO.persist(usr);
             }
@@ -111,7 +114,7 @@ public class UsuarioController {
     		mainWindow.setUser(usr);
     		mainWindow.setVisible(true);
     		if (loginDialog.isNuevoUsuario()) {
-            	EditarPerfil perfil = new EditarPerfil(mainWindow, true, usr, this);
+            	EditarPerfil perfil = new EditarPerfil(mainWindow, true, usr);
                 perfil.setVisible(true);
     		}
     	}

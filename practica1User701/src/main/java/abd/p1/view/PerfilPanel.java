@@ -5,6 +5,8 @@
  */
 package abd.p1.view;
 
+import abd.p1.model.Usuario;
+
 /**
  *
  * @author Guilherme
@@ -14,7 +16,10 @@ public class PerfilPanel extends javax.swing.JPanel {
     /**
      * Creates new form PerfilPanel
      */
-    public PerfilPanel() {
+	private Usuario usr;
+	
+    public PerfilPanel(Usuario usr) {
+        this.usr = usr;
         initComponents();
     }
 
@@ -27,9 +32,9 @@ public class PerfilPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usuarioPanel1 = new abd.p1.view.UsuarioPanel();
+        usuarioPanel1 = new abd.p1.view.UsuarioPanel(usr);
         descripcionPanel1 = new abd.p1.view.DescripcionPanel();
-        aficionesPane1 = new abd.p1.view.AficionesPane();
+        aficionesPane1 = new abd.p1.view.AficionesPane(usr);
         orientacionSexualPanel1 = new abd.p1.view.OrientacionSexualPanel();
         botonesModificarPerfilPanel1 = new abd.p1.view.BotonesModificarPerfilPanel();
 

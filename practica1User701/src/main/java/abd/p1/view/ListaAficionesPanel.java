@@ -7,6 +7,8 @@ package abd.p1.view;
 
 import abd.p1.model.Aficion;
 import abd.p1.model.Pregunta;
+import abd.p1.model.Usuario;
+
 import javax.swing.DefaultListModel;
 
 /**
@@ -15,12 +17,12 @@ import javax.swing.DefaultListModel;
  */
 public class ListaAficionesPanel extends javax.swing.JPanel {
     DefaultListModel<Aficion> modelo = new DefaultListModel<>();
-    /**
-     * Creates new form ListaAficionesPanel
-     */
-    public ListaAficionesPanel() {
+    private Usuario usr;
+    
+    public ListaAficionesPanel(Usuario usr) {
+    	this.usr = usr;
         initComponents();
-        
+        /*
         Aficion af1 = new Aficion();
         Aficion af2 = new Aficion();
         Aficion af3 = new Aficion();
@@ -34,21 +36,32 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
         modelo.addElement(af1);
         modelo.addElement(af2);
         modelo.addElement(af3);
+        */
+        for (Aficion a : usr.getAficiones())
+        	modelo.addElement(a);
         jListAficiones.setModel(modelo);
         jListAficiones.setCellRenderer(new AficionCellRenderer());
+        
     }
     
     public void addAficion(String aficion){
-        Aficion af = new Aficion();
+        /*
+    	Aficion af = new Aficion();
         Aficion af1 = new Aficion();
         af1 = modelo.lastElement();
         af.setTexto(aficion);
         af.setId(af1.getId()+ 1);
         modelo.addElement(af);
+        */
+    	Aficion a = new Aficion();
+    	a.setTexto(aficion);
+    	usr.getAficiones().add(a);
+    	modelo.addElement(a);
     }
     
     public void removeAficion(Aficion af){
         modelo.removeElement(af);
+        usr.getAficiones().remove(af);
     }
     
     public Aficion getAficionSeleccionada(){
@@ -56,9 +69,13 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
     }
     
     public void updateAficion(Integer id, String af){
+    	/*
         Aficion aficion = new Aficion();
         aficion.setTexto(af);
         modelo.setElementAt(aficion, id - 1);
+        */
+    	Aficion a = getAficionSeleccionada();
+    	a.setTexto(af);
     }
     
    

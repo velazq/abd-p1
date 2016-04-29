@@ -6,6 +6,8 @@
 package abd.p1.view;
 
 import abd.p1.model.Aficion;
+import abd.p1.model.Usuario;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -14,10 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class AficionesPane extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AficionesPane
-     */
-    public AficionesPane() {
+	private static final long serialVersionUID = 1L;
+	private Usuario usr;
+	
+    public AficionesPane(Usuario usr) {
+    	this.usr = usr;
         initComponents();
     }
 
@@ -34,7 +37,7 @@ public class AficionesPane extends javax.swing.JPanel {
         buttonAnadir = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         buttonEditar = new javax.swing.JButton();
-        listaAficionesPanel1 = new abd.p1.view.ListaAficionesPanel();
+        listaAficionesPanel1 = new abd.p1.view.ListaAficionesPanel(usr);
 
         labelAficiones.setText("Aficiones:");
 
@@ -110,9 +113,9 @@ public class AficionesPane extends javax.swing.JPanel {
 
     private void buttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarActionPerformed
         String aficion = JOptionPane.showInputDialog("Introduce una afición: ");
-        Aficion af = new Aficion(); 
-       af = listaAficionesPanel1.getAficionSeleccionada();
-       listaAficionesPanel1.updateAficion(af.getId(), aficion);
+        Aficion af;// = new Aficion(); 
+        af = listaAficionesPanel1.getAficionSeleccionada();
+        listaAficionesPanel1.updateAficion(af.getId(), aficion);
        
     }//GEN-LAST:event_buttonEditarActionPerformed
 

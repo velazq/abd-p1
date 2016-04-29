@@ -28,9 +28,14 @@ public class UsuarioPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public void redraw() {
-    	PrincipalJFrame f = (PrincipalJFrame)this.getTopLevelAncestor();
-    	usr = f.getUser();
+    public UsuarioPanel(Usuario usr) {
+        initComponents();
+        setUser(usr);
+    }
+    
+    public void setUser(Usuario usr) {
+    	this.usr = usr;
+    	
         labelNombre.setText(usr.getNombre());
         
         Calendar birthDay = Calendar.getInstance();
@@ -201,8 +206,6 @@ public class UsuarioPanel extends javax.swing.JPanel {
         buttonNombre.setVisible(editable);
         buttonFechaNacimiento.setVisible(editable);
         buttonAvatar.setVisible(editable);
-        
-        redraw();
     }
 
     /**

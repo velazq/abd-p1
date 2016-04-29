@@ -2,8 +2,10 @@ package abd.p1.model;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @Entity
@@ -98,6 +100,8 @@ public class Usuario {
 	}
 
 	public List<Aficion> getAficiones() {
+		if (aficiones == null)
+			aficiones = new ArrayList<>();
 		return aficiones;
 	}
 
@@ -106,6 +110,8 @@ public class Usuario {
 	}
 
 	public Set<Usuario> getAmigos() {
+		if (amigos == null)
+			amigos = new HashSet<>();
 		return amigos;
 	}
 
