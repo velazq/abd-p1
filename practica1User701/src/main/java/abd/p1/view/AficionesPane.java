@@ -106,7 +106,7 @@ public class AficionesPane extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonAnadirActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-       Aficion af = new Aficion(); 
+       Aficion af;// = new Aficion(); 
        af = listaAficionesPanel1.getAficionSeleccionada();
        listaAficionesPanel1.removeAficion(af);
     }//GEN-LAST:event_buttonEliminarActionPerformed

@@ -36,7 +36,7 @@ public class PerfilPanel extends javax.swing.JPanel {
         descripcionPanel1 = new abd.p1.view.DescripcionPanel();
         aficionesPane1 = new abd.p1.view.AficionesPane(usr);
         orientacionSexualPanel1 = new abd.p1.view.OrientacionSexualPanel();
-        botonesModificarPerfilPanel1 = new abd.p1.view.BotonesModificarPerfilPanel();
+        botonesModificarPerfilPanel1 = new abd.p1.view.BotonesModificarPerfilPanel(usr);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

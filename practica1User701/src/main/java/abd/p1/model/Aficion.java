@@ -6,6 +6,7 @@ import javax.persistence.*;
 @IdClass(AficionID.class)
 public class Aficion {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@Id
 	@ManyToOne

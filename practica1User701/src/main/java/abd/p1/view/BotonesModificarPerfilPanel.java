@@ -5,6 +5,9 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.ControllersFacade;
+import abd.p1.model.Usuario;
+
 /**
  *
  * @author Guilherme
@@ -14,7 +17,10 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
     /**
      * Creates new form BotonesModificarPerfilPanel
      */
-    public BotonesModificarPerfilPanel() {
+	private Usuario usr;
+	
+    public BotonesModificarPerfilPanel(Usuario usr) {
+    	this.usr = usr;
         initComponents();
     }
 
@@ -79,6 +85,7 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
 
     private void buttonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarActionPerformed
         // TODO add your handling code here:
+    	ControllersFacade.getInstance().saveUser(usr);
     }//GEN-LAST:event_buttonGuardarActionPerformed
 
     private void buttonContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrasenaActionPerformed

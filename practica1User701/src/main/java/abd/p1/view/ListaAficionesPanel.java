@@ -55,6 +55,7 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
         */
     	Aficion a = new Aficion();
     	a.setTexto(aficion);
+    	a.setUsuario(usr);
     	usr.getAficiones().add(a);
     	modelo.addElement(a);
     }
