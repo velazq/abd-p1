@@ -30,7 +30,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 			Query q = s.createQuery(hql);
 			q.setString("nombre", name);
 			usuario = (Usuario) q.uniqueResult();
-			s.evict(usuario); // Desenganchamos al usuario de la sesión para poder cambiarlo sin que se guarden los cambios
+			//s.evict(usuario); // Desenganchamos al usuario de la sesión para poder cambiarlo sin que se guarden los cambios
 			commit();
 		} catch (Exception e) {
 			rollback();
@@ -142,5 +142,12 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 			e.printStackTrace();
 		}
 		return hobbies;
+	}
+
+	@Override
+	public void evict(Usuario usr) {
+		Session s = begin();
+		s.evict(usr);
+		commit();
 	}
 }

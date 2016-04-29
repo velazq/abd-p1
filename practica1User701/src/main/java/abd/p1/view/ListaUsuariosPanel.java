@@ -22,6 +22,11 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 		this.uCtrl = uCtrl;
 	}*/
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private DefaultListModel<Usuario> modelo = new DefaultListModel<>();
 	
 	private Usuario usr;

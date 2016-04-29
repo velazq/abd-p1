@@ -20,6 +20,8 @@ public class UsuarioController {
 	private static final double LONGITUDE_LOWER_BOUND = 3.0;
 	private static final double LONGITUDE_UPPER_BOUND = 4.5;
 	
+	private PrincipalJFrame mainWindow;
+	
 	public UsuarioController() {}
 	
 	/*private final UsuarioDAO usuarioDAO;
@@ -84,14 +86,16 @@ public class UsuarioController {
             	usr = new Usuario();
             	usr.setEmail(email);
             	usr.setContrasena(pass);
+            	Facade.getInstance().insertUser(usr);
             }
         }
 
     	if (usr != null) {
-    		PrincipalJFrame ppal = new PrincipalJFrame(usr, this);
-    		ppal.setVisible(true);
+        	Facade.getInstance().evictUser(usr);
+    		mainWindow = new PrincipalJFrame(usr, this);
+    		mainWindow.setVisible(true);
     		if (loginDialog.isNuevoUsuario()) {
-            	EditarPerfil perfil = new EditarPerfil(ppal, true);
+            	EditarPerfil perfil = new EditarPerfil(mainWindow, true);
                 perfil.setVisible(true);
     		}
     	}
