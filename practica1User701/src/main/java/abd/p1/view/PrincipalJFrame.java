@@ -5,10 +5,12 @@
  */
 package abd.p1.view;
 
+import abd.p1.controller.ControllersFacade;
 import abd.p1.controller.UsuarioController;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -45,7 +47,53 @@ public class PrincipalJFrame extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public PrincipalJFrame() {
-        //initComponents();
+        initComponents();
+        
+
+        InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
+        loginDialog.setVisible(true);
+        
+    	String email = loginDialog.getEmail();
+    	String pass = loginDialog.getPassword();
+        usr = ControllersFacade.getInstance().loginCheck(email, pass);
+        
+        if (loginDialog.isAceptar()) {
+        	if (usr == null) {
+        		JOptionPane.showMessageDialog(loginDialog,
+                        "El usuario no está registrado.",
+                        "Error de usuario",
+                        JOptionPane.ERROR_MESSAGE);
+        	}
+        } else if (loginDialog.isNuevoUsuario()) {
+            if(usr != null) {
+                JOptionPane.showMessageDialog(loginDialog,
+	                "El usuario ya está registrado.",
+	                "Usuario registrado",
+	                JOptionPane.ERROR_MESSAGE);
+            } else {
+            	usr = new Usuario();
+            	usr.setEmail(email);
+            	usr.setContrasena(pass);
+            	usr.setNombre("Sin nombre");
+            	usr.setFechaNacimiento(new Date());
+            	//Facade.getInstance().insertUser(usr);
+            	//usuarioDAO.persist(usr);
+            	ControllersFacade.getInstance().saveUser(usr);
+            }
+        }
+
+    	if (usr != null) {
+        	//Facade.getInstance().evictUser(usr);
+    		//usuarioDAO.evict(usr);
+    		//mainWindow.setUser(usr);
+    		//mainWindow.setVisible(true);
+    		this.setVisible(true);
+    		loginDialog.setVisible(false);
+    		if (loginDialog.isNuevoUsuario()) {
+            	EditarPerfil perfil = new EditarPerfil(this, true, usr);
+                perfil.setVisible(true);
+    		}
+    	}
         
     	/*
         UsuarioDAOImpl dao = null;

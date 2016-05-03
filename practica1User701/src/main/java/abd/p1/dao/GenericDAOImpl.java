@@ -31,8 +31,8 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	}
 	
 	protected Session begin() {
-		Session session = this.sf.openSession();
-		//Session session = getSession();
+		//Session session = this.sf.openSession();
+		Session session = getSession();
 		session.beginTransaction();
 		return session;
 	}
@@ -42,7 +42,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		//Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.commit();
-		session.close();
+		//session.close();
 	}
 	
 	protected void rollback() {
@@ -50,12 +50,13 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		//Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.rollback();
-		session.close();
+		//session.close();
 	}
 
 	@Override
 	public void persist(Entity entity) {
-		Session s = this.sf.openSession();
+		//Session s = this.sf.openSession();
+		Session s = getSession();
 		try {
 			//Session s = begin();
 			//Session s = getSession();
@@ -65,8 +66,6 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			rollback();
-		} finally {
-			s.close();
 		}
 	}
 
@@ -81,9 +80,7 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
-		} finally {
-			s.close();
-		}
+		} 
 		
 	}
 
@@ -97,8 +94,6 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
-		} finally {
-			s.close();
 		}
 		return entity;
 	}
@@ -112,8 +107,6 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 		} catch (HibernateException e) {
 			rollback();
 			e.printStackTrace();
-		} finally {
-			s.close();
 		}
 	}
 

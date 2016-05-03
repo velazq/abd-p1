@@ -36,7 +36,6 @@ public class UsuarioController {
 		this.mainWindow = mainWindow;
 	}
 	
-	/*
 	public Usuario loginCheck(String email, String passwd) {
 		Usuario usuario = usuarioDAO.findByEmail(email);
 		if (usuario != null && !passwd.equals(usuario.getContrasena())) {
@@ -44,7 +43,6 @@ public class UsuarioController {
 		}
 		return usuario;
 	}
-	*/
 	
 	public void listUsers(Usuario usr, String filterByName, boolean friends) {
 		List<Usuario> usrs = null;
@@ -73,6 +71,10 @@ public class UsuarioController {
 		usuarioDAO.update(usr);
 	}
 	
+	public void runApp() {
+		
+	}
+	
 	public void loginShow() {
 		Usuario usr = null;
 		
@@ -81,7 +83,6 @@ public class UsuarioController {
         
     	String email = loginDialog.getEmail();
     	String pass = loginDialog.getPassword();
-    	//usr = Facade.getInstance().findUserByEmail(email);
         usr = usuarioDAO.findByEmail(email);
         
         if (loginDialog.isAceptar()) {
@@ -113,6 +114,7 @@ public class UsuarioController {
     		//usuarioDAO.evict(usr);
     		mainWindow.setUser(usr);
     		mainWindow.setVisible(true);
+    		loginDialog.setVisible(false);
     		if (loginDialog.isNuevoUsuario()) {
             	EditarPerfil perfil = new EditarPerfil(mainWindow, true, usr);
                 perfil.setVisible(true);

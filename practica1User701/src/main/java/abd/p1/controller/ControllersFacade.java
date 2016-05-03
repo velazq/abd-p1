@@ -21,9 +21,9 @@ public class ControllersFacade {
 		return INSTANCE;
 	}
 	
-	public static void setParams(SessionFactory sf, PrincipalJFrame mainWindow) {
+	public static void setParams(SessionFactory sf) {
 		SF = sf;
-		MAINWINDOW = mainWindow;
+		// MAINWINDOW = mainWindow;
 	}
 
 	public ControllersFacade() {
@@ -31,6 +31,7 @@ public class ControllersFacade {
 	}
 	
 	public void runApp() {
+		//uCtrl.loginShow();
 		uCtrl.loginShow();
 	}
 	
@@ -40,6 +41,10 @@ public class ControllersFacade {
 	
 	public void saveUser(Usuario usr) {
 		uCtrl.save(usr);
+	}
+	
+	public Usuario loginCheck(String email, String passwd) {
+		return uCtrl.loginCheck(email, passwd);
 	}
 
 }

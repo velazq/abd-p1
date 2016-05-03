@@ -84,7 +84,7 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
 
     private void buttonModificarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarPerfilActionPerformed
     	JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-    	EditarPerfil perfil = new EditarPerfil(topFrame, true, usr);
+    	EditarPerfil perfil = new EditarPerfil(null, true, usr);
         perfil.setVisible(true);
     }//GEN-LAST:event_buttonModificarPerfilActionPerformed
 

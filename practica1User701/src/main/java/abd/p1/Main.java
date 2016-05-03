@@ -49,12 +49,15 @@ public class Main {
             
             //sf.openSession();
             
+            
+            ControllersFacade.setParams(sf);
+            
+            //ControllersFacade.getInstance().runApp();
+            
             PrincipalJFrame mainWindow = new PrincipalJFrame();
+            mainWindow.setVisible(true);
             
-            ControllersFacade.setParams(sf, mainWindow);
-            
-            ControllersFacade.getInstance().runApp();
-            
+            System.out.println("Hasta luego...");
             
         } catch (HibernateException e) {
             e.printStackTrace();

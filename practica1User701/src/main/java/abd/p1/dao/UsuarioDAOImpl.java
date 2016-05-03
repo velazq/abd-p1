@@ -57,8 +57,6 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		} catch (Exception e) {
 			rollback();
 			e.printStackTrace();
-		} finally {
-			s.close();
 		}
 		return usuario;
 	}
