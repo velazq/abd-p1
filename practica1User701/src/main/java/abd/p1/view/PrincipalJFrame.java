@@ -6,12 +6,14 @@
 package abd.p1.view;
 
 import abd.p1.controller.ControllersFacade;
-import abd.p1.controller.UsuarioController;
-import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.model.Usuario;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -24,16 +26,18 @@ public class PrincipalJFrame extends javax.swing.JFrame {
 	
 	private Usuario usr;
 	//private UsuarioController uCtrl = null;
+        
+        private Lock lock;
+
+        public synchronized void waitUntilClose() {
+            try {
+                lock.wait();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(PrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     
     /*
-    public PrincipalJFrame(Usuario usr, UsuarioController uCtrl) {
-    	initComponents();
-    	this.usr = usr;
-    	this.uCtrl = uCtrl;
-    	//TODO
-    }
-*/
-    
     public void setUser(Usuario usr) {
     	this.usr = usr;
     	initComponents();
@@ -41,7 +45,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     
     public Usuario getUser() {
     	return this.usr;
-    }
+    }*/
     
     /**
      * Creates new form Principal
@@ -49,6 +53,8 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     public PrincipalJFrame() {
         initComponents();
         
+        lock = new ReentrantLock();
+        lock.lock();
 
         InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
         loginDialog.setVisible(true);

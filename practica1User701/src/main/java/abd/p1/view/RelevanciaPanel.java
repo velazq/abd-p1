@@ -5,6 +5,10 @@
  */
 package abd.p1.view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JSlider;
+
 /**
  *
  * @author Guilherme
@@ -81,6 +85,21 @@ public class RelevanciaPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getButtonInivitarAmigo() {
+        return buttonInivitarAmigo;
+    }
+
+    public JButton getButtonResponder() {
+        return buttonResponder;
+    }
+
+    public JLabel getLabelRelevancia() {
+        return labelRelevancia;
+    }
+
+    public JSlider getSliderRelevancia() {
+        return sliderRelevancia;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonInivitarAmigo;
