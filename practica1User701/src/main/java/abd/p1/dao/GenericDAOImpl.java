@@ -7,27 +7,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements GenericDAO<Entity, Id> {
-	
-	private final SessionFactory sf;
+import abd.p1.dao.SessionManager;
 
-	public GenericDAOImpl(SessionFactory sf) {
-		this.sf = sf;
+public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements GenericDAO<Entity, Id> {
+
+	public GenericDAOImpl() {
 	}
 	
 	public abstract Class<Entity> getEntityClass();
 	
 	protected Session getSession() {
-		/*
-		Session session = null;
-		try {
-			session = this.sf.getCurrentSession();
-		} catch (HibernateException e) {
-			session = this.sf.openSession();
-		}
-		return session;
-		*/
-		return this.sf.openSession();
+		return SessionManager.getSession();
 	}
 	
 	protected Session begin() {

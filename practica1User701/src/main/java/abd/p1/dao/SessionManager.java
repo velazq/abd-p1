@@ -24,31 +24,31 @@ public class SessionManager {
 		return instance;
 	}*/
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public static void setSessionFactory(SessionFactory sessionFactory) {
 		sf = sessionFactory;
 	}
 	
-	public void closeSession() {
+	public static void closeSession() {
 		if (session != null) {
 			session.close();
 			session = null;
 		}
 	}
 	
-	public Session openSession() {
+	public static Session openSession() {
 		closeSession();
 		session = sf.openSession();
 		return session;
 	}
 	
-	public Session getSession() {
+	public static Session getSession() {
 		if (session == null) {
 			openSession();
 		}
 		return session;
 	}
 	
-	/*public Session begin() {
+	/*public static Session begin() {
 		getSession();
 		session.beginTransaction();
 		return session;
