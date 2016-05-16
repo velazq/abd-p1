@@ -31,25 +31,18 @@ public class UsuarioPanel extends javax.swing.JPanel {
      */
     public UsuarioPanel() {
         initComponents();
-        //PrincipalJFrame f = (PrincipalJFrame)SwingUtilities.windowForComponent(this);
-        //usr = f.getUsuario();
-        //usr = ViewMgr.getMainWindow().getUsuario();
-        //System.out.println("USUARIO: " + usr.getEmail());//FIXME
         fillUser();
     }
-    
-    /*public UsuarioPanel(Usuario usr) {
-        initComponents();
-        setUser(usr);
-    }*/
     
     public void fillUser() {
     	Usuario usr = ViewMgr.getUsuario();
     	
-        labelNombre.setText(usr.getNombre());
+    	String nombre = (usr.getNombre() != null) ? usr.getNombre() : "<Sin nombre>";
+        labelNombre.setText(nombre);
         
         Calendar birthDay = Calendar.getInstance();
-        birthDay.setTimeInMillis(usr.getFechaNacimiento().getTime());
+        long time = (usr.getFechaNacimiento() != null) ? usr.getFechaNacimiento().getTime() : 0;
+        birthDay.setTimeInMillis(time);
         long currentTime = System.currentTimeMillis();
         Calendar now = Calendar.getInstance();
         now.setTimeInMillis(currentTime);

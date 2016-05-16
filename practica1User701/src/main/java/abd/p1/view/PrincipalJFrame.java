@@ -13,36 +13,50 @@ import abd.p1.model.Usuario;
 public class PrincipalJFrame extends javax.swing.JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	
-	/*private Usuario usuario;
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}*/
 
 	private EditarPerfil ventanaPerfil;
 	
 	public EditarPerfil getVentanaPerfil() {
 		return ventanaPerfil;
 	}
+	
+	boolean isClosed = false;
     
-    /**
+    public boolean isClosed() {
+		return isClosed;
+	}
+    
+    public synchronized void close() {
+    	setVisible(false);
+    	isClosed = true;
+    	notify();
+    }
+    
+    public synchronized void waitUntilClose() {
+    	while (!isClosed) {
+    		try {
+    			wait();
+    		} catch (InterruptedException e) {
+    			
+    		}
+    	}
+    }
+
+	/**
      * Creates new form Principal
      */
     public PrincipalJFrame() {
         ViewMgr.setMainWindow(this);
         initComponents();
         ventanaPerfil = new EditarPerfil(this, true);
-    }
-
-    /*public PrincipalJFrame(Usuario usr) {
-        ViewMgr.setMainWindow(this);
-        initComponents(); 
-        this.usuario = usr;
-        System.out.println(usr);//FIXME
         
-        ventanaPerfil = new EditarPerfil(this, true);
-    }*/
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+        	@Override
+        	public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+        		close();
+        	}
+        });
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +68,6 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane = new javax.swing.JTabbedPane();
-        //listaUsuariosPanel = new abd.p1.view.ListaUsuariosPanel(usuario);
         listaUsuariosPanel = new abd.p1.view.ListaUsuariosPanel();
         listaPreguntasPanel = new abd.p1.view.ListaPreguntasPanel();
 

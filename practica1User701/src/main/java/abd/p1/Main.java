@@ -1,6 +1,5 @@
 package abd.p1;
 
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.swing.JOptionPane;
@@ -49,25 +48,6 @@ public class Main {
             // Mostrar ventana de login y comprobar validez del usuario y contraseña.
             // Si son validos, mostrar ventana principal.
             
-            /*
-            Facade.setSessionFactory(sf);
-            
-            UsuarioController uCtrl = new UsuarioController();
-            uCtrl.loginShow();
-			* /
-            
-            //sf.openSession();
-            
-            
-            ControllersFacade.setParams(sf);
-            
-            //ControllersFacade.getInstance().runApp();
-            
-            PrincipalJFrame mainWindow = new PrincipalJFrame();
-            mainWindow.setVisible(true);
-            
-            System.out.println("Hasta luego...");*/
-            
             SessionMgr.setSessionFactory(sf);
             
             InicioSesionJDialog inicioSesion = new InicioSesionJDialog(null, true);
@@ -84,11 +64,12 @@ public class Main {
             	usuario = new Usuario();
             	usuario.setEmail(email);
             	usuario.setContrasena(password);
-            	usuario.setNombre("Sin nombre");
+            	usuario.setNombre("<Sin nombre>");
             	GregorianCalendar cal = new GregorianCalendar(1970, 0, 1);
             	usuario.setFechaNacimiento(cal.getTime());
             } else {
             	usuario = usuarioCtrl.doLogin(email, password);
+            	//System.out.println(usuario);//FIXME
             }
             
             if (usuario == null) {
@@ -105,6 +86,8 @@ public class Main {
             } else {
             	mainWindow.setVisible(true);
             }
+            
+            mainWindow.waitUntilClose();
             
             System.out.println("BYE");
             //System.exit(0);

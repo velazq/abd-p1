@@ -316,4 +316,10 @@ public class Usuario {
 		Usuario other = (Usuario) obj;
 		return email.equals(other.getEmail());
 	}
+	
+	public String toString() {
+		return "NOMBRE: " + this.getNombre() + ", EMAIL: " + this.getEmail() +
+				", CONTRASEÑA: " + this.getContrasena() + ", DESCRIPCION: " + this.getDescripcion() +
+				", FECHA NAC: " + this.getFechaNacimiento();
+	}
 }
