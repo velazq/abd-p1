@@ -11,6 +11,7 @@ import abd.p1.model.Usuario;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -23,22 +24,27 @@ public class UsuarioPanel extends javax.swing.JPanel {
     private int edad = 32;
     private boolean editable = true;
     
-    private Usuario usr;
+    //private Usuario usr;
 
     /**
      * Creates new form ListaUsuariosPanel
      */
     public UsuarioPanel() {
         initComponents();
+        //PrincipalJFrame f = (PrincipalJFrame)SwingUtilities.windowForComponent(this);
+        //usr = f.getUsuario();
+        //usr = ViewMgr.getMainWindow().getUsuario();
+        //System.out.println("USUARIO: " + usr.getEmail());//FIXME
+        fillUser();
     }
     
-    public UsuarioPanel(Usuario usr) {
+    /*public UsuarioPanel(Usuario usr) {
         initComponents();
         setUser(usr);
-    }
+    }*/
     
-    public void setUser(Usuario usr) {
-    	this.usr = usr;
+    public void fillUser() {
+    	Usuario usr = ViewMgr.getUsuario();
     	
         labelNombre.setText(usr.getNombre());
         
@@ -146,7 +152,8 @@ public class UsuarioPanel extends javax.swing.JPanel {
     private void buttonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNombreActionPerformed
         String nombre = JOptionPane.showInputDialog("Introduce un nombre: ");
         labelNombre.setText(nombre);
-        usr.setNombre(nombre);
+        //usr.setNombre(nombre);
+        ViewMgr.getUsuario().setNombre(nombre);
     }//GEN-LAST:event_buttonNombreActionPerformed
 
     private void buttonAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAvatarActionPerformed

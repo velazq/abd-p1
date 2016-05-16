@@ -16,10 +16,8 @@ public class PerfilPanel extends javax.swing.JPanel {
     /**
      * Creates new form PerfilPanel
      */
-	private Usuario usr;
 	
-    public PerfilPanel(Usuario usr) {
-        this.usr = usr;
+    public PerfilPanel() {
         initComponents();
     }
 
@@ -32,11 +30,11 @@ public class PerfilPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usuarioPanel1 = new abd.p1.view.UsuarioPanel(usr);
+        usuarioPanel1 = new abd.p1.view.UsuarioPanel();
         descripcionPanel1 = new abd.p1.view.DescripcionPanel();
-        aficionesPane1 = new abd.p1.view.AficionesPane(usr);
+        aficionesPane1 = new abd.p1.view.AficionesPane();
         orientacionSexualPanel1 = new abd.p1.view.OrientacionSexualPanel();
-        botonesModificarPerfilPanel1 = new abd.p1.view.BotonesModificarPerfilPanel(usr);
+        botonesModificarPerfilPanel1 = new abd.p1.view.BotonesModificarPerfilPanel();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

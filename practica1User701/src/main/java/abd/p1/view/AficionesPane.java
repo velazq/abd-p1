@@ -17,10 +17,8 @@ import javax.swing.JOptionPane;
 public class AficionesPane extends javax.swing.JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private Usuario usr;
 	
-    public AficionesPane(Usuario usr) {
-    	this.usr = usr;
+    public AficionesPane() {
         initComponents();
     }
 
@@ -37,7 +35,7 @@ public class AficionesPane extends javax.swing.JPanel {
         buttonAnadir = new javax.swing.JButton();
         buttonEliminar = new javax.swing.JButton();
         buttonEditar = new javax.swing.JButton();
-        listaAficionesPanel1 = new abd.p1.view.ListaAficionesPanel(usr);
+        listaAficionesPanel1 = new abd.p1.view.ListaAficionesPanel();
 
         labelAficiones.setText("Aficiones:");
 

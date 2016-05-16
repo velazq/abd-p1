@@ -5,138 +5,45 @@
  */
 package abd.p1.view;
 
-import abd.p1.controller.ControllersFacade;
+import java.util.List;
+
 import abd.p1.model.Usuario;
 
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.swing.JOptionPane;
-
-
-/**
- *
- * @author Guilherme
- */
 public class PrincipalJFrame extends javax.swing.JFrame {
 	
-	private Usuario usr;
-	//private UsuarioController uCtrl = null;
-        
-        private Lock lock;
+	private static final long serialVersionUID = 1L;
+	
+	/*private Usuario usuario;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}*/
 
-        public synchronized void waitUntilClose() {
-            try {
-                lock.wait();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(PrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    
-    /*
-    public void setUser(Usuario usr) {
-    	this.usr = usr;
-    	initComponents();
-    }
-    
-    public Usuario getUser() {
-    	return this.usr;
-    }*/
+	private EditarPerfil ventanaPerfil;
+	
+	public EditarPerfil getVentanaPerfil() {
+		return ventanaPerfil;
+	}
     
     /**
      * Creates new form Principal
      */
     public PrincipalJFrame() {
+        ViewMgr.setMainWindow(this);
         initComponents();
-        
-        lock = new ReentrantLock();
-        lock.lock();
-
-        InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
-        loginDialog.setVisible(true);
-        
-    	String email = loginDialog.getEmail();
-    	String pass = loginDialog.getPassword();
-        usr = ControllersFacade.getInstance().loginCheck(email, pass);
-        
-        if (loginDialog.isAceptar()) {
-        	if (usr == null) {
-        		JOptionPane.showMessageDialog(loginDialog,
-                        "El usuario no está registrado.",
-                        "Error de usuario",
-                        JOptionPane.ERROR_MESSAGE);
-        	}
-        } else if (loginDialog.isNuevoUsuario()) {
-            if(usr != null) {
-                JOptionPane.showMessageDialog(loginDialog,
-	                "El usuario ya está registrado.",
-	                "Usuario registrado",
-	                JOptionPane.ERROR_MESSAGE);
-            } else {
-            	usr = new Usuario();
-            	usr.setEmail(email);
-            	usr.setContrasena(pass);
-            	usr.setNombre("Sin nombre");
-            	usr.setFechaNacimiento(new Date());
-            	//Facade.getInstance().insertUser(usr);
-            	//usuarioDAO.persist(usr);
-            	ControllersFacade.getInstance().saveUser(usr);
-            }
-        }
-
-    	if (usr != null) {
-        	//Facade.getInstance().evictUser(usr);
-    		//usuarioDAO.evict(usr);
-    		//mainWindow.setUser(usr);
-    		//mainWindow.setVisible(true);
-    		this.setVisible(true);
-    		loginDialog.setVisible(false);
-    		if (loginDialog.isNuevoUsuario()) {
-            	EditarPerfil perfil = new EditarPerfil(this, true, usr);
-                perfil.setVisible(true);
-    		}
-    	}
-        
-    	/*
-        UsuarioDAOImpl dao = null;
-        Usuario user = new Usuario();
-        
-        InicioSesionJDialog diag = new InicioSesionJDialog(this, true);
-        diag.setVisible(true);
-        jTabbedPane2.setTitleAt(0, "Usuarios");
-        jTabbedPane2.setTitleAt(1, "Preguntas");
-        
-        if (diag.isAceptar()){
-            user = dao.findByEmail(diag.getTextFieldCorreo().getText());
-                if(user.getNombre() != null){
-                    diag.setVisible(false);
-                }else {
-                    JOptionPane.showMessageDialog(diag,
-                    "Usuario no esta registrado.",
-                    "Error de usuario",
-                    JOptionPane.ERROR_MESSAGE);
-                }
-        }else if (diag.isNuevoUsuario()){
-            diag.setVisible(false);
-            user.setNombre(null);
-                if(user.getNombre() != null){
-                   JOptionPane.showMessageDialog(this,
-                   "Usuario ya esta registrado.",
-                   "Usuario registrado",
-                   JOptionPane.ERROR_MESSAGE);
-               }else {
-                    
-                    EditarPerfil perfil = new EditarPerfil(this,true);
-                    perfil.setVisible(true);
-               }
-        }
-        */
+        ventanaPerfil = new EditarPerfil(this, true);
     }
 
+    /*public PrincipalJFrame(Usuario usr) {
+        ViewMgr.setMainWindow(this);
+        initComponents(); 
+        this.usuario = usr;
+        System.out.println(usr);//FIXME
+        
+        ventanaPerfil = new EditarPerfil(this, true);
+    }*/
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,14 +53,15 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        listaUsuariosPanel2 = new abd.p1.view.ListaUsuariosPanel(usr);
-        listaPreguntasPanel2 = new abd.p1.view.ListaPreguntasPanel();
+        jTabbedPane = new javax.swing.JTabbedPane();
+        //listaUsuariosPanel = new abd.p1.view.ListaUsuariosPanel(usuario);
+        listaUsuariosPanel = new abd.p1.view.ListaUsuariosPanel();
+        listaPreguntasPanel = new abd.p1.view.ListaPreguntasPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane2.addTab("Usuarios", listaUsuariosPanel2);
-        jTabbedPane2.addTab("Preguntas", listaPreguntasPanel2);
+        jTabbedPane.addTab("Usuarios", listaUsuariosPanel);
+        jTabbedPane.addTab("Preguntas", listaPreguntasPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,14 +69,14 @@ public class PrincipalJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addComponent(jTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -201,13 +109,6 @@ public class PrincipalJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PrincipalJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -218,12 +119,12 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private abd.p1.view.ListaPreguntasPanel listaPreguntasPanel2;
-    private abd.p1.view.ListaUsuariosPanel listaUsuariosPanel2;
+    private javax.swing.JTabbedPane jTabbedPane;
+    private abd.p1.view.ListaPreguntasPanel listaPreguntasPanel;
+    private abd.p1.view.ListaUsuariosPanel listaUsuariosPanel;
     // End of variables declaration//GEN-END:variables
     
     public void listUsers(List<Usuario> usrs) {
-    	listaUsuariosPanel2.setUsers(usrs);
+    	listaUsuariosPanel.setUsers(usrs);
     }
 }

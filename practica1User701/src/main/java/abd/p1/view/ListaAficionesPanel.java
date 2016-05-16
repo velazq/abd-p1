@@ -5,22 +5,23 @@
  */
 package abd.p1.view;
 
-import abd.p1.model.Aficion;
-import abd.p1.model.Pregunta;
-import abd.p1.model.Usuario;
-
 import javax.swing.DefaultListModel;
+
+import abd.p1.model.Aficion;
+import abd.p1.model.Usuario;
 
 /**
  *
  * @author Guilherme
  */
 public class ListaAficionesPanel extends javax.swing.JPanel {
-    DefaultListModel<Aficion> modelo = new DefaultListModel<>();
-    private Usuario usr;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	DefaultListModel<Aficion> modelo = new DefaultListModel<>();
     
-    public ListaAficionesPanel(Usuario usr) {
-    	this.usr = usr;
+    public ListaAficionesPanel() {
         initComponents();
         /*
         Aficion af1 = new Aficion();
@@ -37,6 +38,7 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
         modelo.addElement(af2);
         modelo.addElement(af3);
         */
+        Usuario usr = ViewMgr.getUsuario();
         for (Aficion a : usr.getAficiones())
         	modelo.addElement(a);
         jListAficiones.setModel(modelo);
@@ -53,6 +55,7 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
         af.setId(af1.getId()+ 1);
         modelo.addElement(af);
         */
+        Usuario usr = ViewMgr.getUsuario();
     	Aficion a = new Aficion();
     	a.setTexto(aficion);
     	a.setUsuario(usr);
@@ -62,6 +65,7 @@ public class ListaAficionesPanel extends javax.swing.JPanel {
     
     public void removeAficion(Aficion af){
         modelo.removeElement(af);
+        Usuario usr = ViewMgr.getUsuario();
         usr.getAficiones().remove(af);
     }
     

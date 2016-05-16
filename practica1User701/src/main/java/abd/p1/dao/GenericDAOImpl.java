@@ -4,10 +4,7 @@ import java.io.Serializable;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import abd.p1.dao.SessionManager;
 
 public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements GenericDAO<Entity, Id> {
 
@@ -17,30 +14,26 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	public abstract Class<Entity> getEntityClass();
 	
 	protected Session getSession() {
-		return SessionManager.getSession();
+		//return SessionManager.getInstance().getSession();
+		return SessionMgr.getSession();
 	}
 	
 	protected Session begin() {
-		//Session session = this.sf.openSession();
 		Session session = getSession();
 		session.beginTransaction();
 		return session;
 	}
 	
 	protected void commit() {
-		Session session = this.sf.getCurrentSession();
-		//Session session = getSession();
+		Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.commit();
-		//session.close();
 	}
 	
 	protected void rollback() {
-		Session session = this.sf.getCurrentSession();
-		//Session session = getSession();
+		Session session = getSession();
 		Transaction tx = session.getTransaction();
 		tx.rollback();
-		//session.close();
 	}
 
 	@Override

@@ -5,23 +5,18 @@
  */
 package abd.p1.view;
 
-import abd.p1.controller.ControllersFacade;
-import abd.p1.model.Usuario;
 import javax.swing.JOptionPane;
+
+import abd.p1.controller.UsuarioController;
+import abd.p1.model.Usuario;
 
 /**
  *
  * @author Guilherme
  */
 public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
-
-    /**
-     * Creates new form BotonesModificarPerfilPanel
-     */
-	private Usuario usr;
 	
-    public BotonesModificarPerfilPanel(Usuario usr) {
-    	this.usr = usr;
+    public BotonesModificarPerfilPanel() {
         initComponents();
     }
 
@@ -85,12 +80,14 @@ public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarActionPerformed
-        // TODO add your handling code here:
-    	ControllersFacade.getInstance().saveUser(usr);
+        UsuarioController usuarioCtrl = new UsuarioController();
+        Usuario usr = ViewMgr.getUsuario();
+        usuarioCtrl.save(usr);
     }//GEN-LAST:event_buttonGuardarActionPerformed
 
     private void buttonContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrasenaActionPerformed
         String nombre = JOptionPane.showInputDialog("Introduce una contraseña: ");
+        Usuario usr = ViewMgr.getUsuario();
         usr.setContrasena(nombre);
     }//GEN-LAST:event_buttonContrasenaActionPerformed
 

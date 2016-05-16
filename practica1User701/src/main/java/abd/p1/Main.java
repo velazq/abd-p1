@@ -1,13 +1,22 @@
 package abd.p1;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.swing.JOptionPane;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import abd.p1.controller.ControllersFacade;
+import abd.p1.controller.UsuarioController;
+import abd.p1.dao.SessionMgr;
+import abd.p1.model.Usuario;
+import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
+import abd.p1.view.ViewMgr;
 
 /**
  * Ésta es la clase que arranca la aplicación. La ejecución del método main()
@@ -45,7 +54,7 @@ public class Main {
             
             UsuarioController uCtrl = new UsuarioController();
             uCtrl.loginShow();
-			*/
+			* /
             
             //sf.openSession();
             
@@ -57,8 +66,48 @@ public class Main {
             PrincipalJFrame mainWindow = new PrincipalJFrame();
             mainWindow.setVisible(true);
             
-            System.out.println("Hasta luego...");
+            System.out.println("Hasta luego...");*/
             
+            SessionMgr.setSessionFactory(sf);
+            
+            InicioSesionJDialog inicioSesion = new InicioSesionJDialog(null, true);
+            inicioSesion.setVisible(true);
+            String email = inicioSesion.getEmail();
+            String password = inicioSesion.getPassword();
+            boolean isNuevoUsuario = inicioSesion.isNuevoUsuario();
+            inicioSesion.dispose();
+            
+            UsuarioController usuarioCtrl = new UsuarioController();
+            Usuario usuario = null;
+            
+            if (isNuevoUsuario) {
+            	usuario = new Usuario();
+            	usuario.setEmail(email);
+            	usuario.setContrasena(password);
+            	usuario.setNombre("Sin nombre");
+            	GregorianCalendar cal = new GregorianCalendar(1970, 0, 1);
+            	usuario.setFechaNacimiento(cal.getTime());
+            } else {
+            	usuario = usuarioCtrl.doLogin(email, password);
+            }
+            
+            if (usuario == null) {
+            	JOptionPane.showMessageDialog(null, "El usuario no existe o la contraseña es incorrecta");
+            	return;
+            }
+            
+            ViewMgr.setUsuario(usuario);
+            
+            PrincipalJFrame mainWindow = new PrincipalJFrame();
+            
+            if (isNuevoUsuario) {
+            	mainWindow.getVentanaPerfil().setVisible(true);
+            } else {
+            	mainWindow.setVisible(true);
+            }
+            
+            System.out.println("BYE");
+            //System.exit(0);
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

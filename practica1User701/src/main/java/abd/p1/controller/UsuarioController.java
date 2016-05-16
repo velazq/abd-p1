@@ -1,19 +1,12 @@
 package abd.p1.controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
-import javax.swing.JOptionPane;
-
-import org.hibernate.SessionFactory;
 
 import abd.p1.dao.UsuarioDAO;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
-import abd.p1.view.EditarPerfil;
-import abd.p1.view.InicioSesionJDialog;
 import abd.p1.view.PrincipalJFrame;
 
 public class UsuarioController {
@@ -31,14 +24,18 @@ public class UsuarioController {
 	
 	private final UsuarioDAO usuarioDAO;
 
-	public UsuarioController(SessionFactory sf, PrincipalJFrame mainWindow) {
+	/*public UsuarioController(SessionFactory sf, PrincipalJFrame mainWindow) {
 		this.usuarioDAO = new UsuarioDAOImpl(sf);
 		this.mainWindow = mainWindow;
+	}*/
+	
+	public UsuarioController() {
+		this.usuarioDAO = new UsuarioDAOImpl();
 	}
 	
-	public Usuario loginCheck(String email, String passwd) {
+	public Usuario doLogin(String email, String passwd) {
 		Usuario usuario = usuarioDAO.findByEmail(email);
-		if (usuario != null && !passwd.equals(usuario.getContrasena())) {
+		if (usuario == null || !passwd.equals(usuario.getContrasena())) {
 			return null;
 		}
 		return usuario;
@@ -75,7 +72,7 @@ public class UsuarioController {
 		
 	}
 	
-	public void loginShow() {
+	/*public void loginShow() {
 		Usuario usr = null;
 		
         InicioSesionJDialog loginDialog = new InicioSesionJDialog(null, true);
@@ -120,7 +117,7 @@ public class UsuarioController {
                 perfil.setVisible(true);
     		}
     	}
-	}
+	}*/
 	
 	public void save(Usuario usr) {
 		usuarioDAO.persist(usr);

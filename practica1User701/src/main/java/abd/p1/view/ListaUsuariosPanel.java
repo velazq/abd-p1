@@ -17,13 +17,6 @@ import javax.swing.DefaultListModel;
  * @author Guilherme
  */
 public class ListaUsuariosPanel extends javax.swing.JPanel {
-
-	/*private UsuarioController uCtrl;
-	
-	public ListaUsuariosPanel(UsuarioController uCtrl) {
-        initComponents();
-		this.uCtrl = uCtrl;
-	}*/
 	
 	/**
 	 * 
@@ -31,18 +24,6 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private DefaultListModel<Usuario> modelo = new DefaultListModel<>();
-	
-	private Usuario usr;
-	//private UsuarioController uCtrl;
-	
-	public ListaUsuariosPanel(Usuario usr) {
-		this.usr = usr;
-        initComponents();
-		//this.uCtrl = uCtrl;
-		
-		modelo = new DefaultListModel<>();
-        jListUsuarios.setCellRenderer(new UsuariosCellRenderer());
-	}
 	
     /**
      * Creates new form ListaUsuariosPanel
@@ -75,7 +56,7 @@ public class ListaUsuariosPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListUsuarios = new javax.swing.JList<>();
-        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel(usr);
+        botonesListaUsuariosPanel2 = new abd.p1.view.BotonesListaUsuariosPanel();
         busquedaPanel1 = new abd.p1.view.BusquedaPanel();
 
         jScrollPane1.setViewportView(jListUsuarios);

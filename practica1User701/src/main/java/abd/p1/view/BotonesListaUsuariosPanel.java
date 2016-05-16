@@ -5,34 +5,20 @@
  */
 package abd.p1.view;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import abd.p1.controller.UsuarioController;
-import abd.p1.model.Usuario;
-
 /**
  *
  * @author Guilherme
  */
 public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
 	
-	private Usuario usr;
-	//private UsuarioController uCtrl;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	public BotonesListaUsuariosPanel(Usuario usr, UsuarioController uCtrl) {
+	public BotonesListaUsuariosPanel() {
         initComponents();
-		this.usr = usr;
-		//this.uCtrl = uCtrl;
 	}
-
-    /**
-     * Creates new form BotonesListaUsuariosPanel
-     */
-    public BotonesListaUsuariosPanel(Usuario usr) {
-    	this.usr = usr;
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,8 +69,8 @@ public class BotonesListaUsuariosPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonModificarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarPerfilActionPerformed
-    	JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-    	EditarPerfil perfil = new EditarPerfil(null, true, usr);
+    	//JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+    	EditarPerfil perfil = new EditarPerfil(null, true);
         perfil.setVisible(true);
     }//GEN-LAST:event_buttonModificarPerfilActionPerformed
 
