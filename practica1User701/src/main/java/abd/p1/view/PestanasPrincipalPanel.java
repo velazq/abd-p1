@@ -5,17 +5,15 @@
  */
 package abd.p1.view;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-/**
- *
- * @author Guilherme
- */
 public class PestanasPrincipalPanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	/**
      * Creates new form PestanasPrincipalPanel
      */
     public PestanasPrincipalPanel() {

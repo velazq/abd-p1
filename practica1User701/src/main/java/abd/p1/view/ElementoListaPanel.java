@@ -5,13 +5,13 @@
  */
 package abd.p1.view;
 
-/**
- *
- * @author Guilherme
- */
 public class ElementoListaPanel extends javax.swing.JPanel {
 
-    private String enunciado = "Enunciado";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String enunciado = "Enunciado";
     private int numopciones = 3;
     /**
      * Creates new form ElementoListaPanel

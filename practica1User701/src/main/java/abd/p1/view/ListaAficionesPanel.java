@@ -10,10 +10,6 @@ import javax.swing.DefaultListModel;
 import abd.p1.model.Aficion;
 import abd.p1.model.Usuario;
 
-/**
- *
- * @author Guilherme
- */
 public class ListaAficionesPanel extends javax.swing.JPanel {
     /**
 	 * 

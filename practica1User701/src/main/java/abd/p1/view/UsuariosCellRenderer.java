@@ -11,13 +11,14 @@ import java.awt.Component;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-/**
- *
- * @author Guilherme
- */
 public class UsuariosCellRenderer extends UsuarioPanel implements ListCellRenderer<Usuario> {
 
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public Component getListCellRendererComponent(JList<? extends Usuario> list, 
             Usuario value, int index, 
             boolean isSelected, boolean cellHasFocus) {

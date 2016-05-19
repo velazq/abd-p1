@@ -5,13 +5,13 @@
  */
 package abd.p1.view;
 
-/**
- *
- * @author Guilherme
- */
 public class BotonesVerPerfilPanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form BotonesVerPerfilPanel
      */
     public BotonesVerPerfilPanel() {

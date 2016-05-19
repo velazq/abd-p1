@@ -9,10 +9,6 @@ import java.util.Date;
 
 import abd.p1.model.Usuario;
 
-/**
- *
- * @author Guilherme
- */
 public class FechaNacimientoDialog extends javax.swing.JDialog {
 
 	private static final long serialVersionUID = 1L;

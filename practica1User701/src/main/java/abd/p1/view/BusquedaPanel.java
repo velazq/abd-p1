@@ -6,12 +6,7 @@
 package abd.p1.view;
 
 import abd.p1.controller.UsuarioController;
-import abd.p1.model.Usuario;
 
-/**
- *
- * @author Guilherme
- */
 public class BusquedaPanel extends javax.swing.JPanel {
 
     /**

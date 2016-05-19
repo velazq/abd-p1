@@ -80,17 +80,17 @@ public class Main {
             ViewMgr.setUsuario(usuario);
             
             PrincipalJFrame mainWindow = new PrincipalJFrame();
+            mainWindow.setVisible(true);
             
             if (isNuevoUsuario) {
+            	ViewMgr.setUsuarioParaVisualizar(usuario);
             	mainWindow.getVentanaPerfil().setVisible(true);
-            } else {
-            	mainWindow.setVisible(true);
             }
             
             mainWindow.waitUntilClose();
             
-            System.out.println("BYE");
-            //System.exit(0);
+            System.out.println("CERRANDO CONEXION");
+            
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

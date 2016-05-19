@@ -5,15 +5,10 @@
  */
 package abd.p1.view;
 
-import abd.p1.model.Aficion;
-import abd.p1.model.Usuario;
-
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Guilherme
- */
+import abd.p1.model.Aficion;
+
 public class AficionesPane extends javax.swing.JPanel {
 
 	private static final long serialVersionUID = 1L;

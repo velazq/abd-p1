@@ -5,13 +5,13 @@
  */
 package abd.p1.view;
 
-/**
- *
- * @author Guilherme
- */
 public class ElementoAficion extends javax.swing.JPanel {
     
-    private String aficion = "Pescar";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String aficion = "<Vacio>";
 
     /**
      * Creates new form ElementoAficion

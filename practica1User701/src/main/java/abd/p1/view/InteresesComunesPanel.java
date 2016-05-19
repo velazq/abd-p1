@@ -5,13 +5,13 @@
  */
 package abd.p1.view;
 
-/**
- *
- * @author Guilherme
- */
 public class InteresesComunesPanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form InteresesComunesPanel
      */
     public InteresesComunesPanel() {

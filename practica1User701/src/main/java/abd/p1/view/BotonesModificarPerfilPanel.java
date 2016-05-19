@@ -10,13 +10,13 @@ import javax.swing.JOptionPane;
 import abd.p1.controller.UsuarioController;
 import abd.p1.model.Usuario;
 
-/**
- *
- * @author Guilherme
- */
 public class BotonesModificarPerfilPanel extends javax.swing.JPanel {
 	
-    public BotonesModificarPerfilPanel() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public BotonesModificarPerfilPanel() {
         initComponents();
     }
 

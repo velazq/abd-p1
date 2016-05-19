@@ -9,13 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 
-/**
- *
- * @author Guilherme
- */
 public class RelevanciaPanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form RelevanciaPanel
      */
     public RelevanciaPanel() {

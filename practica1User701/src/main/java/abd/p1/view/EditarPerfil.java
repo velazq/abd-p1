@@ -5,37 +5,14 @@
  */
 package abd.p1.view;
 
-import javax.swing.SwingUtilities;
-
-import abd.p1.model.Usuario;
-
-/**
- *
- * @author Guilherme
- */
 public class EditarPerfil extends javax.swing.JDialog {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	//private Usuario usr;
-	
-    /**
-     * Creates new form EditarPerfil
-     */
 	
     public EditarPerfil(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        //usr = ((PrincipalJFrame)SwingUtilities.windowForComponent(this)).getUsuario();
         initComponents();
     }
-	
-    /*public EditarPerfil(java.awt.Frame parent, boolean modal, Usuario usr) {
-        super(parent, modal);
-        this.usr = usr;
-        initComponents();
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +23,7 @@ public class EditarPerfil extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        perfilPanel2 = new abd.p1.view.PerfilPanel();
+        perfilPanel = new abd.p1.view.PerfilPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,14 +33,14 @@ public class EditarPerfil extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(perfilPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                .addComponent(perfilPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(perfilPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(perfilPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -113,6 +90,6 @@ public class EditarPerfil extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private abd.p1.view.PerfilPanel perfilPanel2;
+    private abd.p1.view.PerfilPanel perfilPanel;
     // End of variables declaration//GEN-END:variables
 }

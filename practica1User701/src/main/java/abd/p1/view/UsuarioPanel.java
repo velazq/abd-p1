@@ -5,22 +5,21 @@
  */
 package abd.p1.view;
 
+import java.io.File;
 import java.util.Calendar;
 
-import abd.p1.model.Usuario;
-import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author Guilherme
- */
+import abd.p1.model.Usuario;
+
 public class UsuarioPanel extends javax.swing.JPanel {
     
-    private String nombre = "pepe";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String nombre = "pepe";
     private int edad = 32;
     private boolean editable = true;
     
@@ -47,7 +46,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
         Calendar now = Calendar.getInstance();
         now.setTimeInMillis(currentTime);
         int years = now.get(Calendar.YEAR) - birthDay.get(Calendar.YEAR);
-        labelEdad.setText(years + "años");
+        labelEdad.setText(years + " años");
     }
 
     /**
@@ -200,7 +199,7 @@ public class UsuarioPanel extends javax.swing.JPanel {
      */
     public void setEdad(int edad) {
         this.edad = edad;
-        labelEdad.setText(edad + "años");
+        labelEdad.setText(edad + " años");
     }
 
     /**

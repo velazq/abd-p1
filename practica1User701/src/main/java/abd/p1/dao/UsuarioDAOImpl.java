@@ -1,5 +1,6 @@
 package abd.p1.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -60,10 +61,11 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 		return usuario;
 	}
 
+	/*
 	@SuppressWarnings("unchecked")
 	private List<Usuario> nearest(Usuario usr, String nameFilter, int limit, String hql) {
-		String name = nameFilter.trim().toLowerCase();
-		boolean filtering = nameFilter != null && !name.equals("");
+		String name = (nameFilter == null) ? "" : nameFilter.trim().toLowerCase();
+		boolean filtering = !name.equals("");
 		if (filtering)
 			hql += "and lower(u.nombre) like :name ";
 		hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
@@ -100,8 +102,72 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
 	@Override
 	public List<Usuario> nearestFriends(Usuario usr, String nameFilter, int limit) {
 		String hql = "select a from Usuario u join Usuario.amigos a "
-				+ "where u.genero = :preferencia where u.id = :thisId ";
+				+ "where u.genero = :preferencia and u.id = :thisId ";
 		return nearest(usr, nameFilter, limit, hql);
+	}
+	*/
+	
+	public List<Usuario> listPeople(Usuario usr, boolean nearest, boolean friends, String nameFilter, int limit) {
+		String hql = "";
+		
+		if (friends) {
+			hql = "select a from Usuario u join Usuario.amigos a where u.id = :thisId ";
+		} else {
+			hql = "from Usuario as u where u.id != :thisId ";
+		}
+		
+		boolean preferenciaOK = usr.getOpcionSexual() != null && !usr.getOpcionSexual().equals("");
+		if (preferenciaOK) {
+			hql += "and u.genero = :preferencia ";
+		}
+		
+		boolean nameOK = nameFilter != null && !nameFilter.trim().toLowerCase().equals("");
+		String name = "";
+		if (nameOK) {
+			hql += "and lower(u.nombre) like :name ";
+			name = nameFilter.trim().toLowerCase();
+		}
+		
+		boolean coordOK = nearest && usr.getLatitud() != null && usr.getLongitud() != null;
+		if (coordOK) {
+			hql += "order by power(:latitud - u.latitud, 2) + power(:longitud - u.longitud, 2)";
+		}
+		
+		List<Usuario> usrs = new LinkedList<>();
+		
+		try {
+			//Session s = begin();
+			Session s = getSession();
+			Transaction tx = s.beginTransaction();
+			
+			Query q = s.createQuery(hql);
+			q.setInteger("thisId", usr.getId());
+			if (preferenciaOK) {
+				q.setString("preferencia", usr.getOpcionSexual());
+			}
+			if (coordOK) {
+	 			q.setDouble("latitud", usr.getLatitud());
+				q.setDouble("longitud", usr.getLongitud());
+			}
+			if (nameOK) {
+				q.setString("name", '%' + name + '%');
+			}
+			if (limit > 0) {
+				q.setMaxResults(limit);
+			}
+			
+			for (Object obj: q.list()) {
+				usrs.add((Usuario)obj);
+			}
+			
+			tx.commit();
+			
+		} catch (Exception e) {
+			rollback();
+			e.printStackTrace();
+		}
+		
+		return usrs;
 	}
 	
 	@Override

@@ -7,10 +7,6 @@ package abd.p1.view;
 
 import javax.swing.JTextField;
 
-/**
- *
- * @author Guilherme
- */
 public class InicioSesionJDialog extends javax.swing.JDialog {
 
     /**

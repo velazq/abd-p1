@@ -7,13 +7,14 @@ package abd.p1.view;
 
 import javax.swing.JDialog;
 
-/**
- *
- * @author Guilherme
- */
 public class test extends javax.swing.JFrame {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Creates new form test
      */
     public test() {

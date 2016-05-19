@@ -5,13 +5,13 @@
  */
 package abd.p1.view;
 
-/**
- *
- * @author Guilherme
- */
 public class EnviarMensajePanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form EnviarMensajePanel
      */
     public EnviarMensajePanel() {

@@ -7,13 +7,13 @@ package abd.p1.view;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Guilherme
- */
 public class OrientacionSexualPanel extends javax.swing.JPanel {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form OrientacionSexualPanel
      */
     public OrientacionSexualPanel() {

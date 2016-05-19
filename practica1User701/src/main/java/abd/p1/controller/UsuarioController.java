@@ -8,6 +8,7 @@ import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
 import abd.p1.view.PrincipalJFrame;
+import abd.p1.view.ViewMgr;
 
 public class UsuarioController {
 	
@@ -18,16 +19,7 @@ public class UsuarioController {
 	private static final double LONGITUDE_LOWER_BOUND = 3.0;
 	private static final double LONGITUDE_UPPER_BOUND = 4.5;
 	
-	private PrincipalJFrame mainWindow;
-	
-	//public UsuarioController() {}
-	
 	private final UsuarioDAO usuarioDAO;
-
-	/*public UsuarioController(SessionFactory sf, PrincipalJFrame mainWindow) {
-		this.usuarioDAO = new UsuarioDAOImpl(sf);
-		this.mainWindow = mainWindow;
-	}*/
 	
 	public UsuarioController() {
 		this.usuarioDAO = new UsuarioDAOImpl();
@@ -42,13 +34,16 @@ public class UsuarioController {
 	}
 	
 	public void listUsers(Usuario usr, String filterByName, boolean friends) {
-		List<Usuario> usrs = null;
+		/*List<Usuario> usrs = null;
 		if (friends) {
 			usrs = usuarioDAO.nearestFriends(usr, filterByName, MAX_USERS_IN_LIST);
 		} else {
 			usrs = usuarioDAO.nearestUsers(usr, filterByName, MAX_USERS_IN_LIST);
 		}
-		mainWindow.listUsers(usrs);
+		mainWindow.listUsers(usrs);*/
+		boolean nearest = true;
+		List<Usuario> usrs = usuarioDAO.listPeople(usr, nearest, friends, filterByName, MAX_USERS_IN_LIST);
+		ViewMgr.getMainWindow().getListaUsuariosPanel().setUsers(usrs);
 	}
 	
 	public long distance(Usuario usr1, Usuario usr2) {

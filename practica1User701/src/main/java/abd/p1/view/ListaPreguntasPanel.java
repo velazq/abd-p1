@@ -9,14 +9,14 @@ import abd.p1.model.Opcion;
 import abd.p1.model.Pregunta;
 import javax.swing.DefaultListModel;
 
-/**
- *
- * @author Guilherme
- */
 public class ListaPreguntasPanel extends javax.swing.JPanel {
 
  
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form ListaPreguntasPanel
      */
     public ListaPreguntasPanel() {
