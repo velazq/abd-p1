@@ -57,7 +57,7 @@ public class Main {
             boolean isNuevoUsuario = inicioSesion.isNuevoUsuario();
             inicioSesion.dispose();
             
-            UsuarioController usuarioCtrl = new UsuarioController();
+            UsuarioController usuarioCtrl = new UsuarioController(sf);
             Usuario usuario = null;
             
             if (isNuevoUsuario) {

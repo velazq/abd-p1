@@ -38,7 +38,7 @@ public class UsuarioController {
 		return usuario;
 	}
 	
-	public void listUsers(Usuario usr, String filterByName, boolean friends) {
+	public List<Usuario> listUsers(Usuario usr, String filterByName, boolean friends) {
 		/*List<Usuario> usrs = null;
 		if (friends) {
 			usrs = usuarioDAO.nearestFriends(usr, filterByName, MAX_USERS_IN_LIST);
@@ -48,7 +48,8 @@ public class UsuarioController {
 		mainWindow.listUsers(usrs);*/
 		boolean nearest = true;
 		List<Usuario> usrs = usuarioDAO.listPeople(usr, nearest, friends, filterByName, MAX_USERS_IN_LIST);
-		ViewMgr.getMainWindow().getListaUsuariosPanel().setUsers(usrs);
+		//ViewMgr.getMainWindow().getListaUsuariosPanel().setUsers(usrs);
+		return usrs;
 	}
 	
 	public long distance(Usuario usr1, Usuario usr2) {
