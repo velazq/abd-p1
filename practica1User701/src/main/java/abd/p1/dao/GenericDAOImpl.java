@@ -4,18 +4,33 @@ import java.io.Serializable;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements GenericDAO<Entity, Id> {
+	
+	private SessionFactory sf;
+	private Session session;
 
-	public GenericDAOImpl() {
+	//public GenericDAOImpl() {}
+	
+	public GenericDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+		this.session = sf.openSession();
 	}
 	
 	public abstract Class<Entity> getEntityClass();
 	
-	protected Session getSession() {
+	/*protected Session getSession() {
 		//return SessionManager.getInstance().getSession();
 		return SessionMgr.getSession();
+	}*/
+	
+	protected Session getSession() {
+		if (!session.isOpen()) {
+			session = sf.openSession();
+		}
+		return session;
 	}
 	
 	protected Session begin() {
@@ -39,9 +54,9 @@ public abstract class GenericDAOImpl<Entity, Id extends Serializable> implements
 	@Override
 	public void persist(Entity entity) {
 		//Session s = this.sf.openSession();
-		Session s = getSession();
+		//Session s = getSession();
 		try {
-			//Session s = begin();
+			Session s = begin();
 			//Session s = getSession();
 			Transaction tx = s.beginTransaction();
 			s.save(entity);

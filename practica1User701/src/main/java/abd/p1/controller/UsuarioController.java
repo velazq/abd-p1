@@ -3,11 +3,12 @@ package abd.p1.controller;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.hibernate.SessionFactory;
+
 import abd.p1.dao.UsuarioDAO;
 import abd.p1.dao.UsuarioDAOImpl;
 import abd.p1.math.SphericalGeometry;
 import abd.p1.model.Usuario;
-import abd.p1.view.PrincipalJFrame;
 import abd.p1.view.ViewMgr;
 
 public class UsuarioController {
@@ -21,8 +22,12 @@ public class UsuarioController {
 	
 	private final UsuarioDAO usuarioDAO;
 	
-	public UsuarioController() {
+	/*public UsuarioController() {
 		this.usuarioDAO = new UsuarioDAOImpl();
+	}*/
+	
+	public UsuarioController(SessionFactory sf) {
+		this.usuarioDAO = new UsuarioDAOImpl(sf);
 	}
 	
 	public Usuario doLogin(String email, String passwd) {

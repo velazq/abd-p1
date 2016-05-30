@@ -14,20 +14,20 @@ public class PrincipalJFrame extends javax.swing.JFrame {
 		return ventanaPerfil;
 	}
 	
-	boolean isClosed = false;
+	boolean _isClosed = false;
     
     public boolean isClosed() {
-		return isClosed;
+		return _isClosed;
 	}
     
     public synchronized void close() {
     	setVisible(false);
-    	isClosed = true;
+    	_isClosed = true;
     	notify();
     }
     
     public synchronized void waitUntilClose() {
-    	while (!isClosed) {
+    	while (!isClosed()) {
     		try {
     			wait();
     		} catch (InterruptedException e) {
@@ -131,6 +131,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private abd.p1.view.ListaUsuariosPanel listaUsuariosPanel;
     // End of variables declaration//GEN-END:variables
     
+    /*
     public void listUsers(List<Usuario> usrs) {
     	listaUsuariosPanel.setUsers(usrs);
     }
@@ -138,4 +139,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
 	public abd.p1.view.ListaUsuariosPanel getListaUsuariosPanel() {
 		return listaUsuariosPanel;
 	}
+	*/
+    
+    
 }

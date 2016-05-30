@@ -83,7 +83,7 @@ public class Main {
             mainWindow.setVisible(true);
             
             if (isNuevoUsuario) {
-            	ViewMgr.setUsuarioParaVisualizar(usuario);
+            	ViewMgr.setUsuarioVisualizado(usuario);
             	mainWindow.getVentanaPerfil().setVisible(true);
             }
             

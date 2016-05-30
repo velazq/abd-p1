@@ -6,7 +6,7 @@ public class ViewMgr {
 	
 	private static PrincipalJFrame mainWindow = null;
 	private static Usuario usuario = null;
-	private static Usuario usuarioParaVisualizar = null;
+	private static Usuario usuarioVisualizado = null;
 
 	private ViewMgr() {
 	}
@@ -27,12 +27,12 @@ public class ViewMgr {
 		ViewMgr.usuario = usuario;
 	}
 
-	public static Usuario getUsuarioParaVisualizar() {
-		return usuarioParaVisualizar;
+	public static Usuario getUsuarioVisualizado() {
+		return usuarioVisualizado;
 	}
 
-	public static void setUsuarioParaVisualizar(Usuario usuarioParaVisualizar) {
-		ViewMgr.usuarioParaVisualizar = usuarioParaVisualizar;
+	public static void setUsuarioVisualizado(Usuario usuario) {
+		ViewMgr.usuarioVisualizado = usuario;
 	}
 	
 	

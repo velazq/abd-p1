@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import abd.p1.model.Aficion;
@@ -12,8 +13,12 @@ import abd.p1.model.Usuario;
 
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements UsuarioDAO {
 
-	public UsuarioDAOImpl() {
+	/*public UsuarioDAOImpl() {
 		super();
+	}*/
+	
+	public UsuarioDAOImpl(SessionFactory sf) {
+		super(sf);
 	}
 
 	@Override
